@@ -9,7 +9,7 @@ import {
   type FieldVariant,
 } from "@booleanpress/ui/provider"
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function Textarea({
   className,
   size,
@@ -21,13 +21,13 @@ function Textarea({
   style,
   ...props
 }: React.ComponentProps<"textarea"> & {
-  /** The text size and padding: 12, 14 or 16 px text. Defaults to the provider's `controlSize`. @since 0.1.0 */
+  /** The text size and padding: 12, 14 or 16 px text. Defaults to the provider's `controlSize`. @since 0.1.1 */
   size?: ControlSize
-  /** `filled` draws the grey `--field-filled` fill. Defaults to the provider's `fieldVariant`. @since 0.1.0 */
+  /** `filled` draws the grey `--field-filled` fill. Defaults to the provider's `fieldVariant`. @since 0.1.1 */
   variant?: FieldVariant
-  /** Grows with its content. Fixed-height by default. @since 0.1.0 */
+  /** Grows with its content. Fixed-height by default. @since 0.1.1 */
   autoResize?: boolean
-  /** Fills its container. Uses its native column width by default. @since 0.1.0 */
+  /** Fills its container. Uses its native column width by default. @since 0.1.1 */
   fluid?: boolean
 }) {
   const resolvedSize = useControlSize(size)

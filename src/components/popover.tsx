@@ -5,21 +5,21 @@ import { useKeepScrollFromDialogLock } from "@/lib/scroll-lock"
 import { cn } from "@/lib/utils"
 import { Popover as PopoverPrimitive } from "radix-ui"
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function Popover({
   ...props
 }: React.ComponentProps<typeof PopoverPrimitive.Root>) {
   return <PopoverPrimitive.Root data-slot="popover" {...props} />
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function PopoverTrigger({
   ...props
 }: React.ComponentProps<typeof PopoverPrimitive.Trigger>) {
   return <PopoverPrimitive.Trigger data-slot="popover-trigger" {...props} />
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function PopoverContent({
   className,
   align = "center",
@@ -50,14 +50,14 @@ function PopoverContent({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function PopoverAnchor({
   ...props
 }: React.ComponentProps<typeof PopoverPrimitive.Anchor>) {
   return <PopoverPrimitive.Anchor data-slot="popover-anchor" {...props} />
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function PopoverHeader({
   className,
   ...props
@@ -72,7 +72,7 @@ function PopoverHeader({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function PopoverTitle({
   className,
   ...props
@@ -86,7 +86,7 @@ function PopoverTitle({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function PopoverDescription({
   className,
   ...props

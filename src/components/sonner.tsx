@@ -32,7 +32,7 @@ const STATUS_COLORS = Object.fromEntries(
   ])
 )
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 const Toaster = ({
   theme = "system",
   className,

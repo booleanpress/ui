@@ -65,7 +65,7 @@ function neighbourTabbable(node: Element) {
 /**
  * A page-level message across the full width of its container.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function Banner({
   className,
@@ -179,7 +179,7 @@ const actionRow = "group-has-data-[slot=banner-actions]/banner:py-[0.21875rem]"
 /**
  * The banner's heading, in medium weight.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function BannerTitle({ className, ...props }: React.ComponentProps<"p">) {
   return <p data-slot="banner-title" className={cn("font-medium", actionRow, className)} {...props} />
@@ -188,7 +188,7 @@ function BannerTitle({ className, ...props }: React.ComponentProps<"p">) {
 /**
  * The banner's text, after the title on the same line when there is room.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function BannerDescription({ className, ...props }: React.ComponentProps<"p">) {
   return <p data-slot="banner-description" className={cn("min-w-0 flex-1 basis-60", actionRow, className)} {...props} />
@@ -197,7 +197,7 @@ function BannerDescription({ className, ...props }: React.ComponentProps<"p">) {
 /**
  * The banner's buttons or links, at the end of its text.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function BannerActions({ className, ...props }: React.ComponentProps<"div">) {
   return <div data-slot="banner-actions" className={cn("ms-auto flex shrink-0 flex-wrap items-center gap-2", className)} {...props} />

@@ -189,7 +189,7 @@ const layer: TreeDragLayer = { Root: TreeDragRoot, Content: TreeDragContent }
 /**
  * Props of `DraggableTree`: the Tree's, with `onNodeMove` required.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 interface DraggableTreeProps<TData = unknown> extends TreeProps<TData> {
   /** Called with each move, by pointer or by Alt and the arrow keys. Apply it with `moveTreeNode`. */
@@ -200,7 +200,7 @@ interface DraggableTreeProps<TData = unknown> extends TreeProps<TData> {
  * A `Tree` whose nodes can also be dragged with a pointer, before, after or into another node. Takes every prop of
  * `Tree`; needs `@dnd-kit/core`.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function DraggableTree<TData = unknown>(props: DraggableTreeProps<TData>) {
   return (

@@ -2,7 +2,7 @@
 
 | | |
 | --- | --- |
-| **Status** | built (0.1.0) — the first component specified in full |
+| **Status** | built (0.1.1) — the first component specified in full |
 | **Consumers** (2026-10-02) | App A and its add-on, and App B: Dialog, AlertDialog, CommandDialog, and Sheet inside the mobile sidebar; the maintainers keep the call sites |
 | **Base** | shadcn `new-york` `dialog`, `alert-dialog`, `sheet` · Radix `Dialog` / `AlertDialog` (radix-ui 1.6.7) |
 | **Pattern** | APG Dialog (Modal) <https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/> · APG Alert and Message Dialogs <https://www.w3.org/WAI/ARIA/apg/patterns/alertdialog/> |

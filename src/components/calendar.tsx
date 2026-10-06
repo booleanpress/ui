@@ -160,7 +160,7 @@ function CalendarRoot({ className, rootRef, ...props }: RootProps) {
 
 const SelectOutsideDaysContext = React.createContext(true)
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function Calendar({
   className,
   classNames,
@@ -344,7 +344,7 @@ function Calendar({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function CalendarDayButton({
   className,
   day,

@@ -121,7 +121,7 @@ function Mask({
  * Blocks its content while `loading`: a mask with a spinner covers it, the content is `inert` and `aria-busy`, and the
  * label (or the provider's `loading`) is announced politely. With `fullScreen` the mask covers the whole window.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function LoadingOverlay({
   className,

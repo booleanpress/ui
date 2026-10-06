@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils"
 
 import { useUiStrings } from "@booleanpress/ui/provider"
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 const linkVariants = cva(
   // Medium text that wraps with the line, its colour fading over 200ms; a 1px outline 2px away on keyboard focus, 2px
   // rounded; an icon is 0.875em, centred on the text; a disabled link is 60% opaque and ignores the pointer.
@@ -51,7 +51,7 @@ const linkVariants = cva(
   }
 )
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function Link({
   className,
   variant = "default",

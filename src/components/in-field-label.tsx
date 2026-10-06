@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils"
  * A small label fixed inside the top of its field, above the value. Wrap one field and its `<label htmlFor>`: an Input,
  * InputNumber, InputMask, Textarea, PasswordInput, InputGroup, NativeSelect or Select.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function InFieldLabel({ className, ...props }: React.ComponentProps<"div">) {
   return (

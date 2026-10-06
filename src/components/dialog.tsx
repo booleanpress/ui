@@ -47,7 +47,7 @@ function tabbables(root: ParentNode) {
  */
 const DialogModalContext = React.createContext(true)
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function Dialog({
   modal = true,
   ...props
@@ -60,28 +60,28 @@ function Dialog({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function DialogTrigger({
   ...props
 }: React.ComponentProps<typeof DialogPrimitive.Trigger>) {
   return <DialogPrimitive.Trigger data-slot="dialog-trigger" {...props} />
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function DialogPortal({
   ...props
 }: React.ComponentProps<typeof DialogPrimitive.Portal>) {
   return <DialogPrimitive.Portal data-slot="dialog-portal" {...props} />
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function DialogClose({
   ...props
 }: React.ComponentProps<typeof DialogPrimitive.Close>) {
   return <DialogPrimitive.Close data-slot="dialog-close" {...props} />
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function DialogOverlay({
   className,
   ...props
@@ -103,7 +103,7 @@ function DialogOverlay({
 /**
  * The dialog's panel, with its backdrop and the close button.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function DialogContent({
   className,
@@ -126,39 +126,39 @@ function DialogContent({
 }: React.ComponentProps<typeof DialogPrimitive.Content> & {
   /**
    * Maximum width: 384, 512 or 672 px; `full` fills the window below the WordPress admin bar, with square corners.
-   * @since 0.1.0 `full`.
+   * @since 0.1.1 `full`.
    */
   size?: "sm" | "md" | "lg" | "full"
   /**
    * Where it sits in the window: centred, or 1rem from the top, bottom, start or end edge. A dialog that scrolls
    * `outside` is always centred across the window.
-   * @since 0.1.0
+   * @since 0.1.1
    */
   position?: "center" | "top" | "bottom" | "start" | "end"
   /**
    * `inside` keeps the dialog within the window and scrolls its `DialogBody`; `outside` lets a tall dialog run past
    * the window and scrolls the whole dialog on its mask. A non-modal dialog always scrolls inside.
-   * @since 0.1.0
+   * @since 0.1.1
    */
   scroll?: "inside" | "outside"
   /**
    * Render a button beside the × that fills the window with the dialog and restores it.
-   * @since 0.1.0
+   * @since 0.1.1
    */
   maximizable?: boolean
   /**
    * Whether it fills the window, when you control it. Pair it with `onMaximizedChange`.
-   * @since 0.1.0
+   * @since 0.1.1
    */
   maximized?: boolean
   /**
    * Whether it opens filling the window, when it controls itself.
-   * @since 0.1.0
+   * @since 0.1.1
    */
   defaultMaximized?: boolean
   /**
    * Called with `true` or `false` when the maximise button is pressed.
-   * @since 0.1.0
+   * @since 0.1.1
    */
   onMaximizedChange?: (maximized: boolean) => void
   /** Render the × button. */
@@ -334,7 +334,7 @@ function DialogContent({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function DialogHeader({
   className,
   ...props
@@ -359,7 +359,7 @@ function DialogHeader({
 /**
  * The part of a dialog that scrolls when its content is taller than the viewport; the header and footer stay put.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 // boolean-ui patch: new part (spec 001, Anatomy).
 function DialogBody({
@@ -375,7 +375,7 @@ function DialogBody({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function DialogFooter({
   className,
   showCloseButton = false,
@@ -407,7 +407,7 @@ function DialogFooter({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function DialogTitle({
   className,
   ...props
@@ -422,7 +422,7 @@ function DialogTitle({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function DialogDescription({
   className,
   ...props

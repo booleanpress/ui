@@ -13,7 +13,7 @@ import { useControlSize, useUiStrings, type ControlSize, type FieldVariant } fro
  * A search box: a search icon, the text, a clear button while there is text, and an optional spinner. Enter submits
  * the search; Escape clears it, and a second Escape leaves the empty field.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function SearchField({
   className,

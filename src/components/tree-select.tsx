@@ -32,7 +32,7 @@ function indexNodes<TData>(nodes: TreeNode<TData>[]) {
 /**
  * Props of `TreeSelect`.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 interface TreeSelectProps<TData = unknown>
   extends Omit<React.ComponentProps<"button">, "value" | "defaultValue" | "onChange" | "children"> {
@@ -82,7 +82,7 @@ interface TreeSelectProps<TData = unknown>
  * A field that opens a tree to choose from: one node, several, or checked branches. Name it with a `Label htmlFor`
  * (give it an `id`), `aria-label` or `aria-labelledby`.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function TreeSelect<TData = unknown>({
   nodes,

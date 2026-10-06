@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils"
 import { CheckIcon, ChevronRightIcon, CircleIcon } from "lucide-react"
 import { Menubar as MenubarPrimitive } from "radix-ui"
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function Menubar({
   className,
   ...props
@@ -24,28 +24,28 @@ function Menubar({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function MenubarMenu({
   ...props
 }: React.ComponentProps<typeof MenubarPrimitive.Menu>) {
   return <MenubarPrimitive.Menu data-slot="menubar-menu" {...props} />
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function MenubarGroup({
   ...props
 }: React.ComponentProps<typeof MenubarPrimitive.Group>) {
   return <MenubarPrimitive.Group data-slot="menubar-group" {...props} />
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function MenubarPortal({
   ...props
 }: React.ComponentProps<typeof MenubarPrimitive.Portal>) {
   return <MenubarPrimitive.Portal data-slot="menubar-portal" {...props} />
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function MenubarRadioGroup({
   ...props
 }: React.ComponentProps<typeof MenubarPrimitive.RadioGroup>) {
@@ -54,7 +54,7 @@ function MenubarRadioGroup({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function MenubarTrigger({
   className,
   ...props
@@ -74,7 +74,7 @@ function MenubarTrigger({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function MenubarContent({
   className,
   align = "start",
@@ -104,7 +104,7 @@ function MenubarContent({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function MenubarItem({
   className,
   inset,
@@ -131,7 +131,7 @@ function MenubarItem({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function MenubarCheckboxItem({
   className,
   children,
@@ -160,7 +160,7 @@ function MenubarCheckboxItem({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function MenubarRadioItem({
   className,
   children,
@@ -187,7 +187,7 @@ function MenubarRadioItem({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function MenubarLabel({
   className,
   inset,
@@ -210,7 +210,7 @@ function MenubarLabel({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function MenubarSeparator({
   className,
   ...props
@@ -226,7 +226,7 @@ function MenubarSeparator({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function MenubarShortcut({
   className,
   ...props
@@ -246,14 +246,14 @@ function MenubarShortcut({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function MenubarSub({
   ...props
 }: React.ComponentProps<typeof MenubarPrimitive.Sub>) {
   return <MenubarPrimitive.Sub data-slot="menubar-sub" {...props} />
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function MenubarSubTrigger({
   className,
   inset,
@@ -281,7 +281,7 @@ function MenubarSubTrigger({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function MenubarSubContent({
   className,
   ...props

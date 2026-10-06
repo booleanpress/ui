@@ -15,14 +15,14 @@ import { useUiConfig, useUiLocale } from "@booleanpress/ui/provider"
  * What a step points at: a CSS selector, a ref, or a function that returns the element. Left out, the card sits in
  * the middle of the window.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 type TourTarget = string | React.RefObject<Element | null> | (() => Element | null)
 
 /**
  * One step of a tour.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 interface TourStep {
   /** The element the card points at. Left out, or not on the page, the card sits in the middle of the window. */
@@ -136,7 +136,7 @@ function TourMask({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function Tour({
   steps,
   open: openProp,

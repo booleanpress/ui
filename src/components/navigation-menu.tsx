@@ -3,7 +3,7 @@ import { cva } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 import { NavigationMenu as NavigationMenuPrimitive } from "radix-ui"
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function NavigationMenu({
   className,
   children,
@@ -28,7 +28,7 @@ function NavigationMenu({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function NavigationMenuList({
   className,
   ...props
@@ -45,7 +45,7 @@ function NavigationMenuList({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function NavigationMenuItem({
   className,
   ...props
@@ -59,7 +59,7 @@ function NavigationMenuItem({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 const navigationMenuTriggerStyle = cva(
   // boolean-ui patch: the BooleanPress look — 0.25rem 0.625rem padding, 14 px medium on a 21 px line, 6px radius, no
   // fill at rest, the hovered-surface fill on hover, focus and while open; 14 px icons 8px from the label; keyboard
@@ -68,7 +68,7 @@ const navigationMenuTriggerStyle = cva(
   "group inline-flex w-max flex-row items-center justify-center gap-2 rounded-md px-2.5 py-1 text-sm/normal font-medium outline-none hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-ring focus-visible:outline-solid disabled:pointer-events-none disabled:opacity-60 data-[state=open]:bg-accent data-[state=open]:text-accent-foreground [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-3.5"
 )
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function NavigationMenuTrigger({
   className,
   children,
@@ -86,7 +86,7 @@ function NavigationMenuTrigger({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function NavigationMenuContent({
   className,
   ...props
@@ -109,7 +109,7 @@ function NavigationMenuContent({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function NavigationMenuViewport({
   className,
   ...props
@@ -138,7 +138,7 @@ function NavigationMenuViewport({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function NavigationMenuLink({
   className,
   ...props
@@ -159,7 +159,7 @@ function NavigationMenuLink({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function NavigationMenuIndicator({
   className,
   ...props
@@ -181,7 +181,7 @@ function NavigationMenuIndicator({
 /**
  * A second level inside a panel: a nested list whose items open their own content, one at a time, as tabs do.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 // boolean-ui patch: Radix's Sub part, which stock does not export.
 function NavigationMenuSub({

@@ -15,7 +15,7 @@ const MARK =
  * A box people tick to choose one or more options, or to mix (`checked="indeterminate"`) when a group is partly
  * chosen. Give it a name with a `Label htmlFor`, or put it in a horizontal `Field`.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function Checkbox({
   className,
@@ -25,13 +25,13 @@ function Checkbox({
   indeterminateIcon,
   ...props
 }: React.ComponentProps<typeof CheckboxPrimitive.Root> & {
-  /** A 14, 18 or 20 px box. Defaults to the provider's `controlSize`. @since 0.1.0 */
+  /** A 14, 18 or 20 px box. Defaults to the provider's `controlSize`. @since 0.1.1 */
   size?: ControlSize
-  /** `filled` fills the unchecked box grey. Defaults to the provider's `fieldVariant`. @since 0.1.0 */
+  /** `filled` fills the unchecked box grey. Defaults to the provider's `fieldVariant`. @since 0.1.1 */
   variant?: FieldVariant
-  /** The mark shown when checked, in place of the check. Sized with the box. @since 0.1.0 */
+  /** The mark shown when checked, in place of the check. Sized with the box. @since 0.1.1 */
   icon?: React.ReactNode
-  /** The mark shown when mixed, in place of the dash. Sized with the box. @since 0.1.0 */
+  /** The mark shown when mixed, in place of the dash. Sized with the box. @since 0.1.1 */
   indeterminateIcon?: React.ReactNode
 }) {
   const resolvedSize = useControlSize(size)

@@ -23,7 +23,7 @@ import { useUiStrings } from "@booleanpress/ui/provider"
 /**
  * What `confirm()` asks, and how.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 interface ConfirmOptions {
   /** The question, as the dialog's title. Defaults to the provider's `confirmTitle` ("Are you sure?"). */
@@ -56,7 +56,7 @@ interface ConfirmOptions {
  * The function `useConfirm()` returns: opens a confirmation and resolves `true` when it is confirmed, `false` when it
  * is cancelled.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 type ConfirmFunction = (options?: ConfirmOptions) => Promise<boolean>
 
@@ -85,7 +85,7 @@ function errorMessage(reason: unknown) {
  * Renders the confirmation dialog for `useConfirm()` below it. Render it once, inside `BooleanUIProvider`, around the
  * part of the app that asks. Confirmations asked while one is open wait their turn, one at a time.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function ConfirmProvider({ children }: { children?: React.ReactNode }) {
   const [queue, setQueue] = React.useState<ConfirmRequest[]>([])
@@ -361,7 +361,7 @@ function ConfirmDialog({
  * Returns `confirm(options)`, which opens a confirmation and resolves `true` or `false`. Throws outside a
  * `ConfirmProvider`.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function useConfirm(): ConfirmFunction {
   const confirm = React.useContext(ConfirmContext)

@@ -119,7 +119,7 @@ import { useControlSize, useUiConfig, useUiLocale, useUiStrings, type ControlSiz
 /**
  * One choice of a select filter or a select editor: the value stored and the label shown.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 interface DataTableOption {
   label: string
@@ -129,7 +129,7 @@ interface DataTableOption {
 /**
  * What a column's `meta` can say to `DataTable`, beyond TanStack's own column options.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 interface DataTableColumnMeta {
   /**
@@ -159,7 +159,7 @@ interface DataTableColumnMeta {
 /**
  * The table's `meta`. `DataTable` keeps its own settings under `dataTable`; every other key is yours.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 interface DataTableMeta {
   /** Set by `useDataTable`; do not write it. */
@@ -223,14 +223,14 @@ const DATA_TABLE_FEATURES = /* @__PURE__ */ createDataTableFeatures()
 /**
  * The TanStack features every `DataTable` registers. Columns, rows and the instance are typed with it.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 type DataTableFeatures = typeof DATA_TABLE_FEATURES
 
 /**
  * A column of a `DataTable`: a TanStack Table 9 column definition, with `meta` typed as `DataTableColumnMeta`.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any -- columns of one table hold values of different types
 type DataTableColumnDef<TData extends RowData, TValue = any> = ColumnDef<DataTableFeatures, TData, TValue>
@@ -238,14 +238,14 @@ type DataTableColumnDef<TData extends RowData, TValue = any> = ColumnDef<DataTab
 /**
  * The table instance `useDataTable` returns: TanStack's React table with DataTable's features.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 type DataTableInstance<TData extends RowData> = ReactTable<DataTableFeatures, TData>
 
 /**
  * A row of a `DataTable`.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 type DataTableRow<TData extends RowData> = Row<DataTableFeatures, TData>
 
@@ -253,14 +253,14 @@ type DataTableRow<TData extends RowData> = Row<DataTableFeatures, TData>
  * Every state slice of a `DataTable`: `sorting`, `columnFilters`, `globalFilter`, `pagination`, `rowSelection`,
  * `expanded`, `grouping`, `columnSizing`, `columnOrder`, `columnVisibility`, `columnPinning` and `columnResizing`.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 type DataTableState = TableState<DataTableFeatures>
 
 /**
  * What `onCellEdit` receives when an edit is committed.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 interface DataTableCellEdit<TData extends RowData> {
   /** The row's data before the edit. */
@@ -276,7 +276,7 @@ interface DataTableCellEdit<TData extends RowData> {
 /**
  * The options of `useDataTable`, and the data and feature props of `DataTable`.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 interface UseDataTableOptions<TData extends RowData> {
   /** The columns, as TanStack Table 9 column definitions. Keep the array stable (module scope or `useMemo`). */
@@ -562,7 +562,7 @@ function createExpandColumn<TData extends RowData>(): DataTableColumnDef<TData> 
  * `table.getHeaderGroups()` with `DataTableColumnHeader` and `table.getRowModel().rows` with the Table parts, and add
  * `DataTableToolbar` and `DataTablePagination` around it. Selection and expansion add their columns for you.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function useDataTable<TData extends RowData>(options: UseDataTableOptions<TData>): DataTableInstance<TData> {
   const {
@@ -680,7 +680,7 @@ function useDataTable<TData extends RowData>(options: UseDataTableOptions<TData>
 /**
  * The TanStack column helper typed for a `DataTable` of `TData`: `helper.accessor("subject", { header: "Subject" })`.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function createDataTableColumnHelper<TData extends RowData>(): ColumnHelper<DataTableFeatures, TData> {
   return createColumnHelper<DataTableFeatures, TData>()
@@ -954,7 +954,7 @@ function DataTableResizeHandle({ header, label }: { header: Header<DataTableFeat
  * drag grip and the column menu (hide, move) when allowed, and the resize handle. Render one per header of
  * `table.getHeaderGroups()` in a table you draw yourself.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function DataTableColumnHeader<TData extends RowData>({
   header,
@@ -1205,7 +1205,7 @@ function DataTableColumnFilter<TData extends RowData>({ column }: { column: Colu
  * The bar above a `DataTable`: your own content at the start (a title, bulk actions), the number of selected rows, and
  * at the end the search field, the Columns menu and the Export CSV button.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function DataTableToolbar<TData extends RowData>({
   table,
@@ -1311,7 +1311,7 @@ function DataTableToolbar<TData extends RowData>({
  * paginator; with `range`, the rows shown ("11–20 of 120") at the start; with `pageSizes`, a rows-per-page select at the
  * end.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function DataTablePagination<TData extends RowData>({
   table,
@@ -1373,7 +1373,7 @@ function DataTablePagination<TData extends RowData>({
  * A row's actions: a round ⋯ button named "Actions for {name}" that opens a menu of `DropdownMenuItem`s. Put it in a
  * display column's cell.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function DataTableRowActions({
   label,
@@ -1417,7 +1417,7 @@ function DataTableRowActions({
 /**
  * The options of `exportToCsv`.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 interface ExportToCsvOptions {
   /** `all` (the default): every row after filtering and sorting, on every page; `page`: the rows shown; `selected`. */
@@ -1461,7 +1461,7 @@ function collectRows<TData extends RowData>(
  * The table as CSV text (RFC 4180, CRLF lines): the visible data columns under their labels, and the rows in the order
  * shown. Display columns (selection, actions) are left out.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function exportToCsv<TData extends RowData>(table: Table<DataTableFeatures, TData>, options: ExportToCsvOptions = {}): string {
   const { rows: which = "all", separator = "," } = options
@@ -1484,7 +1484,7 @@ function exportToCsv<TData extends RowData>(table: Table<DataTableFeatures, TDat
 /**
  * Saves CSV text as a file through the browser, with a byte-order mark so spreadsheets read it as UTF-8.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function downloadCsv(csv: string, filename: string) {
   const url = URL.createObjectURL(new Blob(["﻿", csv], { type: "text/csv;charset=utf-8" }))
@@ -1506,7 +1506,7 @@ function downloadCsv(csv: string, filename: string) {
 /**
  * What `onRowOrderChange` receives with the new order: the row moved and its places in `data`, before and after.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 interface DataTableRowMove {
   /** The moved row's id (`getRowId`). */
@@ -1520,7 +1520,7 @@ interface DataTableRowMove {
 /**
  * The props of `DataTable`: the data and features of `useDataTable`, and how the table is drawn.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 interface DataTableProps<TData extends RowData> extends UseDataTableOptions<TData> {
   /** Draws a group's header row (a grouped table); defaults to the grouped value and the number of rows in it. */
@@ -1678,7 +1678,7 @@ function DataTableVirtualRows<TData extends RowData>({
  * virtualisation, loading and empty states, sizes, gridlines and stripes. Built on TanStack Table 9: its state is
  * controlled or not slice by slice (`state` and `on…Change`), and the `manual…` flags hand the work to a server.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function DataTable<TData extends RowData>(props: DataTableProps<TData>) {
   const {

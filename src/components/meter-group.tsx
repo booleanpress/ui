@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils"
 
 import { useUiLocale } from "@booleanpress/ui/provider"
 
-/** One segment of a `MeterGroup`. @since 0.1.0 */
+/** One segment of a `MeterGroup`. @since 0.1.1 */
 interface MeterGroupItem {
   /** What the segment measures, such as "Attachments": its name for screen readers and its text in the legend. */
   label: string
@@ -20,7 +20,7 @@ interface MeterGroupItem {
   icon?: React.ReactNode
 }
 
-/** Which way the track runs. @since 0.1.0 */
+/** Which way the track runs. @since 0.1.1 */
 type MeterGroupOrientation = "horizontal" | "vertical"
 
 /** A segment as the parts draw it: its colour, its share of the track and its value as text. */
@@ -49,7 +49,7 @@ function useMeterGroup(part: string) {
  * Several amounts that share one range, such as the parts of a storage quota: segments side by side on one track, each a
  * meter with its own label and value, and a legend. Name the group with `aria-label` or `aria-labelledby`.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function MeterGroup({
   className,
@@ -125,7 +125,7 @@ function MeterGroup({
  * The track: a 6 px bar of the content edge colour holding one meter per segment, each as long as its share. Rendered by
  * `MeterGroup` unless you give it children.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function MeterGroupMeters({ className, ...props }: Omit<React.ComponentProps<"div">, "children">) {
   const { segments, min, max, orientation } = useMeterGroup("MeterGroupMeters")
@@ -164,7 +164,7 @@ function MeterGroupMeters({ className, ...props }: Omit<React.ComponentProps<"di
  * The legend: each segment's dot (or icon) in its colour, its label and its value. Hidden from assistive technology,
  * which reads the same from the meters. Rendered by `MeterGroup` unless you give it children.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function MeterGroupLegend({
   className,

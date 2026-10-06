@@ -4,7 +4,7 @@ import * as React from "react"
  * Where focus goes when an overlay closes and the element that opened it is gone: a ref, or a function that returns
  * the element.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 export type ReturnFocusTarget = React.RefObject<HTMLElement | null> | (() => HTMLElement | null)
 
@@ -24,7 +24,7 @@ const resolve = (target: ReturnFocusTarget | undefined) =>
  * where focus belongs when the overlay closes, so it is kept here. Elements of the overlay itself (`isInside`) and
  * Radix's focus guards are not recorded.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 export function watchFocusHandoff(isInside: (element: Element) => boolean): () => HTMLElement | null {
   if (typeof document === "undefined") return () => null
@@ -61,9 +61,9 @@ export function watchFocusHandoff(isInside: (element: Element) => boolean): () =
  * Pass both returned handlers to the Radix content: `onOpenAutoFocus` records the opener as the overlay opens, before
  * focus moves into it.
  *
- * @since 0.1.0
- * @since 0.1.0 Falls back to the element that had focus when the overlay opened; returns both handlers.
- * @since 0.1.0 Falls back to the trigger of the menu whose item opened the overlay.
+ * @since 0.1.1
+ * @since 0.1.1 Falls back to the element that had focus when the overlay opened; returns both handlers.
+ * @since 0.1.1 Falls back to the trigger of the menu whose item opened the overlay.
  *
  * @param returnFocusTo Where focus goes when it would otherwise be lost.
  * @param handlers The consumer's own handlers, called first.

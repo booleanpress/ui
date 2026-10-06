@@ -10,7 +10,7 @@
       "name": "booleanpress-ui",
       "source": "./plugin",
       "description": "Build with BooleanPress UI: setup, components, theming, accessibility, upgrades and audits, read from the documentation of the version you installed.",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "category": "Developer Tools"
     }
   ]

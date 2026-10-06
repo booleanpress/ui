@@ -34,14 +34,14 @@ import { useUiLocale, useUiStrings } from "@booleanpress/ui/provider"
 /**
  * A move of the chosen items: one place up or down, or to the top or the bottom of the list.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 export type OrderListMove = "up" | "down" | "top" | "bottom"
 
 /**
  * What `renderItem` is told about the item it draws.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 export interface OrderListItemState {
   /** The item's position in the whole list, from 0. */
@@ -55,7 +55,7 @@ export interface OrderListItemState {
 /**
  * Props of `OrderList`.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 export interface OrderListProps<T> extends Omit<React.ComponentProps<"div">, "children" | "defaultValue" | "onChange"> {
   /** The items in their order, when you control it. Pair it with `onValueChange`. */
@@ -160,7 +160,7 @@ function defaultItemLabel(item: unknown): string {
  * themselves; an item already against the end stays. Returns a new array. `getItemKey` defaults to the item itself for
  * strings, else its `id`, then its `value`.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 export function moveItems<T>(
   items: readonly T[],
@@ -252,7 +252,7 @@ const DND_ACCESSIBILITY = {
  * Wraps several `OrderList`s so items can be dragged from one into another, as `PickList` does; each list keeps its
  * own value. An `OrderList` on its own needs no group.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function OrderListGroup({ children }: { children?: React.ReactNode }) {
   const strings = useUiStrings()
@@ -452,7 +452,7 @@ function OrderListGroup({ children }: { children?: React.ReactNode }) {
  * A list people put in order: they choose one or several items, then move them with the buttons beside it, with Alt
  * and the arrow keys, or by dragging. Name it with `header`, `aria-label` or `aria-labelledby`.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function OrderList<T>({
   controls = "start",

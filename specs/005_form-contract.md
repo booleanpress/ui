@@ -1,6 +1,6 @@
 # Form controls — current contract
 
-This is the current contract for the 0.1.0 candidate's form controls. It supersedes only the changed form defaults,
+This is the current contract for the 0.1.1 candidate's form controls. It supersedes only the changed form defaults,
 geometry, styling and interactions described below in specs 002, 003 and 004; their other contracts remain in force.
 The need is one consistent form experience across package consumers, including the documented compositions. Keep the
 existing Radix and Base UI primitives and public entry points; matching a composition does not require another primitive.

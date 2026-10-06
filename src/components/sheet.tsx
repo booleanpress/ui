@@ -9,35 +9,35 @@ import { Button } from "@/components/button"
 import { useReturnFocus, type ReturnFocusTarget } from "@/lib/return-focus"
 import { useUiStrings } from "@booleanpress/ui/provider"
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function Sheet({
   ...props
 }: React.ComponentProps<typeof SheetPrimitive.Root>) {
   return <SheetPrimitive.Root data-slot="sheet" {...props} />
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function SheetTrigger({
   ...props
 }: React.ComponentProps<typeof SheetPrimitive.Trigger>) {
   return <SheetPrimitive.Trigger data-slot="sheet-trigger" {...props} />
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function SheetClose({
   ...props
 }: React.ComponentProps<typeof SheetPrimitive.Close>) {
   return <SheetPrimitive.Close data-slot="sheet-close" {...props} />
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function SheetPortal({
   ...props
 }: React.ComponentProps<typeof SheetPrimitive.Portal>) {
   return <SheetPrimitive.Portal data-slot="sheet-portal" {...props} />
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function SheetOverlay({
   className,
   ...props
@@ -59,7 +59,7 @@ function SheetOverlay({
 /**
  * A panel that slides in from an edge of the screen, with its backdrop and the close button.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function SheetContent({
   className,
@@ -76,7 +76,7 @@ function SheetContent({
   side?: "top" | "right" | "bottom" | "left"
   /**
    * `default`: a panel against its edge; `full`: it covers the whole window, still sliding from its edge.
-   * @since 0.1.0
+   * @since 0.1.1
    */
   size?: "default" | "full"
   /** Render the × button. */
@@ -145,7 +145,7 @@ function SheetContent({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function SheetHeader({
   className,
   ...props
@@ -165,7 +165,7 @@ function SheetHeader({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function SheetFooter({
   className,
   ...props
@@ -180,7 +180,7 @@ function SheetFooter({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function SheetTitle({
   className,
   ...props
@@ -195,7 +195,7 @@ function SheetTitle({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function SheetDescription({
   className,
   ...props

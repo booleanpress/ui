@@ -14,7 +14,7 @@ import { useUiConfig, useUiStrings } from "@booleanpress/ui/provider"
  * How `scrollToIndex` and `scrollToOffset` place the target: at the start, the centre or the end of the view, or
  * (`auto`) only as far as needed to bring it into view.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 export interface VirtualScrollerScrollOptions {
   align?: "start" | "center" | "end" | "auto"
@@ -24,7 +24,7 @@ export interface VirtualScrollerScrollOptions {
 /**
  * What a `ref` on `VirtualScroller` holds.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 export interface VirtualScrollerHandle {
   /** Scrolls the item at `index` into view; in a grid, its row. */
@@ -38,7 +38,7 @@ export interface VirtualScrollerHandle {
 /**
  * Props of `VirtualScroller`.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 export interface VirtualScrollerProps<T> extends Omit<React.ComponentProps<"div">, "children" | "ref"> {
   /** Every item; only those in view are rendered. */
@@ -86,7 +86,7 @@ export interface VirtualScrollerProps<T> extends Omit<React.ComponentProps<"div"
  * A scrolling region for long lists that renders only the items in view, so 100,000 rows scroll as smoothly as 10. Give
  * it a height (a width for `horizontal`) and a name with `aria-label` or `aria-labelledby`.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function VirtualScroller<T>({
   items,

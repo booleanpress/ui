@@ -7,7 +7,7 @@ import { Slot } from "radix-ui"
 
 import { useUiLocale, useUiStrings } from "@booleanpress/ui/provider"
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 const badgeVariants = cva(
   // boolean-ui patch: the BooleanPress tag — 12px bold text on an 18px line, 2px 6px padding (the 1px edge counted)
   // making 22px, 6px radius, 4px gap, 14px icons, a 1px outline 2px away on keyboard focus, never wider than its
@@ -90,9 +90,9 @@ const badgeVariants = cva(
 /** The badge's own props, shared by every kind. */
 type BadgeOwnProps = Omit<VariantProps<typeof badgeVariants>, "kind"> & {
     asChild?: boolean
-    /** A number to show, in the provider's locale: the badge becomes a round count. @since 0.1.0 */
+    /** A number to show, in the provider's locale: the badge becomes a round count. @since 0.1.1 */
     count?: number
-    /** The largest count shown; above it the badge reads `{max}+` (the provider's `badgeOverflow`). @since 0.1.0 */
+    /** The largest count shown; above it the badge reads `{max}+` (the provider's `badgeOverflow`). @since 0.1.1 */
     max?: number
   }
 
@@ -112,7 +112,7 @@ type BadgeTextProps = {
   "aria-hidden"?: React.AriaAttributes["aria-hidden"]
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function Badge({
   className,
   variant = "default",
@@ -163,7 +163,7 @@ function Badge({
   )
 }
 
-/** The props of `Badge`. @since 0.1.0 */
+/** The props of `Badge`. @since 0.1.1 */
 type BadgeProps = React.ComponentProps<typeof Badge>
 
 export { Badge, badgeVariants }

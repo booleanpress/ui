@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils"
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function Skeleton({
   className,
   ...props

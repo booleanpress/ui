@@ -29,7 +29,7 @@ import {
 
 const pad = (value: number) => String(value).padStart(2, "0")
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function TimeField({
   value,
   defaultValue,
@@ -80,7 +80,7 @@ function TimeField({
   required?: boolean
   /** Submits the time as `HH:mm` (or `HH:mm:ss`) in a hidden input of this name. */
   name?: string
-  /** The id of the form the value belongs to, for a field placed outside it. @since 0.1.0 */
+  /** The id of the form the value belongs to, for a field placed outside it. @since 0.1.1 */
   form?: string
 }) {
   const strings = useUiStrings()

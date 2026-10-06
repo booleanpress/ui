@@ -14,7 +14,7 @@ const SplitterContext = React.createContext<{ panelDir?: "rtl"; disabled?: boole
 /**
  * Panels side by side, or stacked, with handles between them that resize them by pointer or keyboard.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 // boolean-ui patch: renamed from ResizablePanelGroup.
 function Splitter({
@@ -57,7 +57,7 @@ function Splitter({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 // boolean-ui patch: renamed from ResizablePanel.
 function SplitterPanel({ ...props }: ResizablePrimitive.PanelProps) {
   const { panelDir } = React.useContext(SplitterContext)
@@ -67,7 +67,7 @@ function SplitterPanel({ ...props }: ResizablePrimitive.PanelProps) {
 /**
  * The bar between two panels: drag it, or focus it and use the arrow keys, Home, End and Enter.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 // boolean-ui patch: renamed from ResizableHandle.
 function SplitterHandle({

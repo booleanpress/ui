@@ -57,7 +57,7 @@ type ListboxSelectionProps =
 /**
  * A list of options always in view, from which people choose one or, with `multiple`, several.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 // boolean-ui patch: configurable focus, modifier selection and a controlled filter use the existing option model.
 function Listbox({
@@ -351,7 +351,7 @@ function Listbox({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ListboxItem({
   className,
   children,
@@ -447,7 +447,7 @@ function ListboxItem({
 
 const ListboxGroupContext = React.createContext<string | undefined>(undefined)
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ListboxGroup({ className, ...props }: React.ComponentProps<"div">) {
   const labelId = React.useId()
 
@@ -465,7 +465,7 @@ function ListboxGroup({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ListboxLabel({ className, ...props }: React.ComponentProps<"div">) {
   const labelId = React.useContext(ListboxGroupContext)
 
@@ -481,7 +481,7 @@ function ListboxLabel({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ListboxSeparator({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -499,7 +499,7 @@ function ListboxSeparator({ className, ...props }: React.ComponentProps<"div">) 
  * children. Place it as a direct child of `Listbox`: it renders after the list, as a polite live region, so the change
  * is announced and the listbox holds only options.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function ListboxEmpty({ className, children, ...props }: React.ComponentProps<"div">) {
   const strings = useUiStrings()

@@ -3,10 +3,12 @@
 All notable changes to `@booleanpress/ui`. Versions follow the spec standard's rules (`specs/000_component-spec-standard.md`
 §8): before 1.0.0, a breaking change is a minor version with a migration note.
 
-## 0.1.0 — 2026-10-07
+## 0.1.1 — 2026-10-07
 
 The initial release: 114 components, each with its own entry (`@booleanpress/ui/<name>`), a page with an example
 per state, and keyboard and axe tests; three sizes and a filled look for every control, documented variations and states, locale-aware formatting and forced-colours support.
+
+There is no 0.1.0: npm reserved that number during a failed first upload, so the first release is 0.1.1.
 
 ### Form controls and migration
 
@@ -367,7 +369,7 @@ text, plus foreground text on attached InputGroup addons. Run the CLI and verify
 The first apps used pre-release builds of this package from packed tarballs, never published to npm. To move to this
 release:
 
-- install `@booleanpress/ui@0.1.0` from npm, pinned exactly, in place of the tarball;
+- install `@booleanpress/ui@0.1.1` from npm, pinned exactly, in place of the tarball;
 - replace each local copy in `components/ui/` with its package entry (`@/components/ui/sidebar` →
   `@booleanpress/ui/sidebar`), and install `recharts`, `react-day-picker` or `sonner` if you use Chart, Calendar or Toast;
 - **Sidebar:** pass `sidebarStorageKey` to the provider (one per product) and, to keep starting collapsed,

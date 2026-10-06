@@ -29,7 +29,7 @@ function segmentValues(children: React.ReactNode): string[] | null {
  * A row of joined segments people choose one of, such as a view switcher. Name it with `aria-label` or
  * `aria-labelledby`; give an icon-only segment an `aria-label`.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function SegmentedControl({
   value,
@@ -111,7 +111,7 @@ function SegmentedControl({
 /**
  * One segment of a `SegmentedControl`: text, an icon and text, or an icon alone with an `aria-label`.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function SegmentedControlItem({ className, ...props }: React.ComponentProps<typeof RadioGroupPrimitive.Item>) {
   const { size, sliding } = React.useContext(SegmentedControlContext)

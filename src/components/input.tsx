@@ -54,7 +54,7 @@ function hasText(value: unknown) {
  * anchored is tested against each character typed or pasted; one written `^…$` against the whole value the edit would
  * leave.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 type InputKeyFilter = "int" | "num" | "money" | "hex" | "alpha" | "alphanum" | RegExp
 
@@ -120,7 +120,7 @@ function useKeyFilter(inputRef: React.RefObject<HTMLInputElement | null>, keyFil
   }, [inputRef, kind, source, flags, locale])
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function Input({
   className,
   type,
@@ -134,15 +134,15 @@ function Input({
   onChange,
   ...props
 }: Omit<React.ComponentProps<"input">, "size"> & {
-  /** The field's size: 26, 34 or 42 px tall. Defaults to the provider's `controlSize`. @since 0.1.0 */
+  /** The field's size: 26, 34 or 42 px tall. Defaults to the provider's `controlSize`. @since 0.1.1 */
   size?: ControlSize
-  /** `filled` draws the grey `--field-filled` fill. Defaults to the provider's `fieldVariant`. @since 0.1.0 */
+  /** `filled` draws the grey `--field-filled` fill. Defaults to the provider's `fieldVariant`. @since 0.1.1 */
   variant?: FieldVariant
-  /** Shows a button that empties the field while it has a value. @since 0.1.0 */
+  /** Shows a button that empties the field while it has a value. @since 0.1.1 */
   clearable?: boolean
   /**
    * Lets only some characters in: `int`, `num`, `money`, `hex`, `alpha`, `alphanum` or a regular expression. Typed and
-   * pasted text it refuses is not inserted. @since 0.1.0
+   * pasted text it refuses is not inserted. @since 0.1.1
    */
   keyFilter?: InputKeyFilter
 }) {

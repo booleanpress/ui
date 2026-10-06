@@ -121,7 +121,7 @@ interface DatePickerBaseProps
   calendarProps?: DatePickerCalendarProps
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 type DatePickerSingleProps = DatePickerBaseProps & {
   /** `single` chooses one date. */
   mode?: "single"
@@ -132,7 +132,7 @@ type DatePickerSingleProps = DatePickerBaseProps & {
   onValueChange?: (value: Date | null) => void
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 type DatePickerMultipleProps = DatePickerBaseProps & {
   /** `multiple` chooses several dates; the field lists them with commas (semicolons when a date's text has a comma). */
   mode: "multiple"
@@ -141,7 +141,7 @@ type DatePickerMultipleProps = DatePickerBaseProps & {
   onValueChange?: (value: Date[]) => void
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 type DatePickerProps = DatePickerSingleProps | DatePickerMultipleProps
 
 const toList = (value: Date | Date[] | null | undefined): Date[] =>
@@ -459,7 +459,7 @@ function TimeRow({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function DatePicker(props: DatePickerProps) {
   const {
     mode = "single",

@@ -25,7 +25,7 @@ function topLevel(node: Node) {
 /**
  * The bar: "{count} selected", your actions and a clear-selection button. It shows while `count` is above zero.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function ActionBar({
   className,
@@ -186,7 +186,7 @@ function ActionBar({
 /**
  * An action of the bar: the library's Button, a text button by default, in the bar's arrow-key order.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function ActionBarButton({
   className,
@@ -209,7 +209,7 @@ function ActionBarButton({
 /**
  * A thin vertical line between groups of the bar.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function ActionBarSeparator({ className, ...props }: React.ComponentProps<typeof ToolbarPrimitive.Separator>) {
   return (

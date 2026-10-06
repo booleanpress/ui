@@ -51,7 +51,7 @@ function copyWithSelection(text: string, container?: HTMLElement | null): boolea
  * `container` is where the fallback puts its hidden text area: an element inside the open dialog, when there is one
  * (the page's body by default).
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 async function copyText(text: string, container?: HTMLElement | null): Promise<boolean> {
   try {
@@ -65,7 +65,7 @@ async function copyText(text: string, container?: HTMLElement | null): Promise<b
   return copyWithSelection(text, container)
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function CopyButton({
   className,
   value,

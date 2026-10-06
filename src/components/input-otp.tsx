@@ -40,7 +40,7 @@ const InputOTPContext = React.createContext<InputOTPContextValue>({
  * code fills every box. Accepts characters by default, with the browser's one-time-code autofill;
  * `validationType="numeric"` restricts entry to digits and opens the phone's number pad.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function InputOTP({
   maxLength,
@@ -120,7 +120,7 @@ function InputOTP({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function InputOTPGroup({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -135,7 +135,7 @@ function InputOTPGroup({ className, ...props }: React.ComponentProps<"div">) {
 /**
  * One character's box. The first box takes the field's label; the others are named "Character 2 of 6".
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function InputOTPSlot({
   index,
@@ -179,7 +179,7 @@ function InputOTPSlot({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function InputOTPSeparator({
   className,
   ...props

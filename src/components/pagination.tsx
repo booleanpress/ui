@@ -15,7 +15,7 @@ import { Input } from "@/components/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/select"
 import { useUiLocale, useUiStrings } from "@booleanpress/ui/provider"
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function Pagination({ className, ...props }: React.ComponentProps<"nav">) {
   const strings = useUiStrings()
 
@@ -31,7 +31,7 @@ function Pagination({ className, ...props }: React.ComponentProps<"nav">) {
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function PaginationContent({
   className,
   ...props
@@ -45,7 +45,7 @@ function PaginationContent({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function PaginationItem({ ...props }: React.ComponentProps<"li">) {
   return <li data-slot="pagination-item" {...props} />
 }
@@ -55,7 +55,7 @@ type PaginationLinkProps = {
 } & Pick<React.ComponentProps<typeof Button>, "size"> &
   React.ComponentProps<"a">
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function PaginationLink({
   className,
   isActive,
@@ -85,7 +85,7 @@ function PaginationLink({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function PaginationPrevious({
   className,
   ...props
@@ -107,7 +107,7 @@ function PaginationPrevious({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function PaginationNext({
   className,
   ...props
@@ -133,7 +133,7 @@ function PaginationNext({
  * A link to the first page: a round icon button with a double chevron, like Previous, named by the provider's
  * `firstPage` string.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 // boolean-ui patch: new part — the visual target's first-page link.
 function PaginationFirst({
@@ -159,7 +159,7 @@ function PaginationFirst({
  * A link to the last page: a round icon button with a double chevron, like Next, named by the provider's `lastPage`
  * string.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 // boolean-ui patch: new part — the visual target's last-page link.
 function PaginationLast({
@@ -181,7 +181,7 @@ function PaginationLast({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function PaginationEllipsis({
   className,
   ...props
@@ -212,7 +212,7 @@ function useNumberFormat() {
 /**
  * One entry of `getPaginationItems`: a page number, or the gap before or after the pages around the current one.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 type PaginationItemValue = number | "ellipsis-start" | "ellipsis-end"
 
@@ -221,7 +221,7 @@ type PaginationItemValue = number | "ellipsis-start" | "ellipsis-end"
  * the current one, and `"ellipsis-start"` or `"ellipsis-end"` where pages are left out. A gap of one page shows the page
  * instead, so the list keeps one length as the current page moves and the links do not jump under the pointer.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 // boolean-ui patch: new helper — the page window the parts below draw.
 function getPaginationItems({
@@ -269,7 +269,7 @@ function getPaginationItems({
  * without writing each link. With `showEdges`, First and Last go round them. First and Previous are dimmed and skipped
  * by Tab on the first page, Next and Last on the last.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 // boolean-ui patch: new part.
 function PaginationPages({
@@ -294,7 +294,7 @@ function PaginationPages({
   siblings?: number
   /** How many pages to show at each end. */
   boundaries?: number
-  /** Adds First and Last links, with double chevrons, before Previous and after Next. @since 0.1.0 */
+  /** Adds First and Last links, with double chevrons, before Previous and after Next. @since 0.1.1 */
   showEdges?: boolean
 }) {
   const format = useNumberFormat()
@@ -355,7 +355,7 @@ function PaginationPages({
  * The rows the current page shows, as "21–30 of 120": the provider's `pageRange` string, its numbers formatted in the
  * provider's locale. A polite live region, so a screen reader announces the new range when the page changes.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 // boolean-ui patch: new part.
 function PaginationRange({
@@ -399,7 +399,7 @@ function PaginationRange({
  * A labelled select of how many rows a page shows, 10, 20 or 50 unless `options` says otherwise. The label is the
  * provider's `rowsPerPage` string.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 // boolean-ui patch: new part.
 function PaginationRowsPerPage({
@@ -454,7 +454,7 @@ function PaginationRowsPerPage({
  * A small number field named by the provider's `goToPage` string: Enter goes to the page typed, kept between 1 and
  * `pageCount`; leaving the field without Enter puts the current page back.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 // boolean-ui patch: new part.
 function PaginationJump({

@@ -52,7 +52,7 @@ const splitTextLines = (code: string) => code.replace(/\r\n?/g, "\n").replace(/\
 const ACTION_CLASSES =
   "size-8 rounded-md bg-card text-muted-foreground hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent active:bg-accent dark:active:bg-accent"
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function CodeBlock({
   className,
   code,

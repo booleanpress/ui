@@ -4,7 +4,7 @@ import { Slot } from "radix-ui"
 
 import { Separator } from "@/components/separator"
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 const buttonGroupVariants = cva(
   [
     "flex w-fit items-stretch has-[>[data-slot=button-group]]:gap-2 [&>*]:focus-visible:relative [&>*]:focus-visible:z-10 has-[select[aria-hidden=true]:last-child]:[&>[data-slot=select-trigger]:last-of-type]:rounded-e-md [&>[data-slot=select-trigger]:not([class*='w-'])]:w-fit [&>input]:flex-1",
@@ -27,7 +27,7 @@ const buttonGroupVariants = cva(
   }
 )
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ButtonGroup({
   className,
   orientation,
@@ -44,7 +44,7 @@ function ButtonGroup({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ButtonGroupText({
   className,
   asChild = false,
@@ -69,7 +69,7 @@ function ButtonGroupText({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ButtonGroupSeparator({
   className,
   orientation = "vertical",

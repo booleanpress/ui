@@ -30,7 +30,7 @@ primitive · **Deviations:** `PATCHES.md`.
 Every component below has a documentation page with one example per state listed, a test file in
 `tests/components/<name>.test.jsx` with axe, and a `@since` JSDoc tag on each export.
 
-**Additions to the components of 0.1.0:** Alert dialog, Alert, Badge, Button group, Button, Calendar, Chart, Checkbox, Command, Dialog, Dropdown menu, Input group, Input, Native select, Pagination, Password input, Popover, Progress, Radio group, Scroll area, Select, Separator, Sheet, Sidebar, Switch, Table, Tabs, Textarea, Toast, Toggle group, Toggle, Tooltip.
+**Additions to the components of 0.1.1:** Alert dialog, Alert, Badge, Button group, Button, Calendar, Chart, Checkbox, Command, Dialog, Dropdown menu, Input group, Input, Native select, Pagination, Password input, Popover, Progress, Radio group, Scroll area, Select, Separator, Sheet, Sidebar, Switch, Table, Tabs, Textarea, Toast, Toggle group, Toggle, Tooltip.
 
 **New components:** Accordion, Action bar, Aspect ratio, Autocomplete, Banner, Carousel, Cascade select, Chat, Checkbox group, Chip, Choice card, Close button, Code block, Color picker, Combobox, Confirm, Confirm popup, Context menu, Copy button, Data table, Data view, Date field, Date picker, Date range picker, Description list, Drawer, Editor, Fieldset, File upload, Float label, Format, Hover card, Icon button, In-field label, Inplace, Input mask, Input number, Input OTP, Knob, Link, Listbox, Loading overlay, Menubar, Meter group, Multi-select, Navigation menu, Order list, Overlay badge, Page header, Panel, Pick list, Progress circle, Rating, Scroll top, Search field, Segmented control, Slider, Speed dial, Splitter, Statistic, Stepper, Tags input, Time field, Timeline, Toolbar, Tour, Tree, Tree select, Tree table, Typography, Virtual scroller. The last sections cover what several share: form behaviour, menu shortcuts and the date code.
 
@@ -43,7 +43,7 @@ opened it, since the item leaves with its menu" (keyboard: Enter on the trigger,
 
 ## Alert — additions
 
-**Status:** built (0.1.0) · **Stock:** `alert` · **Pattern:** WAI-ARIA APG Alert
+**Status:** built (0.1.1) · **Stock:** `alert` · **Pattern:** WAI-ARIA APG Alert
 <https://www.w3.org/WAI/ARIA/apg/patterns/alert/> · **Completeness references:** React Aria and Base UI have no
 inline alert; their toasts cover the timed case: React Aria Toast <https://react-aria.adobe.com/Toast> · Base UI Toast
 <https://base-ui.com/react/components/toast>
@@ -79,7 +79,7 @@ No keys: an alert takes no focus.
 
 ## Badge — additions
 
-**Status:** built (0.1.0) · **Stock:** shadcn `badge`, with the patches in `PATCHES.md`. The file is now a client module
+**Status:** built (0.1.1) · **Stock:** shadcn `badge`, with the patches in `PATCHES.md`. The file is now a client module
 (`"use client"`): a count reads the provider's locale and strings.
 **Completeness references:** React Aria has none; Base UI has none; the visual target's badge (count) and tag (label).
 
@@ -118,7 +118,7 @@ success, sky, orange and violet fills is below 4.5:1, listed in `tests/contrast.
 
 ## Button group — additions
 
-**Status:** built (0.1.0) · **Stock:** shadcn `button-group`, with the patches in `PATCHES.md`.
+**Status:** built (0.1.1) · **Stock:** shadcn `button-group`, with the patches in `PATCHES.md`.
 
 The group sets nothing on its buttons: each `Button` keeps its own `variant`, `severity`, `size`, `raised` and
 `rounded`. The group reads `data-raised` and `data-rounded` from its children.
@@ -140,7 +140,7 @@ No key changes.
 
 ## Button — additions
 
-**Status:** built (0.1.0) · **Stock:** shadcn `button` (new-york-v4), with the patches in `PATCHES.md`.
+**Status:** built (0.1.1) · **Stock:** shadcn `button` (new-york-v4), with the patches in `PATCHES.md`.
 **Pattern:** WAI-ARIA APG Button <https://www.w3.org/WAI/ARIA/apg/patterns/button/> · **Completeness references:**
 Base UI Button <https://base-ui.com/react/components/button> · React Aria Button <https://react-aria.adobe.com/Button>
 
@@ -203,7 +203,7 @@ Replaces the Loading rows of the Button section (changed-from-stock, states and 
 
 ## Calendar — additions
 
-**Status:** built (0.1.0) · **Stock:** `calendar` (react-day-picker 10)
+**Status:** built (0.1.1) · **Stock:** `calendar` (react-day-picker 10)
 
 | Row | Stock | Boolean UI | Why |
 | --- | --- | --- | --- |
@@ -258,7 +258,7 @@ inside a range `--highlight`.
 
 ## Checkbox — additions
 
-**Status:** built (0.1.0) · **Stock:** shadcn `checkbox` · **Pattern:** WAI-ARIA APG Checkbox
+**Status:** built (0.1.1) · **Stock:** shadcn `checkbox` · **Pattern:** WAI-ARIA APG Checkbox
 <https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/> · **Completeness references:** Base UI Checkbox
 <https://base-ui.com/react/components/checkbox> · React Aria Checkbox <https://react-aria.adobe.com/Checkbox>
 
@@ -310,7 +310,7 @@ target's demo draws a × when unchecked; that is left out).
 
 ## Dialog — additions
 
-**Status:** built (0.1.0) · **Stock:** shadcn `dialog`, with the patches in `PATCHES.md`.
+**Status:** built (0.1.1) · **Stock:** shadcn `dialog`, with the patches in `PATCHES.md`.
 **Pattern:** [APG Dialog (Modal)](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/) · **Completeness references:**
 [Base UI Dialog](https://base-ui.com/react/components/dialog) (modal / non-modal), [React Aria Modal](https://react-spectrum.adobe.com/react-aria/Modal.html)
 (scroll behaviour); the visual target's dialog (position, maximisable, full screen, without modal, inside and outside scroll,
@@ -403,7 +403,7 @@ focus when the overlay opened, if still on the page; that recorded element, if s
 
 ## Input group — additions
 
-**Status:** built (0.1.0) · **Stock:** shadcn `input-group`, with the patches in `PATCHES.md`.
+**Status:** built (0.1.1) · **Stock:** shadcn `input-group`, with the patches in `PATCHES.md`.
 **Completeness references:** the visual target's input group and icon field.
 
 **API added:** `InputGroup` `size?: ControlSize` and `variant?: FieldVariant` (provider fallbacks), carried as
@@ -435,7 +435,7 @@ through context, and they always take the default look (the group draws the fill
 | Space | On a checkbox addon: toggles it (the checkbox's own key) | APG Checkbox |
 
 **Notes.** A `Select` trigger in an `sm` group keeps its own size; give it `size="sm"`. The group's look keeps the icon
-inside the edge with no divider (the package's look since 0.1.0), where the visual target draws an icon addon as a cell.
+inside the edge with no divider (the package's look since 0.1.1), where the visual target draws an icon addon as a cell.
 
 ### Behaviour details
 
@@ -452,7 +452,7 @@ keeps, so the focus went to an invisible element. `InputGroupText` has `data-slo
 
 ### Key filter
 
-**Status:** built (0.1.0) · **Completeness references:** the visual target's key filter.
+**Status:** built (0.1.1) · **Completeness references:** the visual target's key filter.
 
 **API added:** `keyFilter?: "int" | "num" | "money" | "hex" | "alpha" | "alphanum" | RegExp` (exported type
 `InputKeyFilter`). Presets test each typed or pasted character: `int` digits and `-`; `num` digits, `-` and the provider
@@ -476,7 +476,7 @@ or, written `^…$`, against the whole value the edit would leave. No strings. W
 **Notes.** Filtering is on `beforeinput` and `paste`; composition (IME) and autofill are not filtered, and a refused key is
 not announced: name the accepted characters in the label or a hint.
 
-**Status:** built (0.1.0) · **Stock:** shadcn `input`, with the patches in `PATCHES.md`. The file is now a client module
+**Status:** built (0.1.1) · **Stock:** shadcn `input`, with the patches in `PATCHES.md`. The file is now a client module
 (`"use client"`): the size and look come from the provider, and the clear button keeps state.
 **Completeness references:** Base UI Input <https://base-ui.com/react/components/input> · React Aria TextField
 <https://react-aria.adobe.com/TextField> · the visual target's input text and icon field.
@@ -517,7 +517,7 @@ the pointer can use.
 
 ## Native select — additions
 
-**Status:** built (0.1.0) · **Stock:** shadcn `native-select` · **Pattern:** WAI-ARIA APG Select-only combobox
+**Status:** built (0.1.1) · **Stock:** shadcn `native-select` · **Pattern:** WAI-ARIA APG Select-only combobox
 <https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-select-only/>
 
 **API added.** `size?: "sm" | "default" | "lg"` (adds `lg`; defaults to the provider's `controlSize`),
@@ -552,7 +552,7 @@ No key changes.
 | first and last | « ‹ 1 2 3 4 5 … 20 › » | named links | First and last | adds First and Last with showEdges, named from the provider, going to the first and last page |
 | at an end | First / Last at 60 % | `aria-disabled="true"`, `tabindex="-1"` | First and last | dims First on the first page and Last on the last, out of the tab order |
 
-**Status:** built (0.1.0) · **Stock:** shadcn `pagination`, with the patches in `PATCHES.md`. New parts compose the
+**Status:** built (0.1.1) · **Stock:** shadcn `pagination`, with the patches in `PATCHES.md`. New parts compose the
 package's `Select` and `Input`.
 **Pattern:** [APG Landmarks: navigation](https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/navigation.html) ·
 **Completeness references:** [React Aria](https://react-spectrum.adobe.com/react-aria/) has none; MUI `usePagination`
@@ -609,7 +609,7 @@ Medium strength: `bg-warning-solid` (was `bg-warning`). Test: the meter carries 
 
 ### Rules and strength
 
-**Status:** built (0.1.0) · **Completeness references:** the visual target's password requirements, strength meter and
+**Status:** built (0.1.1) · **Completeness references:** the visual target's password requirements, strength meter and
 popover; Polaris and Carbon password guidance.
 
 **API added:** `rules?: { label: string; test(value): boolean }[]` (type `PasswordRule`), `strength?: boolean`,
@@ -642,7 +642,7 @@ weak otherwise; null when empty), `feedback?: "inline" | "popover"`. With rules 
 controls); it never takes focus, and a press on it keeps the focus in the field. The score is a guide, not a check against
 leaked passwords; rules and meter do not set `aria-invalid`.
 
-**Status:** built (0.1.0) · **Stock:** none (the products' composition of `InputGroup`, `InputGroupInput` and `Button`).
+**Status:** built (0.1.1) · **Stock:** none (the products' composition of `InputGroup`, `InputGroupInput` and `Button`).
 **Completeness references:** the visual target's input password (its toggle mask, clear icon, sizes and filled demos).
 Its rules list and strength meter come with a later batch.
 
@@ -686,7 +686,7 @@ Its rules list and strength meter come with a later batch.
 
 ## Progress — additions
 
-**Status:** built (0.1.0) · **Stock:** `progress` · **Pattern:** ARIA `progressbar`
+**Status:** built (0.1.1) · **Stock:** `progress` · **Pattern:** ARIA `progressbar`
 <https://www.w3.org/TR/wai-aria-1.2/#progressbar> · **Completeness references:** Base UI Progress
 <https://base-ui.com/react/components/progress> · React Aria ProgressBar <https://react-aria.adobe.com/ProgressBar>
 
@@ -721,7 +721,7 @@ A `max` that is not a positive finite number falls back to 100; a value outside 
 
 ## Radio group — additions
 
-**Status:** built (0.1.0) · **Stock:** shadcn `radio-group` · **Pattern:** WAI-ARIA APG Radio Group
+**Status:** built (0.1.1) · **Stock:** shadcn `radio-group` · **Pattern:** WAI-ARIA APG Radio Group
 <https://www.w3.org/WAI/ARIA/apg/patterns/radio/> · **Completeness references:** Base UI Radio Group
 <https://base-ui.com/react/components/radio-group> · React Aria RadioGroup <https://react-aria.adobe.com/RadioGroup>
 
@@ -745,7 +745,7 @@ No key changes.
 
 ## Scroll area — additions
 
-**Status:** built (0.1.0) · **Stock:** shadcn `scroll-area`, with the patches in `PATCHES.md`.
+**Status:** built (0.1.1) · **Stock:** shadcn `scroll-area`, with the patches in `PATCHES.md`.
 **Completeness references:** [Radix Scroll Area](https://www.radix-ui.com/primitives/docs/components/scroll-area),
 [Base UI Scroll Area](https://base-ui.com/react/components/scroll-area); the visual target's scroll area (both scrollbars,
 scroll fade, variant).
@@ -771,7 +771,7 @@ box with no sign that it scrolls loses people; `fade` is the quiet hint instead.
 
 No new keys.
 
-**Notes.** The page's `focus` text and first limit were out of date since 0.1.0 (the viewport has been focusable when it
+**Notes.** The page's `focus` text and first limit were out of date since 0.1.1 (the viewport has been focusable when it
 must be, through `useScrollFocus`); the docs page now says so.
 
 ### Behaviour details
@@ -785,7 +785,7 @@ A `ScrollBar` among the children is rendered after the viewport, beside the buil
 | --- | --- | --- | --- | --- |
 | empty, no placeholder | 35 px (28, 42) | — | Float label With a select | keeps an empty value line one line tall when there is no value and no placeholder |
 
-**Status:** built (0.1.0) · **Stock:** shadcn `select` · **Pattern:** WAI-ARIA APG Select-only combobox
+**Status:** built (0.1.1) · **Stock:** shadcn `select` · **Pattern:** WAI-ARIA APG Select-only combobox
 <https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-select-only/> · **Completeness references:** Base UI
 Select <https://base-ui.com/react/components/select> · React Aria Select <https://react-aria.adobe.com/Select>
 
@@ -834,7 +834,7 @@ convention; the visual target draws it in the text colour.
 
 ## Separator — additions
 
-**Status:** built (0.1.0) · **Stock:** shadcn `separator`, with the patches in `PATCHES.md`.
+**Status:** built (0.1.1) · **Stock:** shadcn `separator`, with the patches in `PATCHES.md`.
 
 **API added:** `variant?: "solid" | "dashed" | "dotted"`; `children` (content inside the line);
 `align?: "start" | "center" | "end" | "top" | "bottom"` (`top` and `bottom` are `start` and `end` on a vertical line).
@@ -857,7 +857,7 @@ No keys: it is not a window splitter.
 
 ## Sheet — additions
 
-**Status:** built (0.1.0) · **Stock:** shadcn `sheet`, with the patches in `PATCHES.md`.
+**Status:** built (0.1.1) · **Stock:** shadcn `sheet`, with the patches in `PATCHES.md`.
 **Pattern:** [APG Dialog (Modal)](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/) · **Completeness references:**
 [Base UI Drawer](https://base-ui.com/react/components/drawer); the visual target's drawer (full screen).
 
@@ -887,7 +887,7 @@ button when a menu item opened it, since the item leaves with its menu".
 
 ## Sidebar — additions
 
-**Status:** built (0.1.0) · **Stock:** shadcn `sidebar`, unchanged in this batch: examples and documentation only.
+**Status:** built (0.1.1) · **Stock:** shadcn `sidebar`, unchanged in this batch: examples and documentation only.
 **Completeness references:** the visual target's sidebar (variants, dual sidebar, nested menu); shadcn's sidebar blocks
 (a fixed second sidebar with `collapsible="none"`).
 
@@ -912,7 +912,7 @@ shadcn's own two-sidebar block. Multi sidebar (the target's icon rail beside a p
 
 ## Switch — additions
 
-**Status:** built (0.1.0) · **Stock:** shadcn `switch` · **Pattern:** WAI-ARIA APG Switch
+**Status:** built (0.1.1) · **Stock:** shadcn `switch` · **Pattern:** WAI-ARIA APG Switch
 <https://www.w3.org/WAI/ARIA/apg/patterns/switch/> · **Completeness references:** Base UI Switch
 <https://base-ui.com/react/components/switch> · React Aria Switch <https://react-aria.adobe.com/Switch>
 
@@ -944,7 +944,7 @@ box a tab stop while nothing inside it can take focus.
 
 ## Tabs — additions
 
-**Status:** built (0.1.0) · **Stock:** `tabs` · **Pattern:** WAI-ARIA APG Tabs
+**Status:** built (0.1.1) · **Stock:** `tabs` · **Pattern:** WAI-ARIA APG Tabs
 <https://www.w3.org/WAI/ARIA/apg/patterns/tabs/> (Delete: the pattern's optional deletion key) ·
 **Completeness references:** Base UI Tabs <https://base-ui.com/react/components/tabs> · React Aria Tabs
 <https://react-aria.adobe.com/Tabs>
@@ -1010,7 +1010,7 @@ working.
 
 ## Textarea — additions
 
-**Status:** built (0.1.0) · **Stock:** shadcn `textarea`, with the patches in `PATCHES.md`. The file is now a client
+**Status:** built (0.1.1) · **Stock:** shadcn `textarea`, with the patches in `PATCHES.md`. The file is now a client
 module (`"use client"`): the size and look come from the provider.
 **Completeness references:** React Aria TextField <https://react-aria.adobe.com/TextField> · the visual target's textarea.
 
@@ -1031,7 +1031,7 @@ No key changes.
 
 ## Toast — additions
 
-**Status:** built (0.1.0) · **Stock:** `sonner` · **Pattern:** WAI-ARIA APG Alert
+**Status:** built (0.1.1) · **Stock:** `sonner` · **Pattern:** WAI-ARIA APG Alert
 <https://www.w3.org/WAI/ARIA/apg/patterns/alert/> · **Completeness references:** Base UI Toast
 <https://base-ui.com/react/components/toast> · React Aria Toast <https://react-aria.adobe.com/Toast>
 
@@ -1060,7 +1060,7 @@ counting.
 
 ## Toggle group — additions
 
-**Status:** built (0.1.0) · **Stock:** shadcn `toggle-group` · **Pattern:** WAI-ARIA APG Radio Group (single)
+**Status:** built (0.1.1) · **Stock:** shadcn `toggle-group` · **Pattern:** WAI-ARIA APG Radio Group (single)
 <https://www.w3.org/WAI/ARIA/apg/patterns/radio/>
 
 **API added.** `size` defaults to the provider's `controlSize` (the group's `data-size` is always set; an item's own
@@ -1092,7 +1092,7 @@ the group fills its container and the items share it.
 
 ## Toggle — additions
 
-**Status:** built (0.1.0) · **Stock:** shadcn `toggle` · **Pattern:** WAI-ARIA APG Button (toggle button)
+**Status:** built (0.1.1) · **Stock:** shadcn `toggle` · **Pattern:** WAI-ARIA APG Button (toggle button)
 <https://www.w3.org/WAI/ARIA/apg/patterns/button/>
 
 **API added.** `size` defaults to the provider's `controlSize` and is set as `data-size`; `fluid?: boolean`. Invalid
@@ -1113,7 +1113,7 @@ No key changes.
 
 ## Tooltip — additions
 
-**Status:** built (0.1.0) · **Stock:** `tooltip` · **Pattern:** WAI-ARIA APG Tooltip
+**Status:** built (0.1.1) · **Stock:** `tooltip` · **Pattern:** WAI-ARIA APG Tooltip
 <https://www.w3.org/WAI/ARIA/apg/patterns/tooltip/> · **Completeness references:** Base UI Tooltip
 <https://base-ui.com/react/components/tooltip> · React Aria Tooltip <https://react-aria.adobe.com/Tooltip>
 
@@ -1141,7 +1141,7 @@ switch that controls the tooltip does not close it first.
 
 ## Accordion
 
-**Status:** built (0.1.0) · **Stock:** shadcn `accordion` (Radix Accordion), with the patches in `PATCHES.md`.
+**Status:** built (0.1.1) · **Stock:** shadcn `accordion` (Radix Accordion), with the patches in `PATCHES.md`.
 **Pattern:** WAI-ARIA APG Accordion <https://www.w3.org/WAI/ARIA/apg/patterns/accordion/> · **Completeness references:**
 Base UI Accordion <https://base-ui.com/react/components/accordion> · React Aria Disclosure group
 <https://react-aria.adobe.com/DisclosureGroup>
@@ -1188,7 +1188,7 @@ colour (its active class no longer applies); the package follows its resolved CS
 
 ## Action bar
 
-**Status:** built (0.1.0) · **Stock:** none: built on Radix Toolbar and the package's presence hook (`src/lib/presence.ts`).
+**Status:** built (0.1.1) · **Stock:** none: built on Radix Toolbar and the package's presence hook (`src/lib/presence.ts`).
 **Pattern:** APG Toolbar <https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/> · **Completeness references:** Mantine and
 Chakra ActionBar, Primer ActionBar.
 
@@ -1247,7 +1247,7 @@ consumer `ref` is merged with the bar's own, so the exit animation and focus ret
 
 ## Aspect ratio
 
-**Status:** built (0.1.0) · **Stock:** shadcn `aspect-ratio` (Radix Aspect Ratio), unchanged apart from the `@since` tag.
+**Status:** built (0.1.1) · **Stock:** shadcn `aspect-ratio` (Radix Aspect Ratio), unchanged apart from the `@since` tag.
 **Pattern:** none (layout only) · **Completeness references:** none in Base UI or React Aria (CSS `aspect-ratio`).
 
 **API:** `AspectRatio` (`ratio`, width ÷ height, default 1; `asChild`). Data slot: `aspect-ratio` (the inner box). It draws
@@ -1262,7 +1262,7 @@ No keys. **Notes:** content taller than the ratio is cut off or overflows; give 
 
 ## Autocomplete
 
-**Status:** built (0.1.0) · **Stock:** none: built on Base UI Autocomplete (`@base-ui/react/autocomplete`).
+**Status:** built (0.1.1) · **Stock:** none: built on Base UI Autocomplete (`@base-ui/react/autocomplete`).
 **Pattern:** WAI-ARIA APG Combobox, list autocomplete (and both, with inline completion)
 <https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-list/> · **Completeness references:**
 Base UI Autocomplete <https://base-ui.com/react/components/autocomplete> · React Aria Autocomplete
@@ -1326,7 +1326,7 @@ Notes: the label limit of Combobox applies.
 
 ## Banner
 
-**Status:** built (0.1.0) · **Stock:** none: built on plain elements.
+**Status:** built (0.1.1) · **Stock:** none: built on plain elements.
 **Pattern:** WAI-ARIA live regions (`status`, `alert`) <https://www.w3.org/TR/wai-aria-1.2/#status> · **Completeness
 references:** Primer Banner, Atlassian Banner, Polaris Banner; colours from the visual target's Message.
 
@@ -1375,7 +1375,7 @@ the banner's own.
 
 ## Carousel
 
-**Status:** built (0.1.0) · **Stock:** shadcn `new-york-v4/carousel` (Embla, `embla-carousel-react` 8.6)
+**Status:** built (0.1.1) · **Stock:** shadcn `new-york-v4/carousel` (Embla, `embla-carousel-react` 8.6)
 
 **Pattern:** WAI-ARIA APG Carousel <https://www.w3.org/WAI/ARIA/apg/patterns/carousel/> · **Completeness references:**
 Embla <https://www.embla-carousel.com/api/> · React Aria has no carousel; the visual target's carousel page (alignment,
@@ -1441,7 +1441,7 @@ group; hands focus to Previous when Next disables on the last slide, and back ag
 
 ## Cascade select
 
-**Status:** built (0.1.0) · **Stock:** none: built on Radix `DropdownMenu` (Root, Trigger, Content, Sub, SubTrigger,
+**Status:** built (0.1.1) · **Stock:** none: built on Radix `DropdownMenu` (Root, Trigger, Content, Sub, SubTrigger,
 SubContent, RadioGroup, RadioItem), with the library's select-field look.
 **Pattern:** APG Menu Button <https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/> with submenus (APG Menu) ·
 **Completeness references:** the visual target's Select "Cascade" demo and CascadeSelect component; React Aria Menu
@@ -1514,7 +1514,7 @@ Notes:
 
 ## Chat
 
-**Status:** built (0.1.0) · **Stock:** none as one item: built on native elements (a `role="log"` region, `article`,
+**Status:** built (0.1.1) · **Stock:** none as one item: built on native elements (a `role="log"` region, `article`,
 `form`) and Button. The parts follow the shape of shadcn's `message`, `bubble`, `attachment` and `marker` registry items
 (4.21.1); `message-scroller` was read but not used, as it needs `@shadcn/react`, which the package does not have: the
 thread's own stick-to-bottom logic replaces it.
@@ -1600,7 +1600,7 @@ older messages on scroll, reactions, editing and deleting messages, read receipt
 
 ## Checkbox group
 
-**Status:** built (0.1.0) · **Stock:** none: built on the library's `Checkbox` (Radix) with a group context.
+**Status:** built (0.1.1) · **Stock:** none: built on the library's `Checkbox` (Radix) with a group context.
 **Pattern:** APG Checkbox, mixed state <https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/examples/checkbox-mixed/> ·
 **Completeness references:** Base UI CheckboxGroup <https://base-ui.com/react/components/checkbox-group> (parent checkbox,
 `allValues`), React Aria CheckboxGroup <https://react-aria.adobe.com/CheckboxGroup>.
@@ -1660,7 +1660,7 @@ stays checked whatever the parent does. A parent whose items are all disabled is
 
 ## Chip
 
-**Status:** built (0.1.0) · **Stock:** none: built on plain elements (no primitive).
+**Status:** built (0.1.1) · **Stock:** none: built on plain elements (no primitive).
 **Pattern:** WAI-ARIA APG has no chip; the remove action follows APG Button <https://www.w3.org/WAI/ARIA/apg/patterns/button/>
 · **Completeness references:** React Aria TagGroup <https://react-aria.adobe.com/TagGroup> · MUI Chip
 <https://mui.com/material-ui/react-chip/>
@@ -1699,7 +1699,7 @@ makes focusable. `onRemove` is called and focus moves at once; a consumer that a
 
 ## Choice card
 
-**Status:** built (0.1.0) · **Stock:** none: built on the library's `RadioGroup` (single) and `CheckboxGroup` (multiple).
+**Status:** built (0.1.1) · **Stock:** none: built on the library's `RadioGroup` (single) and `CheckboxGroup` (multiple).
 **Pattern:** APG Radio Group <https://www.w3.org/WAI/ARIA/apg/patterns/radio/> and APG Checkbox
 <https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/> · **Completeness references:** React Aria RadioGroup (card style)
 <https://react-aria.adobe.com/RadioGroup>, Base UI Radio <https://base-ui.com/react/components/radio>.
@@ -1739,7 +1739,7 @@ theming text says so.
 
 ## Close button
 
-**Status:** built (0.1.0) · **Stock:** none: built on Button; the look is Dialog's and Sheet's × (`variant="ghost"`,
+**Status:** built (0.1.1) · **Stock:** none: built on Button; the look is Dialog's and Sheet's × (`variant="ghost"`,
 round, `text-muted-foreground hover:bg-subtle hover:text-muted-foreground active:bg-accent`, 14 px icon).
 **Pattern:** WAI-ARIA APG Button <https://www.w3.org/WAI/ARIA/apg/patterns/button/> · **Completeness references:** Chakra
 CloseButton <https://chakra-ui.com/docs/components/close-button> · Mantine CloseButton
@@ -1764,7 +1764,7 @@ CloseButton <https://chakra-ui.com/docs/components/close-button> · Mantine Clos
 
 ## Code block
 
-**Status:** built (0.1.0) · **Stock:** none: built on `<figure>`, `<pre>`, `<code>`, with CopyButton and IconButton.
+**Status:** built (0.1.1) · **Stock:** none: built on `<figure>`, `<pre>`, `<code>`, with CopyButton and IconButton.
 **Pattern:** a scrollable region in the tab order (axe `scrollable-region-focusable`; WAI-ARIA region
 <https://www.w3.org/TR/wai-aria-1.2/#region>) · **Completeness references:** Mantine CodeHighlight
 <https://mantine.dev/x/code-highlight/> · Chakra CodeBlock <https://chakra-ui.com/docs/components/code-block> · Carbon
@@ -1813,7 +1813,7 @@ Note: `html` is inserted without cleaning. It must be a highlighter's output (wh
 
 ## Color picker
 
-**Status:** built (0.1.0) · **Stock:** none: built on native range inputs, Radix RadioGroup (swatches) and the library's
+**Status:** built (0.1.1) · **Stock:** none: built on native range inputs, Radix RadioGroup (swatches) and the library's
 Popover and Input.
 **Pattern:** APG Slider <https://www.w3.org/WAI/ARIA/apg/patterns/slider/>; the area follows React Aria ColorArea
 <https://react-aria.adobe.com/ColorArea> (two range inputs in one thumb, one tab stop, Page Up/Down for the y channel and
@@ -1870,7 +1870,7 @@ slider"` (React Aria adds one): it would need another provider string.
 
 ## Combobox
 
-**Status:** built (0.1.0) · **Stock:** shadcn `combobox` (new-york-v4, on Base UI Combobox).
+**Status:** built (0.1.1) · **Stock:** shadcn `combobox` (new-york-v4, on Base UI Combobox).
 **Pattern:** WAI-ARIA APG Combobox, list autocomplete <https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-autocomplete-list/>
 · **Completeness references:** Base UI Combobox <https://base-ui.com/react/components/combobox> · React Aria ComboBox
 <https://react-aria.adobe.com/ComboBox>
@@ -1974,7 +1974,7 @@ Notes:
 
 ## Confirm
 
-**Status:** built (0.1.0) · **Stock:** none: built on the library's AlertDialog (Radix AlertDialog).
+**Status:** built (0.1.1) · **Stock:** none: built on the library's AlertDialog (Radix AlertDialog).
 **Pattern:** APG Alert Dialog <https://www.w3.org/WAI/ARIA/apg/patterns/alertdialog/> · **Completeness references:**
 the visual target's OverlayManager (Basic, Update, Stacked, Confirm) and ConfirmDialog, Mantine `modals.openConfirmModal`,
 Chakra/Ark imperative dialogs.
@@ -2031,7 +2031,7 @@ destructive tone, which follows APG (least destructive). No prompt (text input) 
 
 ## Confirm popup
 
-**Status:** built (0.1.0) · **Stock:** none: built on the library's Popover (Radix Popover, modal).
+**Status:** built (0.1.1) · **Stock:** none: built on the library's Popover (Radix Popover, modal).
 **Pattern:** APG Alert Dialog <https://www.w3.org/WAI/ARIA/apg/patterns/alertdialog/> · **Completeness references:**
 the visual target's ConfirmPopup (Basic, Template, Headless), Ant Design Popconfirm, Mantine Popover confirm recipes.
 
@@ -2077,7 +2077,7 @@ rejects without a message, or with a string".
 
 ## Context menu
 
-**Status:** built (0.1.0) · **Stock:** shadcn `context-menu` (Radix Context Menu), with the patches in `PATCHES.md`.
+**Status:** built (0.1.1) · **Stock:** shadcn `context-menu` (Radix Context Menu), with the patches in `PATCHES.md`.
 **Pattern:** WAI-ARIA APG Menu <https://www.w3.org/WAI/ARIA/apg/patterns/menubar/> · **Completeness references:** Base UI
 Context Menu <https://base-ui.com/react/components/context-menu> · React Aria Menu <https://react-aria.adobe.com/Menu>
 
@@ -2123,7 +2123,7 @@ stops at the ends", "wraps from the last item to the first with loop"); `Context
 
 ## Copy button
 
-**Status:** built (0.1.0) · **Stock:** none: built on Button and Tooltip.
+**Status:** built (0.1.1) · **Stock:** none: built on Button and Tooltip.
 **Pattern:** WAI-ARIA APG Button <https://www.w3.org/WAI/ARIA/apg/patterns/button/> with a status live region
 <https://www.w3.org/TR/wai-aria-1.2/#status> · **Completeness references:** Mantine CopyButton
 <https://mantine.dev/core/copy-button/> · Carbon CopyButton <https://carbondesignsystem.com/components/copy-button/usage/>
@@ -2164,7 +2164,7 @@ same text). The Clipboard API needs a secure context.
 
 ## Data table
 
-**Status:** built (0.1.0) · **Stock:** none: built on TanStack Table 9 (`@tanstack/react-table` 9.2.5, state and row
+**Status:** built (0.1.1) · **Stock:** none: built on TanStack Table 9 (`@tanstack/react-table` 9.2.5, state and row
 models) and TanStack Virtual 3 (`@tanstack/react-virtual` 3.14, row virtualisation). shadcn has no data-table registry
 item; its data-table page is a recipe written for TanStack Table 8.
 
@@ -2356,7 +2356,7 @@ the page, so its first paint is the loaded rows.
 
 ## Data view
 
-**Status:** built (0.1.0) · **Stock:** none: built on semantic HTML (a `ul` of items) with the library's `Select`,
+**Status:** built (0.1.1) · **Stock:** none: built on semantic HTML (a `ul` of items) with the library's `Select`,
 `SegmentedControl`, `Pagination` (`PaginationPages`), `Skeleton` and `Empty`.
 **Pattern:** the items are a list; the layout switch follows APG Radio Group
 <https://www.w3.org/WAI/ARIA/apg/patterns/radio/>, the sort select APG Select-Only Combobox
@@ -2413,7 +2413,7 @@ controls are tab stops), an announcement of the new page (use `PaginationRange` 
 
 ## Date field
 
-**Status:** built (0.1.0) · **Stock:** none: built on the same segmented group as TimeField (`src/lib/date-segments.tsx`),
+**Status:** built (0.1.1) · **Stock:** none: built on the same segmented group as TimeField (`src/lib/date-segments.tsx`),
 with the locale's order and separators from `Intl.DateTimeFormat#formatToParts`.
 **Pattern:** APG Spinbutton <https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/>, React Aria DateField
 <https://react-aria.adobe.com/DateField> · **Completeness references:** React Aria DateField, Base UI has none.
@@ -2469,7 +2469,7 @@ text and DatePicker's field write a numeric date right to left (day at the right
 
 ## Date picker
 
-**Status:** built (0.1.0) · **Stock:** none: built on the package's `Input`, `InputGroup`, `Calendar` (react-day-picker 10)
+**Status:** built (0.1.1) · **Stock:** none: built on the package's `Input`, `InputGroup`, `Calendar` (react-day-picker 10)
 and `Popover` (Radix Popover); shared date code in `src/lib/dates.ts` and the popup behaviour in `src/lib/date-popover.ts`.
 **Pattern:** APG Date Picker Dialog <https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/examples/datepicker-dialog/>
 (button trigger) and APG Date Picker Combobox <https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-datepicker/>
@@ -2573,7 +2573,7 @@ the first instant of that day (see `dateFromParts`).
 
 ## Date range picker
 
-**Status:** built (0.1.0) · **Stock:** none: built on the package's `Calendar` (react-day-picker 10, range mode with
+**Status:** built (0.1.1) · **Stock:** none: built on the package's `Calendar` (react-day-picker 10, range mode with
 `resetOnSelect`), `Popover` (Radix) and `Button`; shared date code in `src/lib/dates.ts`, popup behaviour in
 `src/lib/date-popover.ts`.
 **Pattern:** APG Date Picker Combobox <https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-datepicker/>
@@ -2631,7 +2631,7 @@ reset from the value on every opening, also when a parent opens it through a con
 
 ## Description list
 
-**Status:** built (0.1.0) · **Stock:** none: built on semantic HTML (`dl`, a `div` per item holding `dt` and `dd`).
+**Status:** built (0.1.1) · **Stock:** none: built on semantic HTML (`dl`, a `div` per item holding `dt` and `dd`).
 **Pattern:** HTML description list (no APG widget pattern) · **Completeness references:** Chakra DataList
 <https://www.chakra-ui.com/docs/components/data-list> (orientation, sizes), Ant Design Descriptions
 <https://ant.design/components/descriptions> (bordered, columns, span, sizes, vertical layout).
@@ -2670,7 +2670,7 @@ heading above it. Below 640 px every list is one column.
 
 ## Drawer
 
-**Status:** built (0.1.0) · **Stock:** none: built on Base UI Drawer (`@base-ui/react/drawer` 1.8), with shadcn
+**Status:** built (0.1.1) · **Stock:** none: built on Base UI Drawer (`@base-ui/react/drawer` 1.8), with shadcn
 `new-york-v4/drawer`'s parts, names and classes (stock is built on vaul, which is not used)
 
 **Pattern:** WAI-ARIA APG Dialog (Modal) <https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/> · **Completeness
@@ -2731,7 +2731,7 @@ tooltip) handles Escape on the document in the capture phase and marks it, and B
 
 ## Editor
 
-**Status:** built (0.1.0) · **Stock:** none: built on Tiptap 3 (`@tiptap/react`, `@tiptap/pm`, `@tiptap/starter-kit`
+**Status:** built (0.1.1) · **Stock:** none: built on Tiptap 3 (`@tiptap/react`, `@tiptap/pm`, `@tiptap/starter-kit`
 3.31.4) with the library's Toolbar (Radix Toolbar), Select, Popover, Input, Label and Button.
 **Pattern:** WAI-ARIA APG Toolbar <https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/> (its rich-text example) ·
 **Completeness references:** Tiptap 3 React <https://tiptap.dev/docs/editor/getting-started/install/react> · the visual
@@ -2816,7 +2816,7 @@ field frame instead of the target's two bordered boxes; (3) read-only hides the 
 
 ## Fieldset
 
-**Status:** built (0.1.0) · **Stock:** none: a native `<fieldset>` / `<legend>`, toggleable on Radix Collapsible
+**Status:** built (0.1.1) · **Stock:** none: a native `<fieldset>` / `<legend>`, toggleable on Radix Collapsible
 
 **Pattern:** HTML `fieldset` (role `group`) · WAI-ARIA APG Disclosure <https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/>
 (the toggleable legend) · **Completeness references:** Base UI Fieldset <https://base-ui.com/react/components/fieldset> ·
@@ -2874,7 +2874,7 @@ component's own.
 
 ## File upload
 
-**Status:** built (0.1.0) · **Stock:** none: built on a hidden native `<input type="file">` and the HTML drag-and-drop
+**Status:** built (0.1.1) · **Stock:** none: built on a hidden native `<input type="file">` and the HTML drag-and-drop
 events, with the library's `Button`, `Progress` and `Badge`.
 **Pattern:** no APG pattern; native buttons, a list and a polite live region (WCAG 2.5.7 Dragging movements: every drop
 zone also opens the picker) · **Completeness references:** React Aria DropZone <https://react-aria.adobe.com/DropZone>
@@ -2960,7 +2960,7 @@ short units, the number in the locale".
 
 ## Float label
 
-**Status:** built (0.1.0) · **Stock:** none: built on a plain `div` round the field and its native `label`; the label
+**Status:** built (0.1.1) · **Stock:** none: built on a plain `div` round the field and its native `label`; the label
 moves with CSS.
 **Pattern:** no APG pattern (a visible label: WCAG 2.5.3 Label in Name, 3.3.2 Labels or Instructions) ·
 **Completeness references:** the visual target's float label · Material 3 text field (filled and outlined labels).
@@ -3020,7 +3020,7 @@ has reset (`useFormReset`), so the label never rests on a value a reset restored
 
 ## Format
 
-**Status:** built (0.1.0) · **Stock:** none: built on `Intl` (`NumberFormat`, `DateTimeFormat`, `RelativeTimeFormat`),
+**Status:** built (0.1.1) · **Stock:** none: built on `Intl` (`NumberFormat`, `DateTimeFormat`, `RelativeTimeFormat`),
 no primitive · **Pattern:** none (static text; HTML `data` and `time` elements) · **Completeness references:** React Aria
 `useNumberFormatter`, `useDateFormatter` <https://react-aria.adobe.com/internationalized/number> · GitHub
 `relative-time-element` <https://github.com/github/relative-time-element>
@@ -3085,7 +3085,7 @@ the server's old "now" (even with `live`, until the text changed).
 
 ## Hover card
 
-**Status:** built (0.1.0) · **Stock:** shadcn `hover-card` (Radix Hover Card), with the patches in `PATCHES.md`.
+**Status:** built (0.1.1) · **Stock:** shadcn `hover-card` (Radix Hover Card), with the patches in `PATCHES.md`.
 **Pattern:** none in the APG (a preview of a link's target, not announced) · **Completeness references:** Base UI Preview
 Card <https://base-ui.com/react/components/preview-card> · React Aria has none.
 
@@ -3116,7 +3116,7 @@ to. Touch screens never open it.
 
 ## Icon button
 
-**Status:** built (0.1.0) · **Stock:** none: built on Button and Tooltip.
+**Status:** built (0.1.1) · **Stock:** none: built on Button and Tooltip.
 **Pattern:** WAI-ARIA APG Button <https://www.w3.org/WAI/ARIA/apg/patterns/button/> · **Completeness references:** Chakra
 IconButton <https://chakra-ui.com/docs/components/icon-button> · Primer IconButton
 <https://primer.style/components/icon-button>
@@ -3150,7 +3150,7 @@ Loading state row: `aria-busy`, `aria-disabled` (not `disabled`), keeps focus; t
 
 ## In-field label
 
-**Status:** built (0.1.0) · **Stock:** none: built on a plain `div` round the field and its native `label`.
+**Status:** built (0.1.1) · **Stock:** none: built on a plain `div` round the field and its native `label`.
 **Pattern:** no APG pattern (a visible label: WCAG 2.5.3, 3.3.2) · **Completeness references:** the visual target's
 "ifta" label.
 
@@ -3175,7 +3175,7 @@ and a mask; test "names an InputNumber and an InputMask and keeps them working".
 
 ## Inplace
 
-**Status:** built (0.1.0) · **Stock:** none: built on the library's Input and Textarea (or a custom editor).
+**Status:** built (0.1.1) · **Stock:** none: built on the library's Input and Textarea (or a custom editor).
 **Pattern:** native button + labelled field; no APG pattern · **Completeness references:** the visual target's Inplace
 (Basic, Disabled, Controlled, Image), Atlassian InlineEdit, Chakra Editable.
 
@@ -3234,7 +3234,7 @@ Notes: the caller's `onKeyDown` and `onBlur` run before the built-in handlers in
 
 ## Input mask
 
-**Status:** built (0.1.0) · **Stock:** none: built on the library's `Input`, with its own mask engine.
+**Status:** built (0.1.1) · **Stock:** none: built on the library's `Input`, with its own mask engine.
 **Pattern:** no APG pattern (a text field) · **Completeness references:** React Aria TextField
 <https://react-aria.adobe.com/TextField> · the visual target's input mask.
 
@@ -3286,7 +3286,7 @@ so the text keeps its left-to-right order on a right-to-left page, at the field'
 
 ## Input number
 
-**Status:** built (0.1.0) · **Stock:** none: built on Base UI's Number Field (`@base-ui/react/number-field`).
+**Status:** built (0.1.1) · **Stock:** none: built on Base UI's Number Field (`@base-ui/react/number-field`).
 **Pattern:** WAI-ARIA APG Spinbutton <https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/> · **Completeness
 references:** Base UI Number Field <https://base-ui.com/react/components/number-field> · React Aria NumberField
 <https://react-aria.adobe.com/NumberField>
@@ -3355,7 +3355,7 @@ holding a number between whole steps (`12.99`, `min={0}`). A `step` of the app's
 
 ## Input OTP
 
-**Status:** built (0.1.0) · **Stock:** none: built on Base UI OTP Field (`@base-ui/react/otp-field` 1.8), with shadcn
+**Status:** built (0.1.1) · **Stock:** none: built on Base UI OTP Field (`@base-ui/react/otp-field` 1.8), with shadcn
 `new-york-v4/input-otp`'s parts and names (stock is built on the `input-otp` package, which is not used)
 
 **Pattern:** no APG pattern; a group of text inputs (WAI-ARIA `group`) · **Completeness references:** Base UI OTP Field
@@ -3431,7 +3431,7 @@ is filled (or none is, unless `required`); the page says so.
 
 ## Knob
 
-**Status:** built (0.1.0) · **Stock:** none: built on an SVG with `role="slider"`.
+**Status:** built (0.1.1) · **Stock:** none: built on an SVG with `role="slider"`.
 **Pattern:** APG Slider <https://www.w3.org/WAI/ARIA/apg/patterns/slider/> · **Completeness references:** React Aria
 Slider <https://react-aria.adobe.com/Slider>, Base UI Slider <https://base-ui.com/react/components/slider> (no round
 variant in either).
@@ -3481,7 +3481,7 @@ own.
 
 ## Link
 
-**Status:** built (0.1.0) · **Stock:** none: built on an `<a>` (Radix `Slot` for `asChild`).
+**Status:** built (0.1.1) · **Stock:** none: built on an `<a>` (Radix `Slot` for `asChild`).
 **Pattern:** WAI-ARIA APG Link <https://www.w3.org/WAI/ARIA/apg/patterns/link/> · **Completeness references:** React
 Aria Link <https://react-aria.adobe.com/Link> · Primer Link <https://primer.style/components/link> · Chakra Link
 <https://chakra-ui.com/docs/components/link>
@@ -3514,7 +3514,7 @@ router's own click handler; it sets `aria-disabled`, `tabindex="-1"` and `pointe
 
 ## Listbox
 
-**Status:** built (0.1.0) · **Stock:** none: built on plain elements, to the APG listbox pattern; the filter field is the
+**Status:** built (0.1.1) · **Stock:** none: built on plain elements, to the APG listbox pattern; the filter field is the
 library's InputGroup.
 **Pattern:** WAI-ARIA APG Listbox <https://www.w3.org/WAI/ARIA/apg/patterns/listbox/> · **Completeness references:**
 React Aria ListBox <https://react-aria.adobe.com/ListBox> · Base UI Combobox (inline) <https://base-ui.com/react/components/combobox>
@@ -3575,7 +3575,7 @@ Notes:
 
 ## Loading overlay
 
-**Status:** built (0.1.0) · **Stock:** none: built on plain elements, the `inert` attribute and the package's presence
+**Status:** built (0.1.1) · **Stock:** none: built on plain elements, the `inert` attribute and the package's presence
 hook (`src/lib/presence.ts`).
 **Pattern:** `aria-busy` <https://www.w3.org/TR/wai-aria-1.2/#aria-busy> and a polite live region · **Completeness
 references:** the visual target's BlockUI, Mantine LoadingOverlay.
@@ -3626,7 +3626,7 @@ overlays overlap, focus returns only if the first one to start is the last to en
 
 ## Menubar
 
-**Status:** built (0.1.0) · **Stock:** shadcn `menubar` (Radix Menubar), with the patches in `PATCHES.md`.
+**Status:** built (0.1.1) · **Stock:** shadcn `menubar` (Radix Menubar), with the patches in `PATCHES.md`.
 **Pattern:** WAI-ARIA APG Menubar <https://www.w3.org/WAI/ARIA/apg/patterns/menubar/> · **Completeness references:**
 Base UI Menubar <https://base-ui.com/react/components/menubar> · React Aria Menu <https://react-aria.adobe.com/Menu>
 
@@ -3669,7 +3669,7 @@ or 400 (the target's menubar CSS).
 
 ## Meter group
 
-**Status:** built (0.1.0) · **Stock:** none: built on semantic HTML — a `role="group"` of `role="meter"` segments. Base
+**Status:** built (0.1.1) · **Stock:** none: built on semantic HTML — a `role="group"` of `role="meter"` segments. Base
 UI's Meter was considered: a meter has no behaviour beyond its ARIA attributes, so it would add an optional peer and
 nothing for screen readers.
 **Pattern:** APG Meter <https://www.w3.org/WAI/ARIA/apg/patterns/meter/> · **Completeness references:** Base UI Meter
@@ -3715,7 +3715,7 @@ unless the consumer hides it. Not built: a thickness size (the reference has one
 
 ## Multi-select
 
-**Status:** built (0.1.0) · **Stock:** none: built on Base UI Combobox (`@base-ui/react/combobox`) with `multiple` and
+**Status:** built (0.1.1) · **Stock:** none: built on Base UI Combobox (`@base-ui/react/combobox`) with `multiple` and
 the input inside the list; reuses the library's Combobox list parts, Checkbox and InputGroup.
 **Pattern:** WAI-ARIA APG Combobox, select-only trigger <https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-select-only/>
 with a filterable multi-selectable listbox · **Completeness references:** Base UI Combobox (input inside popup)
@@ -3789,7 +3789,7 @@ Notes: a form reset puts an uncontrolled field back to `defaultValue` (`useFormR
 
 ## Navigation menu
 
-**Status:** built (0.1.0) · **Stock:** shadcn `navigation-menu` (Radix Navigation Menu), with the patches in `PATCHES.md`.
+**Status:** built (0.1.1) · **Stock:** shadcn `navigation-menu` (Radix Navigation Menu), with the patches in `PATCHES.md`.
 The file stays a server-safe module (no `"use client"`, as stock) so `navigationMenuTriggerStyle()` can be called on the server.
 **Pattern:** WAI-ARIA APG Disclosure navigation
 <https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/examples/disclosure-navigation/> · **Completeness references:**
@@ -3835,7 +3835,7 @@ viewport a panel is aligned to the menu's start edge.
 
 ## Order list
 
-**Status:** built (0.1.0) · **Stock:** none: built on plain elements to the APG listbox pattern, with the library's
+**Status:** built (0.1.1) · **Stock:** none: built on plain elements to the APG listbox pattern, with the library's
 `Button`, `Checkbox` and `InputGroup`; dragging through `@dnd-kit/core` and `@dnd-kit/sortable` (peers).
 **Pattern:** APG Listbox <https://www.w3.org/WAI/ARIA/apg/patterns/listbox/> (multi-select, recommended selection
 model) and its rearrangeable example <https://www.w3.org/WAI/ARIA/apg/patterns/listbox/examples/listbox-rearrangeable/>
@@ -3931,7 +3931,7 @@ be dragged gives dnd kit no ids. Measured with 5,000 items in Chromium (developm
 
 ## Overlay badge
 
-**Status:** built (0.1.0) · **Stock:** none: built on Badge.
+**Status:** built (0.1.1) · **Stock:** none: built on Badge.
 **Pattern:** none in the APG (a decorated element with a description; WAI-ARIA `aria-describedby`
 <https://www.w3.org/TR/wai-aria-1.2/#aria-describedby>) · **Completeness references:** MUI Badge
 <https://mui.com/material-ui/react-badge/> · Mantine Indicator <https://mantine.dev/core/indicator/>
@@ -3969,7 +3969,7 @@ read beside a focusable child too. A changing count is not announced.
 
 ## Page header
 
-**Status:** built (0.1.0) · **Stock:** none: built on plain elements, the library's Button and DropdownMenu, and a
+**Status:** built (0.1.1) · **Stock:** none: built on plain elements, the library's Button and DropdownMenu, and a
 container query.
 **Pattern:** HTML headings; APG Menu Button for the folded actions <https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/>
 · **Completeness references:** Primer PageHeader, Atlassian Page header, Polaris Page.
@@ -4023,7 +4023,7 @@ row is `1fr`, so actions taller than the title push no space between the title a
 
 ## Panel
 
-**Status:** built (0.1.0) · **Stock:** none: built on Radix Collapsible (the Card's surface, the visual target's panel)
+**Status:** built (0.1.1) · **Stock:** none: built on Radix Collapsible (the Card's surface, the visual target's panel)
 
 **Pattern:** WAI-ARIA APG Disclosure <https://www.w3.org/WAI/ARIA/apg/patterns/disclosure/> (the toggle) ·
 **Completeness references:** Radix Collapsible <https://www.radix-ui.com/primitives/docs/components/collapsible> · Base UI
@@ -4083,7 +4083,7 @@ force-mounted content in the page while folded, hidden, with what was typed.
 
 ## Pick list
 
-**Status:** built (0.1.0) · **Stock:** none: built on `OrderList` and `OrderListGroup` (so on the APG listbox pattern and
+**Status:** built (0.1.1) · **Stock:** none: built on `OrderList` and `OrderListGroup` (so on the APG listbox pattern and
 dnd kit) with the library's `Button`.
 **Pattern:** two APG Listboxes <https://www.w3.org/WAI/ARIA/apg/patterns/listbox/> with buttons between them ·
 **Completeness references:** Base UI has none; React Aria's drag between lists <https://react-aria.adobe.com/ListBox>
@@ -4144,7 +4144,7 @@ only the item a choice changes in a long list, then moves every chosen item".
 
 ## Progress circle
 
-**Status:** built (0.1.0) · **Stock:** none: built on the Radix Progress primitive, drawn in SVG · **Pattern:** ARIA
+**Status:** built (0.1.1) · **Stock:** none: built on the Radix Progress primitive, drawn in SVG · **Pattern:** ARIA
 `progressbar` <https://www.w3.org/TR/wai-aria-1.2/#progressbar> · **Completeness references:** React Aria ProgressBar
 (circular example) <https://react-aria.adobe.com/ProgressBar> · Base UI Progress
 <https://base-ui.com/react/components/progress>
@@ -4192,7 +4192,7 @@ The same clamping as Progress. Test: clamps a value outside the range and repair
 
 ## Rating
 
-**Status:** built (0.1.0) · **Stock:** none: built on Radix RadioGroup.
+**Status:** built (0.1.1) · **Stock:** none: built on Radix RadioGroup.
 **Pattern:** APG Radio Group <https://www.w3.org/WAI/ARIA/apg/patterns/radio/> · **Completeness references:** MUI Rating
 <https://mui.com/material-ui/react-rating/> (radios, `role="img"` when read only); React Aria and Base UI have none.
 
@@ -4245,7 +4245,7 @@ provider string".
 
 ## Scroll top
 
-**Status:** built (0.1.0) · **Stock:** none: built from React state on Button
+**Status:** built (0.1.1) · **Stock:** none: built from React state on Button
 
 **Pattern:** none in the APG (a plain button) · **Completeness references:** the visual target's ScrollTop (target window |
 parent, threshold, icon, behavior) · Base UI and React Aria have none
@@ -4289,7 +4289,7 @@ take focus for the moment.
 
 ## Search field
 
-**Status:** built (0.1.0) · **Stock:** none: built on the library's `InputGroup` and `Input`, in a `role="search"` form.
+**Status:** built (0.1.1) · **Stock:** none: built on the library's `InputGroup` and `Input`, in a `role="search"` form.
 **Pattern:** WAI-ARIA search landmark <https://www.w3.org/WAI/ARIA/apg/patterns/landmarks/examples/search.html> ·
 **Completeness references:** React Aria SearchField <https://react-aria.adobe.com/SearchField> · Polaris and Carbon
 search fields.
@@ -4338,7 +4338,7 @@ alone. With `name`, the text is submitted with a surrounding form.
 
 ## Segmented control
 
-**Status:** built (0.1.0) · **Stock:** none: built on Radix RadioGroup.
+**Status:** built (0.1.1) · **Stock:** none: built on Radix RadioGroup.
 **Pattern:** APG Radio Group <https://www.w3.org/WAI/ARIA/apg/patterns/radio/> · **Completeness references:** Radix Themes
 SegmentedControl <https://www.radix-ui.com/themes/docs/components/segmented-control> (equal segments, transform-only
 indicator), React Aria ToggleButtonGroup <https://react-aria.adobe.com/ToggleButtonGroup>.
@@ -4391,7 +4391,7 @@ unchanged (checked at 1000, 320 and 240 px).
 
 ## Slider
 
-**Status:** built (0.1.0) · **Stock:** shadcn `slider` (Radix Slider), with the patches in `PATCHES.md`.
+**Status:** built (0.1.1) · **Stock:** shadcn `slider` (Radix Slider), with the patches in `PATCHES.md`.
 **Pattern:** WAI-ARIA APG Slider <https://www.w3.org/WAI/ARIA/apg/patterns/slider/> and Multi-thumb slider
 <https://www.w3.org/WAI/ARIA/apg/patterns/slider-multithumb/> · **Completeness references:** Base UI Slider
 <https://base-ui.com/react/components/slider> · React Aria Slider <https://react-aria.adobe.com/Slider>
@@ -4439,7 +4439,7 @@ passed to its handles. New strings: `sliderMinimum` = "Minimum", `sliderMaximum`
 
 ## Speed dial
 
-**Status:** built (0.1.0) · **Stock:** none: built from React state on Button and Tooltip
+**Status:** built (0.1.1) · **Stock:** none: built from React state on Button and Tooltip
 
 **Pattern:** WAI-ARIA APG Menu button <https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/> with a Menu
 <https://www.w3.org/WAI/ARIA/apg/patterns/menubar/> of icon items · **Completeness references:** the visual target's speed
@@ -4506,7 +4506,7 @@ right-to-left page.
 
 ## Splitter
 
-**Status:** built (0.1.0) · **Stock:** shadcn `new-york-v4/resizable` (react-resizable-panels 4), renamed
+**Status:** built (0.1.1) · **Stock:** shadcn `new-york-v4/resizable` (react-resizable-panels 4), renamed
 
 **Pattern:** WAI-ARIA APG Window splitter <https://www.w3.org/WAI/ARIA/apg/patterns/windowsplitter/> · **Completeness
 references:** react-resizable-panels <https://react-resizable-panels.vercel.app> · React Aria has no splitter; the visual
@@ -4558,7 +4558,7 @@ string. Hit area: the library's `resizeTargetMinimumSize` (10 px fine, 20 px coa
 
 ## Statistic
 
-**Status:** built (0.1.0) · **Stock:** none: built on semantic HTML (a `dl` of one `dt` and its `dd`s).
+**Status:** built (0.1.1) · **Stock:** none: built on semantic HTML (a `dl` of one `dt` and its `dd`s).
 **Pattern:** HTML description list (no APG widget pattern) · **Completeness references:** Ant Design Statistic
 <https://ant.design/components/statistic>, Chakra Stat <https://www.chakra-ui.com/docs/components/stat> (label, value,
 help text, up/down indicator), Atlassian MetricText; the look follows the visual target's meter-group template cards
@@ -4602,7 +4602,7 @@ colour marks good or bad, the words say only up or down.
 
 ## Stepper
 
-**Status:** built (0.1.0) · **Stock:** none: built from React state, no primitive
+**Status:** built (0.1.1) · **Stock:** none: built from React state, no primitive
 
 **Pattern:** no APG pattern; an ordered list of buttons with `aria-current="step"` (WAI-ARIA 1.2 `aria-current`
 <https://www.w3.org/TR/wai-aria-1.2/#aria-current>), arrow keys as between an accordion's triggers ·
@@ -4671,7 +4671,7 @@ when a Next with focus is disabled.
 
 ## Tags input
 
-**Status:** built (0.1.0) · **Stock:** none: built on plain elements and the library's `Chip`/`ChipGroup`; with
+**Status:** built (0.1.1) · **Stock:** none: built on plain elements and the library's `Chip`/`ChipGroup`; with
 `suggestions`, the input is Base UI Autocomplete (`@base-ui/react/autocomplete`).
 **Pattern:** no APG pattern for tags; the tags are a list of chips with APG Button remove actions, the suggestions APG
 Combobox (list autocomplete) · **Completeness references:** React Aria TagGroup <https://react-aria.adobe.com/TagGroup>
@@ -4740,7 +4740,7 @@ Notes:
 
 ## Time field
 
-**Status:** built (0.1.0) · **Stock:** none: built on a plain `role="group"` of contentEditable `role="spinbutton"`
+**Status:** built (0.1.1) · **Stock:** none: built on a plain `role="group"` of contentEditable `role="spinbutton"`
 segments (`src/lib/date-segments.tsx`, shared with DateField), formatted with `Intl` (`src/lib/dates.ts`).
 **Pattern:** APG Spinbutton <https://www.w3.org/WAI/ARIA/apg/patterns/spinbutton/>, React Aria TimeField segment model
 <https://react-aria.adobe.com/TimeField> · **Completeness references:** React Aria TimeField, Base UI has none.
@@ -4795,7 +4795,7 @@ AM/PM before the hours; the segments keep the locale's left-to-right order, AM/P
 
 ## Timeline
 
-**Status:** built (0.1.0) · **Stock:** none: built on semantic HTML (an `ol` of `li` events), no primitive.
+**Status:** built (0.1.1) · **Stock:** none: built on semantic HTML (an `ol` of `li` events), no primitive.
 **Pattern:** a list (no APG widget pattern applies) · **Completeness references:** MUI Timeline
 <https://mui.com/material-ui/react-timeline/> (position, opposite content, separator, connector), Ant Design Timeline
 <https://ant.design/components/timeline> (mode left/right/alternate, line at the edge without opposite content), and the
@@ -4836,7 +4836,7 @@ interactive onboarding demo (a consumer pattern: buttons in the markers), horizo
 
 ## Toolbar
 
-**Status:** built (0.1.0) · **Stock:** none: built on Radix Toolbar (shadcn has no toolbar item); buttons reuse Button's
+**Status:** built (0.1.1) · **Stock:** none: built on Radix Toolbar (shadcn has no toolbar item); buttons reuse Button's
 `buttonVariants`, toggle items Toggle's `toggleVariants`
 
 **Pattern:** WAI-ARIA APG Toolbar <https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/> · **Completeness references:** Radix
@@ -4888,7 +4888,7 @@ starts loading, and ignores its presses while it loads.
 
 ## Tour
 
-**Status:** built (0.1.0) · **Stock:** none: built on Radix Popover (`Popover.Root`, a virtual `Popover.Anchor`,
+**Status:** built (0.1.1) · **Stock:** none: built on Radix Popover (`Popover.Root`, a virtual `Popover.Anchor`,
 `Popover.Content`, `Popover.Arrow`) and Radix Portal for the mask.
 **Pattern:** WAI-ARIA APG Dialog (Modal) <https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/> (with the mask; a
 non-modal dialog without it) · **Completeness references:** Ant Design Tour <https://ant.design/components/tour> ·
@@ -4949,7 +4949,7 @@ found. Test: "centres a step whose target is not on the page, with no arrow, and
 
 ## Tree
 
-**Status:** built (0.1.0) · **Stock:** none: built on plain elements; pointer dragging, in the separate entry
+**Status:** built (0.1.1) · **Stock:** none: built on plain elements; pointer dragging, in the separate entry
 `tree-drag` (`DraggableTree`), on `@dnd-kit/core` 6.3 (`DndContext`, `useDraggable`, `useDroppable`, `DragOverlay`).
 
 **Pattern:** WAI-ARIA APG Tree View <https://www.w3.org/WAI/ARIA/apg/patterns/treeview/> · **Completeness references:**
@@ -5046,7 +5046,7 @@ again.
 
 ## Tree select
 
-**Status:** built (0.1.0) · **Stock:** none: built on the library's `Popover` (Radix Popover) holding the library's `Tree`.
+**Status:** built (0.1.1) · **Stock:** none: built on the library's `Popover` (Radix Popover) holding the library's `Tree`.
 
 **Pattern:** WAI-ARIA APG Combobox <https://www.w3.org/WAI/ARIA/apg/patterns/combobox/> (popup: tree, or dialog with the
 filter) · **Completeness references:** React Aria has no tree select; the visual target's select page, "Tree" demo, and its
@@ -5107,7 +5107,7 @@ Notes:
 
 ## Tree table
 
-**Status:** built (0.1.0) · **Stock:** none: built on the Tree's data model and state (`useTreeState`) rendered as a
+**Status:** built (0.1.1) · **Stock:** none: built on the Tree's data model and state (`useTreeState`) rendered as a
 `role="treegrid"` table with the library's Table parts (`TableHeader`, `TableBody`, `TableRow`, `TableHead`, `TableCell`)
 and `Pagination` parts. Not on `@tanstack/react-table`: one node shape and one set of rules (open and chosen ids, mixed
 checkboxes, lazy children, type-ahead, the arrow keys) across Tree, TreeSelect and TreeTable, the APG treegrid row keys
@@ -5174,7 +5174,7 @@ column groups, filter and export.
 
 ## Typography
 
-**Status:** built (0.1.0) · **Stock:** none: plain elements styled with the visual target's documentation type scale.
+**Status:** built (0.1.1) · **Stock:** none: plain elements styled with the visual target's documentation type scale.
 **Pattern:** none in the APG (native headings, paragraphs, lists, quotes, code, tables) · **Completeness references:**
 Chakra Prose <https://chakra-ui.com/docs/components/prose> · shadcn Typography <https://ui.shadcn.com/docs/components/typography>
 · Tailwind Typography <https://github.com/tailwindlabs/tailwindcss-typography>
@@ -5215,7 +5215,7 @@ The `success` tone is 3.3:1 on white in light (an existing exception pair of the
 
 ## Virtual scroller
 
-**Status:** built (0.1.0) · **Stock:** none: built on TanStack Virtual's `useVirtualizer` (`@tanstack/react-virtual`,
+**Status:** built (0.1.1) · **Stock:** none: built on TanStack Virtual's `useVirtualizer` (`@tanstack/react-virtual`,
 peer) and the library's `Skeleton`.
 **Pattern:** a focusable scrolling region (WCAG 2.1.1; APG Landmark Regions
 <https://www.w3.org/WAI/ARIA/apg/practices/landmark-regions/>) whose items are a list with `aria-setsize` /

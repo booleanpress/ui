@@ -17,7 +17,7 @@ import {
 import { Button } from "@/components/button"
 import { useUiConfig, useUiStrings } from "@booleanpress/ui/provider"
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 type CarouselApi = UseEmblaCarouselType[1]
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>
 type CarouselOptions = UseCarouselParameters[0]
@@ -72,7 +72,7 @@ function isEditable(target: EventTarget | null) {
 /**
  * Slides that scroll along one axis, built on Embla. Arrow keys move one slide while focus is inside it.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function Carousel({
   orientation = "horizontal",
@@ -193,7 +193,7 @@ function Carousel({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function CarouselContent({ className, ...props }: React.ComponentProps<"div">) {
   const { carouselRef, orientation } = useCarousel()
 
@@ -219,7 +219,7 @@ function CarouselContent({ className, ...props }: React.ComponentProps<"div">) {
 /**
  * One slide. Its accessible name is its position, "Slide 2 of 5", unless you give it `aria-label`.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function CarouselItem({ className, ...props }: React.ComponentProps<"div">) {
   const { api, orientation } = useCarousel()
@@ -274,7 +274,7 @@ function CarouselItem({ className, ...props }: React.ComponentProps<"div">) {
 const arrowButtonClass =
   "rounded-full text-muted-foreground hover:text-foreground [&_svg:not([class*='size-'])]:size-4"
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function CarouselPrevious({
   className,
   variant = "outline",
@@ -310,7 +310,7 @@ function CarouselPrevious({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function CarouselNext({
   className,
   variant = "outline",
@@ -350,7 +350,7 @@ function CarouselNext({
  * A row under the slides: put `CarouselDots` at its start and the previous and next buttons at its end, as the
  * visual target lays them out.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 // boolean-ui patch: new part.
 function CarouselFooter({ className, ...props }: React.ComponentProps<"div">) {
@@ -368,7 +368,7 @@ function CarouselFooter({ className, ...props }: React.ComponentProps<"div">) {
 /**
  * One bar per scroll position; the current one is filled. Each is a button named "Go to slide 2".
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 // boolean-ui patch: new part, the visual target's indicators.
 function CarouselDots({ className, ...props }: React.ComponentProps<"div">) {

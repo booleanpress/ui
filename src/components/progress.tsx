@@ -6,7 +6,7 @@ import { Progress as ProgressPrimitive } from "radix-ui"
 
 import { useUiLocale } from "@booleanpress/ui/provider"
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function Progress({
   className,
   value,
@@ -17,13 +17,13 @@ function Progress({
   getValueLabel,
   ...props
 }: React.ComponentProps<typeof ProgressPrimitive.Root> & {
-  /** The bar's height: `sm` 8 px, `default` 18 px, `lg` 24 px. @since 0.1.0 */
+  /** The bar's height: `sm` 8 px, `default` 18 px, `lg` 24 px. @since 0.1.1 */
   size?: "sm" | "default" | "lg"
-  /** Draws the bar in this many equal segments, such as the steps of a setup. @since 0.1.0 */
+  /** Draws the bar in this many equal segments, such as the steps of a setup. @since 0.1.1 */
   steps?: number
   /**
    * Writes the value inside the filled part: `getValueLabel`'s text, a percentage by default. Not drawn at `sm`, in
-   * segments or while indeterminate. @since 0.1.0
+   * segments or while indeterminate. @since 0.1.1
    */
   showValue?: boolean
 }) {

@@ -5,14 +5,14 @@ import { cn } from "@/lib/utils"
 import { ChevronDownIcon } from "lucide-react"
 import { Accordion as AccordionPrimitive } from "radix-ui"
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function Accordion({
   ...props
 }: React.ComponentProps<typeof AccordionPrimitive.Root>) {
   return <AccordionPrimitive.Root data-slot="accordion" {...props} />
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function AccordionItem({
   className,
   ...props
@@ -31,7 +31,7 @@ function AccordionItem({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function AccordionTrigger({
   className,
   children,
@@ -79,7 +79,7 @@ function AccordionTrigger({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function AccordionContent({
   className,
   children,

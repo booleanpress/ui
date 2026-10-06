@@ -5,7 +5,7 @@ import { Slot } from "radix-ui"
 
 import { Separator } from "@/components/separator"
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ItemGroup({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -17,7 +17,7 @@ function ItemGroup({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ItemSeparator({
   className,
   ...props
@@ -58,7 +58,7 @@ const itemVariants = cva(
   }
 )
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function Item({
   className,
   variant = "default",
@@ -98,7 +98,7 @@ const itemMediaVariants = cva(
   }
 )
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ItemMedia({
   className,
   variant = "default",
@@ -114,7 +114,7 @@ function ItemMedia({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ItemContent({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -129,7 +129,7 @@ function ItemContent({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ItemTitle({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -144,7 +144,7 @@ function ItemTitle({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ItemDescription({ className, ...props }: React.ComponentProps<"p">) {
   return (
     <p
@@ -159,7 +159,7 @@ function ItemDescription({ className, ...props }: React.ComponentProps<"p">) {
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ItemActions({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -170,7 +170,7 @@ function ItemActions({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ItemHeader({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -184,7 +184,7 @@ function ItemHeader({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ItemFooter({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div

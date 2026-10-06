@@ -5,7 +5,7 @@ import { Slot } from "radix-ui"
 
 import { Spinner } from "@/components/spinner"
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 const buttonVariants = cva(
   // boolean-ui patch: the BooleanPress look — 14px/21px medium text, 6px 10px padding and a 1px edge make 35px, 6px
   // radius, 8px gap, 14px icons, colour fades over 200ms, a 1px outline 2px away on keyboard focus, 60% opacity when
@@ -135,7 +135,7 @@ function withSpinner(children: React.ReactNode, iconOnly: boolean) {
   ]
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function Button({
   className,
   variant = "default",
@@ -155,7 +155,7 @@ function Button({
     /**
      * Shows the spinner in place of the leading icon, sets `aria-busy` and `aria-disabled` and ignores presses (a click,
      * Enter, Space, a form's submission), while the button keeps its focus and its place in the tab order. With
-     * `asChild` the child (a link) gets the same. @since 0.1.0
+     * `asChild` the child (a link) gets the same. @since 0.1.1
      */
     loading?: boolean
   }) {

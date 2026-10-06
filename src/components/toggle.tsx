@@ -7,7 +7,7 @@ import { Toggle as TogglePrimitive } from "radix-ui"
 
 import { useControlSize } from "@booleanpress/ui/provider"
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 const toggleVariants = cva(
   [
     // boolean-ui patch: 4px frame around a padded content plate. Pressed content has its own fill and shadow.
@@ -36,7 +36,7 @@ const toggleVariants = cva(
   }
 )
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function Toggle({
   className,
   variant,
@@ -50,7 +50,7 @@ function Toggle({
   ...props
 }: Omit<React.ComponentProps<typeof TogglePrimitive.Root>, "children"> &
   VariantProps<typeof toggleVariants> & {
-    /** Fills the width of its container. @since 0.1.0 */
+    /** Fills the width of its container. @since 0.1.1 */
     fluid?: boolean
     /** Content, or a function of the current pressed state. Keep an accessible name stable across states. */
     children?: React.ReactNode | ((state: { pressed: boolean }) => React.ReactNode)

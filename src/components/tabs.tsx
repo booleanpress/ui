@@ -12,7 +12,7 @@ import { useUiStrings } from "@booleanpress/ui/provider"
 // leaves the value to Radix alone).
 const TabsValueContext = React.createContext<((value: string) => void) | null>(null)
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function Tabs({
   className,
   orientation = "horizontal",
@@ -72,7 +72,7 @@ const tabsListVariants = cva(
   }
 )
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function TabsList({
   className,
   variant = "default",
@@ -82,7 +82,7 @@ function TabsList({
   VariantProps<typeof tabsListVariants> & {
     /**
      * Scrolls a row of tabs wider than its box, with a previous and a next button at the ends that show only when
-     * there is more to see. Horizontal lists only. @since 0.1.0
+     * there is more to see. Horizontal lists only. @since 0.1.1
      */
     scrollable?: boolean
   }) {
@@ -251,7 +251,7 @@ function TabsListScroller({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function TabsTrigger({
   className,
   value,
@@ -262,7 +262,7 @@ function TabsTrigger({
 }: React.ComponentProps<typeof TabsPrimitive.Trigger> & {
   /**
    * Makes the tab closable: an × after its label, and Delete or Backspace while it has focus. Remove the tab from
-   * your list here; a closed tab that was selected or focused hands both to its neighbour. @since 0.1.0
+   * your list here; a closed tab that was selected or focused hands both to its neighbour. @since 0.1.1
    */
   onClose?: () => void
 }) {
@@ -355,7 +355,7 @@ function TabsTrigger({
  * A bar that slides to the selected tab, in place of each tab's own bar. Put it last inside `TabsList`. It moves with
  * `transform` only, so it never makes the page lay out again.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function TabsIndicator({ className, style, ...props }: React.ComponentProps<"span">) {
   const ref = React.useRef<HTMLSpanElement>(null)
@@ -429,7 +429,7 @@ function TabsIndicator({ className, style, ...props }: React.ComponentProps<"spa
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function TabsContent({
   className,
   ...props

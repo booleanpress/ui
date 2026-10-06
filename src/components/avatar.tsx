@@ -4,7 +4,7 @@ import * as React from "react"
 import { cn } from "@/lib/utils"
 import { Avatar as AvatarPrimitive } from "radix-ui"
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function Avatar({
   className,
   size = "default",
@@ -27,7 +27,7 @@ function Avatar({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function AvatarImage({
   className,
   ...props
@@ -42,7 +42,7 @@ function AvatarImage({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function AvatarFallback({
   className,
   ...props
@@ -61,7 +61,7 @@ function AvatarFallback({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function AvatarBadge({ className, ...props }: React.ComponentProps<"span">) {
   return (
     <span
@@ -78,7 +78,7 @@ function AvatarBadge({ className, ...props }: React.ComponentProps<"span">) {
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function AvatarGroup({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -94,7 +94,7 @@ function AvatarGroup({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function AvatarGroupCount({
   className,
   ...props

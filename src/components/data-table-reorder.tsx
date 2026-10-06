@@ -114,7 +114,7 @@ const layer: DataTableReorderLayer = { Root: DataTableReorderRoot, Row: DataTabl
 /**
  * Props of `ReorderableDataTable`: the DataTable's, with `onRowOrderChange` required.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 interface ReorderableDataTableProps<TData extends RowData> extends Omit<DataTableProps<TData>, "rowReordering"> {
   /** Called with `data` in its new order when a row is dropped in a new place; pass it back as `data`. */
@@ -127,7 +127,7 @@ interface ReorderableDataTableProps<TData extends RowData> extends Omit<DataTabl
  * Takes every prop of `DataTable`; rows keep the order of `data`, so the handles rest while the table is sorted,
  * grouped or virtual. Needs `@dnd-kit/core` and `@dnd-kit/sortable`.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function ReorderableDataTable<TData extends RowData>(props: ReorderableDataTableProps<TData>) {
   return (

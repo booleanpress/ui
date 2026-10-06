@@ -145,11 +145,11 @@ function AutocompleteControl(props: React.ComponentProps<typeof InputGroupInput>
 /**
  * A text field with suggestions: people type anything, and may pick a suggestion to fill the field.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 const Autocomplete = AutocompleteRoot as typeof AutocompletePrimitive.Root
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function AutocompleteTrigger({ className, ...props }: WithStringClassName<AutocompletePrimitive.Trigger.Props>) {
   const strings = useUiStrings()
 
@@ -170,7 +170,7 @@ function AutocompleteTrigger({ className, ...props }: WithStringClassName<Autoco
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function AutocompleteClear({ className, ...props }: WithStringClassName<AutocompletePrimitive.Clear.Props>) {
   const strings = useUiStrings()
 
@@ -190,7 +190,7 @@ function AutocompleteClear({ className, ...props }: WithStringClassName<Autocomp
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function AutocompleteInput({
   className,
   children,
@@ -241,7 +241,7 @@ function AutocompleteInput({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function AutocompleteContent({
   className,
   side = "bottom",
@@ -301,7 +301,7 @@ function AutocompleteContent({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function AutocompleteList({ className, ...props }: WithStringClassName<AutocompletePrimitive.List.Props>) {
   return (
     <AutocompletePrimitive.List
@@ -328,7 +328,7 @@ function AutocompleteArrow({ className, ...props }: WithStringClassName<Autocomp
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function AutocompleteItem({
   className,
   children,
@@ -378,7 +378,7 @@ function AutocompleteItem({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function AutocompleteGroup({ className, ...props }: WithStringClassName<AutocompletePrimitive.Group.Props>) {
   return (
     <AutocompletePrimitive.Group
@@ -389,7 +389,7 @@ function AutocompleteGroup({ className, ...props }: WithStringClassName<Autocomp
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function AutocompleteLabel({ className, ...props }: WithStringClassName<AutocompletePrimitive.GroupLabel.Props>) {
   return (
     <AutocompletePrimitive.GroupLabel
@@ -401,12 +401,12 @@ function AutocompleteLabel({ className, ...props }: WithStringClassName<Autocomp
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function AutocompleteCollection({ ...props }: AutocompletePrimitive.Collection.Props) {
   return <AutocompletePrimitive.Collection data-slot="autocomplete-collection" {...props} />
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function AutocompleteEmpty({ className, children, ...props }: WithStringClassName<AutocompletePrimitive.Empty.Props>) {
   const strings = useUiStrings()
 
@@ -426,7 +426,7 @@ function AutocompleteEmpty({ className, children, ...props }: WithStringClassNam
  * A polite live region for asynchronous suggestions. With `loading` it shows a spinner and the provider's "Loading
  * results…"; otherwise it shows its children, such as an error, or nothing.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function AutocompleteStatus({
   className,
@@ -460,7 +460,7 @@ function AutocompleteStatus({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function AutocompleteSeparator({ className, ...props }: WithStringClassName<AutocompletePrimitive.Separator.Props>) {
   return (
     <AutocompletePrimitive.Separator
@@ -474,7 +474,7 @@ function AutocompleteSeparator({ className, ...props }: WithStringClassName<Auto
 /**
  * Base UI's locale-aware matchers (`contains`, `startsWith`, `endsWith`), for filtering outside the list.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 const useAutocompleteFilter = AutocompletePrimitive.useFilter
 

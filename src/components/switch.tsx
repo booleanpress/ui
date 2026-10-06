@@ -6,7 +6,7 @@ import { Switch as SwitchPrimitive } from "radix-ui"
 
 import { useControlSize, type ControlSize } from "@booleanpress/ui/provider"
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function Switch({
   className,
   size,
@@ -16,9 +16,9 @@ function Switch({
 }: React.ComponentProps<typeof SwitchPrimitive.Root> & {
   /** 28 × 16, 36 × 22 or 44 × 26 px. Defaults to the provider's `controlSize`. */
   size?: ControlSize
-  /** An icon inside the thumb while on, such as a check. Sized with the thumb. @since 0.1.0 */
+  /** An icon inside the thumb while on, such as a check. Sized with the thumb. @since 0.1.1 */
   checkedIcon?: React.ReactNode
-  /** An icon inside the thumb while off, such as a cross. Sized with the thumb. @since 0.1.0 */
+  /** An icon inside the thumb while off, such as a cross. Sized with the thumb. @since 0.1.1 */
   uncheckedIcon?: React.ReactNode
 }) {
   const resolvedSize = useControlSize(size)

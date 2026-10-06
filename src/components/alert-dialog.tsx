@@ -7,14 +7,14 @@ import { AlertDialog as AlertDialogPrimitive } from "radix-ui"
 import { Button } from "@/components/button"
 import { useReturnFocus, type ReturnFocusTarget } from "@/lib/return-focus"
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function AlertDialog({
   ...props
 }: React.ComponentProps<typeof AlertDialogPrimitive.Root>) {
   return <AlertDialogPrimitive.Root data-slot="alert-dialog" {...props} />
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function AlertDialogTrigger({
   ...props
 }: React.ComponentProps<typeof AlertDialogPrimitive.Trigger>) {
@@ -23,7 +23,7 @@ function AlertDialogTrigger({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function AlertDialogPortal({
   ...props
 }: React.ComponentProps<typeof AlertDialogPrimitive.Portal>) {
@@ -32,7 +32,7 @@ function AlertDialogPortal({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function AlertDialogOverlay({
   className,
   ...props
@@ -54,7 +54,7 @@ function AlertDialogOverlay({
 /**
  * The confirmation's panel, with its backdrop. Focus starts on Cancel, the least destructive action.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function AlertDialogContent({
   className,
@@ -94,7 +94,7 @@ function AlertDialogContent({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function AlertDialogHeader({
   className,
   ...props
@@ -113,7 +113,7 @@ function AlertDialogHeader({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function AlertDialogFooter({
   className,
   ...props
@@ -131,7 +131,7 @@ function AlertDialogFooter({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function AlertDialogTitle({
   className,
   ...props
@@ -149,7 +149,7 @@ function AlertDialogTitle({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function AlertDialogDescription({
   className,
   ...props
@@ -164,7 +164,7 @@ function AlertDialogDescription({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function AlertDialogMedia({
   className,
   ...props
@@ -183,7 +183,7 @@ function AlertDialogMedia({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function AlertDialogAction({
   className,
   variant = "default",
@@ -202,7 +202,7 @@ function AlertDialogAction({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function AlertDialogCancel({
   className,
   variant = "outline",

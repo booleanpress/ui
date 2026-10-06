@@ -33,14 +33,14 @@ import { formatFileSize } from "@/lib/format-bytes"
 /**
  * A moment in a thread: a `Date`, an ISO string or a timestamp in milliseconds.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 type ChatTime = Date | string | number
 
 /**
  * Where a message the reader sent stands: `sending`, `sent`, or `failed` (shown with a retry button).
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 type ChatMessageStatus = "sending" | "sent" | "failed"
 
@@ -72,7 +72,7 @@ function machineDateTime(date: Date, timeZone: string | undefined, withTime: boo
 // How close to the bottom, in pixels, still counts as reading the latest message.
 const STICK_DISTANCE = 32
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ChatThread({
   className,
   children,
@@ -186,7 +186,7 @@ function ChatThread({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ChatMessage({
   side = "start",
   author,
@@ -307,7 +307,7 @@ function ChatMessage({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ChatBubble({
   variant = "default",
   className,
@@ -343,7 +343,7 @@ function AttachmentIcon({ type, name }: { type: string; name: string }) {
   return <FileIcon aria-hidden="true" />
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ChatAttachment({
   name,
   size,
@@ -438,7 +438,7 @@ function ChatAttachment({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ChatDateSeparator({
   date,
   format,
@@ -479,7 +479,7 @@ function ChatDateSeparator({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ChatTypingIndicator({
   name,
   avatar,
@@ -520,7 +520,7 @@ function ChatTypingIndicator({
 
 const composerButtonSizes = { sm: "icon-xs", default: "icon-sm", lg: "icon" } as const
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ChatComposer({
   value: valueProp,
   defaultValue = "",

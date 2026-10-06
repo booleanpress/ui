@@ -4,14 +4,14 @@ import * as React from "react"
 import { cn } from "@/lib/utils"
 import { HoverCard as HoverCardPrimitive } from "radix-ui"
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function HoverCard({
   ...props
 }: React.ComponentProps<typeof HoverCardPrimitive.Root>) {
   return <HoverCardPrimitive.Root data-slot="hover-card" {...props} />
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function HoverCardTrigger({
   ...props
 }: React.ComponentProps<typeof HoverCardPrimitive.Trigger>) {
@@ -20,7 +20,7 @@ function HoverCardTrigger({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function HoverCardContent({
   className,
   align = "center",

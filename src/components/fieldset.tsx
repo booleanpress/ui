@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils"
 
 const FieldsetContext = React.createContext({ toggleable: false, open: true })
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function Fieldset({
   className,
   toggleable = false,
@@ -82,7 +82,7 @@ function Fieldset({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function FieldsetLegend({
   className,
   indicator,
@@ -138,7 +138,7 @@ function FieldsetLegend({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function FieldsetContent({
   className,
   children,

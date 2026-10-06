@@ -72,7 +72,7 @@ function resetDetails(): ComboboxPrimitive.Root.ChangeEventDetails {
 // `takeFocus` tells the new input, once, to take that focus back.
 const ComboboxResetContext = React.createContext<{ reset: (focus: boolean) => void; takeFocus: () => boolean } | null>(null)
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function Combobox<Value, Multiple extends boolean | undefined = false, Item = Value>(
   props: ComboboxPrimitive.Root.Props<Value, Multiple, Item>
 ) {
@@ -154,12 +154,12 @@ function ComboboxControl({ plain = false, ...props }: React.ComponentProps<"inpu
   return plain ? <input {...props} {...named} /> : <InputGroupInput {...props} {...named} />
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ComboboxValue({ ...props }: ComboboxPrimitive.Value.Props) {
   return <ComboboxPrimitive.Value data-slot="combobox-value" {...props} />
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ComboboxTrigger({
   className,
   children,
@@ -188,7 +188,7 @@ function ComboboxTrigger({
 }
 
 // boolean-ui patch: exported, so a field built from parts can show it (stock: private to ComboboxInput).
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ComboboxClear({ className, ...props }: WithStringClassName<ComboboxPrimitive.Clear.Props>) {
   const strings = useUiStrings()
 
@@ -211,7 +211,7 @@ function ComboboxClear({ className, ...props }: WithStringClassName<ComboboxPrim
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ComboboxInput({
   className,
   children,
@@ -274,7 +274,7 @@ function ComboboxInput({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ComboboxContent({
   className,
   side = "bottom",
@@ -339,7 +339,7 @@ function ComboboxContent({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ComboboxList({ className, ...props }: WithStringClassName<ComboboxPrimitive.List.Props>) {
   return (
     <ComboboxPrimitive.List
@@ -355,7 +355,7 @@ function ComboboxList({ className, ...props }: WithStringClassName<ComboboxPrimi
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ComboboxItem({
   className,
   children,
@@ -418,7 +418,7 @@ function ComboboxItem({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ComboboxGroup({ className, ...props }: WithStringClassName<ComboboxPrimitive.Group.Props>) {
   return (
     <ComboboxPrimitive.Group
@@ -430,7 +430,7 @@ function ComboboxGroup({ className, ...props }: WithStringClassName<ComboboxPrim
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ComboboxLabel({ className, ...props }: WithStringClassName<ComboboxPrimitive.GroupLabel.Props>) {
   return (
     <ComboboxPrimitive.GroupLabel
@@ -443,12 +443,12 @@ function ComboboxLabel({ className, ...props }: WithStringClassName<ComboboxPrim
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ComboboxCollection({ ...props }: ComboboxPrimitive.Collection.Props) {
   return <ComboboxPrimitive.Collection data-slot="combobox-collection" {...props} />
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ComboboxEmpty({ className, children, ...props }: WithStringClassName<ComboboxPrimitive.Empty.Props>) {
   const strings = useUiStrings()
 
@@ -474,7 +474,7 @@ function ComboboxEmpty({ className, children, ...props }: WithStringClassName<Co
  * A polite live region for an asynchronous list. With `loading` it shows a spinner and the provider's "Loading results…";
  * otherwise it shows its children, such as an error, or nothing. It stays in the page so changes are announced.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function ComboboxStatus({
   className,
@@ -513,7 +513,7 @@ function ComboboxStatus({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ComboboxSeparator({ className, ...props }: WithStringClassName<ComboboxPrimitive.Separator.Props>) {
   return (
     <ComboboxPrimitive.Separator
@@ -527,7 +527,7 @@ function ComboboxSeparator({ className, ...props }: WithStringClassName<Combobox
 
 const ComboboxChipsContext = React.createContext<ControlSize>("default")
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ComboboxChips({
   className,
   size,
@@ -570,7 +570,7 @@ function ComboboxChips({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ComboboxChip({
   className,
   children,
@@ -618,7 +618,7 @@ function ComboboxChip({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ComboboxChipsInput({ className, ...props }: WithStringClassName<ComboboxPrimitive.Input.Props>) {
   return (
     <ComboboxPrimitive.Input
@@ -637,7 +637,7 @@ function ComboboxChipsInput({ className, ...props }: WithStringClassName<Combobo
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function useComboboxAnchor() {
   return React.useRef<HTMLDivElement | null>(null)
 }
@@ -646,7 +646,7 @@ function useComboboxAnchor() {
 /**
  * The options left after filtering, inside a `Combobox`: what a virtualised list renders.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 const useComboboxFilteredItems = ComboboxPrimitive.useFilteredItems
 

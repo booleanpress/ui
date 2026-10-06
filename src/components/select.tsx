@@ -21,7 +21,7 @@ const SelectSelectionContext = React.createContext<{
   clear: () => void
 } | null>(null)
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function Select({
   value: valueProp,
   defaultValue,
@@ -51,7 +51,7 @@ function Select({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function SelectGroup({
   className,
   ...props
@@ -66,14 +66,14 @@ function SelectGroup({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function SelectValue({
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.Value>) {
   return <SelectPrimitive.Value data-slot="select-value" {...props} />
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function SelectTrigger({
   className,
   size,
@@ -85,11 +85,11 @@ function SelectTrigger({
 }: React.ComponentProps<typeof SelectPrimitive.Trigger> & {
   /** 26, 34 or 42 px tall. Defaults to the provider's `controlSize`. */
   size?: ControlSize
-  /** `filled` fills the field grey. Defaults to the provider's `fieldVariant`. @since 0.1.0 */
+  /** `filled` fills the field grey. Defaults to the provider's `fieldVariant`. @since 0.1.1 */
   variant?: FieldVariant
-  /** Fills the width of its container. @since 0.1.0 */
+  /** Fills the width of its container. @since 0.1.1 */
   fluid?: boolean
-  /** Shows a clear button inside the field while a value is chosen; it resets the value to the placeholder. @since 0.1.0 */
+  /** Shows a clear button inside the field while a value is chosen; it resets the value to the placeholder. @since 0.1.1 */
   clearable?: boolean
 }) {
   const resolvedSize = useControlSize(size)
@@ -171,7 +171,7 @@ function SelectTrigger({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function SelectContent({
   className,
   children,
@@ -224,7 +224,7 @@ function SelectArrow({ className, ...props }: React.ComponentProps<typeof Select
   return <SelectPrimitive.Arrow data-slot="select-arrow" width={16} height={8} className={cn("fill-popover stroke-border", className)} {...props} />
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function SelectLabel({
   className,
   ...props
@@ -239,7 +239,7 @@ function SelectLabel({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function SelectItem({
   className,
   children,
@@ -247,9 +247,9 @@ function SelectItem({
   description,
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.Item> & {
-  /** Leading media in the list, beside both lines, such as an avatar or a flag. The trigger does not show it. @since 0.1.0 */
+  /** Leading media in the list, beside both lines, such as an avatar or a flag. The trigger does not show it. @since 0.1.1 */
   icon?: React.ReactNode
-  /** A second, muted line under the label in the list. The trigger does not show it. @since 0.1.0 */
+  /** A second, muted line under the label in the list. The trigger does not show it. @since 0.1.1 */
   description?: React.ReactNode
 }) {
   const rich = icon != null || description != null
@@ -304,7 +304,7 @@ function SelectItem({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function SelectSeparator({
   className,
   ...props
@@ -319,7 +319,7 @@ function SelectSeparator({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function SelectScrollUpButton({
   className,
   ...props
@@ -339,7 +339,7 @@ function SelectScrollUpButton({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function SelectScrollDownButton({
   className,
   ...props

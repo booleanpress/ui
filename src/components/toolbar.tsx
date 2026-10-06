@@ -12,7 +12,7 @@ import { Button, buttonVariants } from "@/components/button"
 import { toggleVariants } from "@/components/toggle"
 import { useControlSize, useUiStrings } from "@booleanpress/ui/provider"
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function Toolbar({
   className,
   orientation = "horizontal",
@@ -32,7 +32,7 @@ function Toolbar({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ToolbarGroup({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -58,7 +58,7 @@ type ToolbarButtonProps = Omit<React.ComponentProps<typeof ToolbarPrimitive.Butt
     loading?: boolean
   }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ToolbarButton({
   className,
   variant = "ghost",
@@ -92,7 +92,7 @@ function ToolbarButton({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ToolbarOverflowButton({ children, "aria-label": ariaLabel, ...props }: ToolbarButtonProps) {
   const strings = useUiStrings()
   return (
@@ -102,7 +102,7 @@ function ToolbarOverflowButton({ children, "aria-label": ariaLabel, ...props }: 
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ToolbarLink({ className, ...props }: React.ComponentProps<typeof ToolbarPrimitive.Link>) {
   return (
     <ToolbarPrimitive.Link
@@ -115,7 +115,7 @@ function ToolbarLink({ className, ...props }: React.ComponentProps<typeof Toolba
 
 const ToolbarToggleContext = React.createContext<VariantProps<typeof toggleVariants>>({ size: undefined })
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ToolbarToggleGroup({
   className,
   size,
@@ -135,7 +135,7 @@ function ToolbarToggleGroup({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ToolbarToggleItem({
   className,
   children,
@@ -169,7 +169,7 @@ function ToolbarToggleItem({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ToolbarSeparator({ className, ...props }: React.ComponentProps<typeof ToolbarPrimitive.Separator>) {
   return (
     <ToolbarPrimitive.Separator

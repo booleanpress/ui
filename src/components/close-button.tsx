@@ -12,7 +12,7 @@ import { useControlSize, useUiStrings, type ControlSize } from "@booleanpress/ui
 
 const SIZES = { sm: "icon-sm", default: "icon", lg: "icon-lg" } as const
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function CloseButton({
   className,
   size,

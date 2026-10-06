@@ -35,7 +35,7 @@ const progressCircleVariants = cva(
 /**
  * Props of `ProgressCircle`. A name is required: `aria-label`, or `aria-labelledby` pointing at visible text.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 type ProgressCircleProps = Omit<React.ComponentProps<typeof ProgressPrimitive.Root>, "children"> & {
   /** The ring's size: `sm` 24 px, `default` 40 px, `lg` 64 px. */
@@ -48,7 +48,7 @@ type ProgressCircleProps = Omit<React.ComponentProps<typeof ProgressPrimitive.Ro
   showValue?: boolean
 } & ({ "aria-label": string; "aria-labelledby"?: string } | { "aria-labelledby": string; "aria-label"?: string })
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ProgressCircle({
   className,
   value,

@@ -7,7 +7,7 @@ import { Direction, Tooltip as TooltipPrimitive } from "radix-ui"
  * English defaults of every string the components render themselves. A product passes its translated map to
  * `BooleanUIProvider`; a key it leaves out falls back to the English here.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 export const DEFAULT_STRINGS = Object.freeze({
   close: "Close",
@@ -278,35 +278,35 @@ export const DEFAULT_STRINGS = Object.freeze({
 /**
  * The built-in strings: every key of `DEFAULT_STRINGS`, each a translated string.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 export type UiStrings = { [Key in keyof typeof DEFAULT_STRINGS]: string }
 
 /**
  * Text direction of the admin page.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 export type UiDirection = "ltr" | "rtl"
 
 /**
  * The size of a control: 26, 34 or 42 px tall for a text field.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 export type ControlSize = "sm" | "default" | "lg"
 
 /**
  * The look of a field: the white `--field` fill, or the grey `--field-filled` one.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 export type FieldVariant = "default" | "filled"
 
 /**
  * What `useUiConfig()` returns: the provider's resolved configuration.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 export interface UiConfig {
   strings: UiStrings
@@ -328,11 +328,11 @@ export interface UiConfig {
  * Tooltip timing: a tooltip waits half a second where the pointer rests, and the next one waits again, so sweeping
  * the pointer across a row of icon buttons never strobes tooltips.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 export const DEFAULT_TOOLTIP_DELAY = 500
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 export const DEFAULT_TOOLTIP_SKIP_DELAY = 0
 
 const DEFAULT_CONFIG: UiConfig = Object.freeze({
@@ -354,7 +354,7 @@ UiContext.displayName = "BooleanUIContext"
  * Props of `BooleanUIProvider`. Every prop is optional: at the root, one left out takes its default; in a nested
  * provider, it takes the value of the provider above.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 export interface BooleanUIProviderProps {
   /**
@@ -370,20 +370,20 @@ export interface BooleanUIProviderProps {
   tooltipSkipDelay?: number
   /** Local-storage key of the sidebar's collapsed state, unique per product. */
   sidebarStorageKey?: string
-  /** The size of every control that is given none, for a compact or a roomy app. @since 0.1.0 */
+  /** The size of every control that is given none, for a compact or a roomy app. @since 0.1.1 */
   controlSize?: ControlSize
-  /** The look of every field that is given none: `filled` for grey fields everywhere. @since 0.1.0 */
+  /** The look of every field that is given none: `filled` for grey fields everywhere. @since 0.1.1 */
   fieldVariant?: FieldVariant
   /**
    * BCP 47 locale for the numbers and dates components format (`"de-DE"`): usually the site's locale. WordPress's form
    * (`"de_DE"`, `"de_DE_formal"`) is accepted; a locale `Intl` cannot read falls back to the runtime's default.
-   * @since 0.1.0
+   * @since 0.1.1
    */
   locale?: string
   /**
    * IANA time zone dates are shown in (`"Europe/Berlin"`): usually the site's time zone. A UTC offset (`"+02:00"`, as
    * WordPress gives for a site set to one) is accepted; a zone `Intl` cannot read falls back to the browser's.
-   * @since 0.1.0
+   * @since 0.1.1
    */
   timeZone?: string
   children?: React.ReactNode
@@ -454,7 +454,7 @@ function mergeStrings(base: UiStrings, strings: Partial<UiStrings> | undefined):
  * the page can take its own locale (`<BooleanUIProvider locale="de-DE">`) and keep the app's direction, strings and
  * sizes.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 export function BooleanUIProvider({
   strings,
@@ -510,7 +510,7 @@ export function BooleanUIProvider({
  * The provider's configuration: strings, direction, tooltip timing and sidebar storage key. Outside a provider it
  * returns the defaults, so a component never breaks for want of one.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 export function useUiConfig(): UiConfig {
   return React.useContext(UiContext)
@@ -519,7 +519,7 @@ export function useUiConfig(): UiConfig {
 /**
  * The translated built-in strings (English defaults outside a provider).
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 export function useUiStrings(): UiStrings {
   return React.useContext(UiContext).strings
@@ -528,7 +528,7 @@ export function useUiStrings(): UiStrings {
 /**
  * A control's size: its own `size` prop, else the provider's `controlSize`.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 export function useControlSize(size?: ControlSize | null): ControlSize {
   const fallback = React.useContext(UiContext).controlSize
@@ -538,7 +538,7 @@ export function useControlSize(size?: ControlSize | null): ControlSize {
 /**
  * A field's look: its own `variant` prop, else the provider's `fieldVariant`.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 export function useFieldVariant(variant?: FieldVariant | null): FieldVariant {
   const fallback = React.useContext(UiContext).fieldVariant
@@ -550,7 +550,7 @@ export function useFieldVariant(variant?: FieldVariant | null): FieldVariant {
  * runtime's default. Pass them straight to `Intl` (`new Intl.NumberFormat(locale)`). Nothing is read from the page during
  * render, so server and browser render the same text.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 export function useUiLocale(): { locale: string | undefined; timeZone: string | undefined } {
   const { locale, timeZone } = React.useContext(UiContext)

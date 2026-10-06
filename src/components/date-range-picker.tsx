@@ -34,7 +34,7 @@ import {
 /**
  * A chosen range: both days at midnight in the provider's time zone. `to` is the last day of the range, included.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 interface DateRangeValue {
   from: Date
@@ -44,7 +44,7 @@ interface DateRangeValue {
 /**
  * A preset of the list beside the calendar: its label, and the range it chooses for a given today.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 interface DateRangePreset {
   label: string
@@ -64,7 +64,7 @@ const midnight = (parts: DateParts, timeZone?: string) =>
 const ordered = (range: DateRangeValue | null | undefined): DateRangeValue | null =>
   !range ? null : range.to.getTime() < range.from.getTime() ? { from: range.to, to: range.from } : range
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function DateRangePicker({
   value,
   defaultValue,

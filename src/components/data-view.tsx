@@ -13,10 +13,10 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Skeleton } from "@/components/skeleton"
 import { useUiStrings, type ControlSize } from "@booleanpress/ui/provider"
 
-/** How a `DataView` lays its items out: one per row, or cards in a grid. @since 0.1.0 */
+/** How a `DataView` lays its items out: one per row, or cards in a grid. @since 0.1.1 */
 type DataViewLayout = "list" | "grid"
 
-/** One way to sort a `DataView`: its value, the label the select shows, and how to compare two items. @since 0.1.0 */
+/** One way to sort a `DataView`: its value, the label the select shows, and how to compare two items. @since 0.1.1 */
 interface DataViewSortOption<T = unknown> {
   /** The option's value, as `sort` and `onSortChange` carry it. */
   value: string
@@ -26,7 +26,7 @@ interface DataViewSortOption<T = unknown> {
   compare?: (a: T, b: T) => number
 }
 
-/** The props of `DataView`. @since 0.1.0 */
+/** The props of `DataView`. @since 0.1.1 */
 interface DataViewProps<T> extends Omit<React.ComponentProps<"div">, "children" | "defaultValue"> {
   /** The items to show: all of them, or the current page when the server pages (with `total`). */
   items: readonly T[]
@@ -98,7 +98,7 @@ function useControlled<V>(controlled: V | undefined, initial: V, onChange?: (val
  * `layout`, `layoutList` and `layoutGrid` strings. The `DataView` header shows it with `layoutToggle`; render it yourself
  * for a header of your own.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function DataViewLayoutToggle({
   value,
@@ -140,7 +140,7 @@ function DataViewLayoutToggle({
  * A select of sort options, named by the provider's `sortBy` string, which it also shows until an option is chosen. The
  * `DataView` header shows it with `sortOptions`; render it yourself for a header of your own.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function DataViewSort({
   value,
@@ -219,7 +219,7 @@ function DataViewSkeleton({ layout }: { layout: DataViewLayout }) {
  * select, a list and grid switch, pages, loading placeholders and an empty state. It sorts and pages in the browser, or
  * leaves both to the server when given `total`.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function DataView<T>(props: DataViewProps<T>): React.ReactElement
 function DataView({

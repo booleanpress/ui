@@ -17,7 +17,7 @@ behaviour and code; what the look changes on screen, for every component, is in 
 
 ## Checkbox
 
-**Status:** built (0.1.0) · **Imported:** 2026-10-03, from App A's copy, which is identical to stock.
+**Status:** built (0.1.1) · **Imported:** 2026-10-03, from App A's copy, which is identical to stock.
 
 **Consumers** (2026-10-03): App A and its add-on, and App B.
 
@@ -102,7 +102,7 @@ product's `brand.css` (the theming guide's Reference colours); the docs' Palette
 
 ## Alert
 
-**Status:** built (0.1.0) · **Imported:** 2026-10-03, from App A's copy, which is stock plus `PATCHES.md` row 7 (the `success`, `warning` and `info` variants).
+**Status:** built (0.1.1) · **Imported:** 2026-10-03, from App A's copy, which is stock plus `PATCHES.md` row 7 (the `success`, `warning` and `info` variants).
 
 **Consumers** (2026-10-03): App A and its add-on, and App B.
 
@@ -130,7 +130,7 @@ An alert is always `role="alert"` (stock). Alerts present when the page loads ar
 
 ## Avatar
 
-**Status:** built (0.1.0) · **Imported:** 2026-10-03, from App A's copy, which was stock.
+**Status:** built (0.1.1) · **Imported:** 2026-10-03, from App A's copy, which was stock.
 
 **Consumers** (2026-10-03): App A and App B.
 
@@ -151,7 +151,7 @@ No keys: an avatar takes no focus; wrap it in a link or button when it acts.
 
 ## Breadcrumb
 
-**Status:** built (0.1.0) · **Imported:** 2026-10-03, from App A's copy, which was stock. The package adds the provider strings, `"use client"` and the mirrored chevron below.
+**Status:** built (0.1.1) · **Imported:** 2026-10-03, from App A's copy, which was stock. The package adds the provider strings, `"use client"` and the mirrored chevron below.
 
 **Consumers** (2026-10-03): none: no screen uses it yet.
 
@@ -188,7 +188,7 @@ ellipsis in a link or a menu trigger that has a name.
 
 ## Button group
 
-**Status:** built (0.1.0) · **Imported:** 2026-10-03, from App A's copy, which was stock.
+**Status:** built (0.1.1) · **Imported:** 2026-10-03, from App A's copy, which was stock.
 
 **Consumers** (2026-10-03): none: no screen uses it yet.
 
@@ -212,7 +212,7 @@ Notes: `data-orientation` is absent until `orientation` is passed (the variant d
 
 ## Calendar
 
-**Status:** built (0.1.0) · **Imported:** 2026-10-03, from App A's copy and App B's copy, which were identical to each other and stock. The package's copy adds the row below.
+**Status:** built (0.1.1) · **Imported:** 2026-10-03, from App A's copy and App B's copy, which were identical to each other and stock. The package's copy adds the row below.
 
 **Consumers** (2026-10-03): App A and App B.
 
@@ -255,7 +255,7 @@ or card around it must be named. The grid is one tab stop (the chosen day, else 
 
 ## Chart
 
-**Status:** built (0.1.0) · **Imported:** 2026-10-03, from App A's copy, which was stock (shadcn's Recharts wrapper). The package's copy adds the row below.
+**Status:** built (0.1.1) · **Imported:** 2026-10-03, from App A's copy, which was stock (shadcn's Recharts wrapper). The package's copy adds the row below.
 
 **Consumers** (2026-10-03): App A.
 
@@ -290,7 +290,7 @@ Limits: a chart's numbers are not readable from the SVG; the consumer supplies a
 
 ## Collapsible
 
-**Status:** built (0.1.0) · **Imported:** 2026-10-03, from App A's copy, which was stock.
+**Status:** built (0.1.1) · **Imported:** 2026-10-03, from App A's copy, which was stock.
 
 **Consumers** (2026-10-03): App A and its add-on.
 
@@ -316,7 +316,7 @@ Notes: the component draws nothing; trigger look and any animation (`--radix-col
 
 ## Command
 
-**Status:** built (0.1.0) · **Imported:** 2026-10-03, from App A's copy, which was stock plus `PATCHES.md` row 15 (the two hard-coded English strings, as `title` and `description` defaults). The package's copy adds the rows below.
+**Status:** built (0.1.1) · **Imported:** 2026-10-03, from App A's copy, which was stock plus `PATCHES.md` row 15 (the two hard-coded English strings, as `title` and `description` defaults). The package's copy adds the rows below.
 
 **Consumers** (2026-10-03): App A and App B.
 
@@ -363,7 +363,7 @@ needs cmdk's `label` prop. A `CommandSeparator` is hidden from assistive technol
 
 ## Dropdown menu
 
-**Status:** built (0.1.0) · **Imported:** 2026-10-03, from App A's copy and App B's copy, which were identical and stock.
+**Status:** built (0.1.1) · **Imported:** 2026-10-03, from App A's copy and App B's copy, which were identical and stock.
 
 **Consumers** (2026-10-03): App A and App B.
 
@@ -402,7 +402,7 @@ Notes: Radix keeps Tab inside an open menu; APG lets Tab close it. Not changed h
 
 ## Empty
 
-**Status:** built (0.1.0) · **Imported:** 2026-10-03, from App A's copy, which was stock.
+**Status:** built (0.1.1) · **Imported:** 2026-10-03, from App A's copy, which was stock.
 
 **Consumers** (2026-10-03): App A and its add-on, and App B.
 
@@ -424,7 +424,7 @@ No keys: the component has none of its own.
 
 ## Input group
 
-**Status:** built (0.1.0) · **Imported:** 2026-10-03, from App A's copy, which was stock. The package's copy adds the row below.
+**Status:** built (0.1.1) · **Imported:** 2026-10-03, from App A's copy, which was stock. The package's copy adds the row below.
 
 **Consumers** (2026-10-03): App A and its add-on.
 
@@ -457,7 +457,7 @@ Name the control, not the group or an addon. Clicking an addon that is not a but
 
 ## Item
 
-**Status:** built (0.1.0) · **Imported:** 2026-10-03, from App A's copy, which was stock plus `PATCHES.md` row 17 (no `role="list"` on the group); App B has no copy.
+**Status:** built (0.1.1) · **Imported:** 2026-10-03, from App A's copy, which was stock plus `PATCHES.md` row 17 (no `role="list"` on the group); App B has no copy.
 
 **Consumers** (2026-10-03): App A and its add-on.
 
@@ -485,7 +485,7 @@ Name the control, not the group or an addon. Clicking an addon that is not a but
 
 ## Kbd
 
-**Status:** built (0.1.0) · **Imported:** 2026-10-03, from App A's copy, which was stock.
+**Status:** built (0.1.1) · **Imported:** 2026-10-03, from App A's copy, which was stock.
 
 **Consumers** (2026-10-03): App A and App B.
 
@@ -508,7 +508,7 @@ Kbd shows a shortcut and registers nothing. Key names (Ctrl or Command) are the 
 
 ## Native select
 
-**Status:** built (0.1.0) · **Imported:** 2026-10-03, from App A's copy, which was stock.
+**Status:** built (0.1.1) · **Imported:** 2026-10-03, from App A's copy, which was stock.
 
 **Consumers** (2026-10-03): App A's add-on.
 
@@ -538,7 +538,7 @@ scheme.
 
 ## Pagination
 
-**Status:** built (0.1.0) · **Imported:** 2026-10-03, from App A's copy, which was stock with the six English strings hard-coded (`PATCHES.md` row 15). The package reads them from the provider and adds the rows below.
+**Status:** built (0.1.1) · **Imported:** 2026-10-03, from App A's copy, which was stock with the six English strings hard-coded (`PATCHES.md` row 15). The package reads them from the provider and adds the rows below.
 
 **Consumers** (2026-10-03): App A.
 
@@ -571,7 +571,7 @@ scheme.
 
 ## Password input
 
-**Status:** built (0.1.0) · **Imported:** 2026-10-03, from App A's `password-input`, which is not stock shadcn: it is App A's own composition of `InputGroup` and a toggle button, and not a `PATCHES.md` row. The package reads the button's name from the provider string `showPassword` instead of App A's translation hook.
+**Status:** built (0.1.1) · **Imported:** 2026-10-03, from App A's `password-input`, which is not stock shadcn: it is App A's own composition of `InputGroup` and a toggle button, and not a `PATCHES.md` row. The package reads the button's name from the provider string `showPassword` instead of App A's translation hook.
 
 **Consumers** (2026-10-03): App A.
 
@@ -601,7 +601,7 @@ For a provider secret, not a sign-in field: the autofill opt-out stops a passwor
 
 ## Progress
 
-**Status:** built (0.1.0) · **Imported:** 2026-10-03, from App A's copy, which is stock plus `PATCHES.md` row 9 (`value` forwarded to the Radix root).
+**Status:** built (0.1.1) · **Imported:** 2026-10-03, from App A's copy, which is stock plus `PATCHES.md` row 9 (`value` forwarded to the Radix root).
 
 **Consumers** (2026-10-03): App A and App B.
 
@@ -628,7 +628,7 @@ The indicator's position uses `value` out of 100; `max` is not honoured visually
 
 ## Radio group
 
-**Status:** built (0.1.0) · **Imported:** 2026-10-03, from App A's copy, which was stock.
+**Status:** built (0.1.1) · **Imported:** 2026-10-03, from App A's copy, which was stock.
 
 **Consumers** (2026-10-03): App A.
 
@@ -663,7 +663,7 @@ no layout orientation of its own (`grid gap-3`); a horizontal group needs `class
 
 ## Scroll area
 
-**Status:** built (0.1.0) · **Imported:** 2026-10-03, from App A's copy, which was stock. The package's copy adds the row below.
+**Status:** built (0.1.1) · **Imported:** 2026-10-03, from App A's copy, which was stock. The package's copy adds the row below.
 
 **Consumers** (2026-10-03): App A.
 
@@ -691,7 +691,7 @@ Notes: a focused control inside scrolls into view as usual.
 
 ## Sidebar
 
-**Status:** built (0.1.0) · **Imported:** 2026-10-03, from App A's copy, which was stock plus `PATCHES.md` rows 13 (the `sidebar_state` cookie and its read-back, default collapsed), 14 (a nested tooltip provider) and 15 (the three English strings). The package's copy resolves those rows and adds the rows below.
+**Status:** built (0.1.1) · **Imported:** 2026-10-03, from App A's copy, which was stock plus `PATCHES.md` rows 13 (the `sidebar_state` cookie and its read-back, default collapsed), 14 (a nested tooltip provider) and 15 (the three English strings). The package's copy resolves those rows and adds the rows below.
 
 **Consumers** (2026-10-03): App A.
 
@@ -741,7 +741,7 @@ keep starting collapsed. Tooltips use the provider's timing, so the product's ow
 
 ## Switch
 
-**Status:** built (0.1.0) · **Imported:** 2026-10-03, from App A's copy and App B's copy, which were identical to each other and stock.
+**Status:** built (0.1.1) · **Imported:** 2026-10-03, from App A's copy and App B's copy, which were identical to each other and stock.
 
 **Consumers** (2026-10-03): App A and its add-on, and App B.
 
@@ -770,7 +770,7 @@ label it meets WCAG 2.5.8's 24 px through the label's line height and the gap.
 
 ## Table
 
-**Status:** built (0.1.0) · **Imported:** 2026-10-03, from App A's and App B's copies, which were stock plus `PATCHES.md` row 16 (the selected-row tint). The package's copy adds the scroll box below.
+**Status:** built (0.1.1) · **Imported:** 2026-10-03, from App A's and App B's copies, which were stock plus `PATCHES.md` row 16 (the selected-row tint). The package's copy adds the scroll box below.
 
 **Consumers** (2026-10-03): App A and its add-on, and App B.
 
@@ -804,7 +804,7 @@ controls in cells take Tab.
 
 ## Textarea
 
-**Status:** built (0.1.0) · **Imported:** 2026-10-03, from App A's copy, which was stock.
+**Status:** built (0.1.1) · **Imported:** 2026-10-03, from App A's copy, which was stock.
 
 **Consumers** (2026-10-03): App A and App B.
 
@@ -833,7 +833,7 @@ scrolls.
 
 ## Toast
 
-**Status:** built (0.1.0) · **Imported:** 2026-10-03, from App A's copy, which was stock plus `PATCHES.md` row 10 (rich colours, close button, 4 s, 3 visible, radius, width, class names) and read the app's own theme provider. The package's copy adds the rows below.
+**Status:** built (0.1.1) · **Imported:** 2026-10-03, from App A's copy, which was stock plus `PATCHES.md` row 10 (rich colours, close button, 4 s, 3 visible, radius, width, class names) and read the app's own theme provider. The package's copy adds the rows below.
 
 **Consumers** (2026-10-03): App A and App B.
 
@@ -878,7 +878,7 @@ A toast is a transient message: people cannot read it at their own pace, so noth
 
 ## Toggle
 
-**Status:** built (0.1.0) · **Imported:** 2026-10-03, from App A's copy and App B's copy, which were identical to each other and stock.
+**Status:** built (0.1.1) · **Imported:** 2026-10-03, from App A's copy and App B's copy, which were identical to each other and stock.
 
 **Consumers** (2026-10-03): none: no screen uses it yet. `ToggleGroup` imports its `toggleVariants`.
 
@@ -908,7 +908,7 @@ icon-only toggle needs `aria-label`.
 
 ## Toggle group
 
-**Status:** built (0.1.0) · **Imported:** 2026-10-03, from App A's copy and App B's copy, which were identical to each other and stock.
+**Status:** built (0.1.1) · **Imported:** 2026-10-03, from App A's copy and App B's copy, which were identical to each other and stock.
 
 **Consumers** (2026-10-03): App A's add-on and App B.
 

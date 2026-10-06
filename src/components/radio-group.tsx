@@ -9,7 +9,7 @@ import { useControlSize, useFieldVariant, type ControlSize, type FieldVariant } 
 // boolean-ui patch: the group hands its size and look to its radios (stock: no size or look).
 const RadioGroupContext = React.createContext<{ size?: ControlSize; variant?: FieldVariant }>({})
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function RadioGroup({
   className,
   size,
@@ -17,9 +17,9 @@ function RadioGroup({
   orientation,
   ...props
 }: React.ComponentProps<typeof RadioGroupPrimitive.Root> & {
-  /** The size of every radio in the group: 14, 18 or 20 px. Defaults to the provider's `controlSize`. @since 0.1.0 */
+  /** The size of every radio in the group: 14, 18 or 20 px. Defaults to the provider's `controlSize`. @since 0.1.1 */
   size?: ControlSize
-  /** The look of every radio in the group. Defaults to the provider's `fieldVariant`. @since 0.1.0 */
+  /** The look of every radio in the group. Defaults to the provider's `fieldVariant`. @since 0.1.1 */
   variant?: FieldVariant
 }) {
   const context = React.useMemo(() => ({ size, variant }), [size, variant])
@@ -36,16 +36,16 @@ function RadioGroup({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function RadioGroupItem({
   className,
   size,
   variant,
   ...props
 }: React.ComponentProps<typeof RadioGroupPrimitive.Item> & {
-  /** A 14, 18 or 20 px circle. Defaults to the group's `size`, then the provider's `controlSize`. @since 0.1.0 */
+  /** A 14, 18 or 20 px circle. Defaults to the group's `size`, then the provider's `controlSize`. @since 0.1.1 */
   size?: ControlSize
-  /** `filled` fills the unchosen circle grey. Defaults to the group's `variant`, then the provider's. @since 0.1.0 */
+  /** `filled` fills the unchosen circle grey. Defaults to the group's `variant`, then the provider's. @since 0.1.1 */
   variant?: FieldVariant
 }) {
   const group = React.useContext(RadioGroupContext)

@@ -43,7 +43,7 @@ import { Toolbar, ToolbarGroup } from "@/components/toolbar"
  * A control of the editor's toolbar: `heading` is the text-style select (paragraph, headings 1 to 3); the others are
  * buttons.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 type EditorTool =
   | "heading"
@@ -192,7 +192,7 @@ const preventBlur = (event: React.MouseEvent) => event.preventDefault()
 /**
  * The props of `Editor`.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 type EditorProps = Omit<React.ComponentProps<"div">, "onChange" | "defaultValue" | "children"> & {
   /** The content as HTML, controlled. An empty editor's value is `""`. */
@@ -227,7 +227,7 @@ type EditorProps = Omit<React.ComponentProps<"div">, "onChange" | "defaultValue"
   contentClassName?: string
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function Editor({
   value,
   defaultValue,

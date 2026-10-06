@@ -21,7 +21,7 @@ import {
 type RootProps = React.ComponentProps<typeof NumberFieldPrimitive.Root>
 type InputProps = React.ComponentProps<typeof NumberFieldPrimitive.Input>
 
-/** Where the stepper buttons go: stacked at the end, on both sides, or above and below. @since 0.1.0 */
+/** Where the stepper buttons go: stacked at the end, on both sides, or above and below. @since 0.1.1 */
 type InputNumberButtons = "stacked" | "horizontal" | "vertical"
 
 // The text's padding by size, as Input's; stacked buttons add their 36px column to the end padding.
@@ -64,7 +64,7 @@ const stepperLayouts: Record<InputNumberButtons, { increment: string; decrement:
  * A number field: typing, the arrow keys and the stepper buttons change a number, shown in the provider's locale
  * (`1,234.5` in English, `1.234,5` in German) and kept between `min` and `max`.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function InputNumber({
   className,

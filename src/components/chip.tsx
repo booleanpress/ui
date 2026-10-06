@@ -10,7 +10,7 @@ import { useUiStrings } from "@booleanpress/ui/provider"
 
 const ChipGroupContext = React.createContext(false)
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ChipGroup({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <ChipGroupContext.Provider value={true}>
@@ -26,7 +26,7 @@ function ChipGroup({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function Chip({
   className,
   label,

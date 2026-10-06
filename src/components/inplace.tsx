@@ -22,7 +22,7 @@ import {
  * What `renderEditor` receives: the draft, its setter, and the props that make a field part of the inplace (spread
  * them on it, `ref` included, so it takes focus, reports errors and is named).
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 interface InplaceEditorProps {
   value: string
@@ -67,7 +67,7 @@ const displaySizes: Record<ControlSize, string> = {
  * A value people edit where it is shown. Click or Enter opens the field; Enter (Ctrl+Enter or ⌘+Enter in a multi-line
  * field), the ✓ button or leaving the field saves; Escape or the × cancels; focus then returns to the value.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function Inplace({
   className,
