@@ -18,13 +18,13 @@ You need Node.js 24 (`.nvmrc` and `.node-version`) and pnpm 10.
 ```sh
 git clone https://github.com/booleanpress/ui.git
 cd ui
-git switch dev
+git switch trunk
 pnpm install
 pnpm exec playwright install chromium
 pnpm docs:dev        # the documentation site, at http://127.0.0.1:5180/
 ```
 
-Stop the server with `Ctrl+C` in its terminal. The [README](README.md#develop) lists the development commands. Work on a branch from `dev`, and open the pull request against `dev`. `main` holds released versions only.
+Stop the server with `Ctrl+C` in its terminal. The [README](README.md#develop) lists the development commands. Work on a branch from `trunk`, and open the pull request against `trunk`. `main` holds released versions only.
 
 ## How a change is made
 

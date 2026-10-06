@@ -21,12 +21,12 @@ export default {
 \`\`\`sh
 git clone https://github.com/booleanpress/ui.git
 cd ui
-git switch dev
+git switch trunk
 pnpm install
 pnpm docs:dev   # this site, at http://127.0.0.1:5180/
 \`\`\`
 
-Work on a branch from \`dev\`, and open your pull request against \`dev\`. \`main\` holds released versions only.`,
+Work on a branch from \`trunk\`, and open your pull request against \`trunk\`. \`main\` holds released versions only.`,
     },
     {
       id: "a-change",

@@ -11,7 +11,7 @@ export const SITE = {
 export const sourceUrl = (path: string) => `${SITE.repository}/blob/main/${path}`
 
 /** The edit page of a file in the public repository, on the branch contributors work on. */
-export const editUrl = (path: string) => `${SITE.repository}/edit/dev/${path}`
+export const editUrl = (path: string) => `${SITE.repository}/edit/trunk/${path}`
 
 /** The page's address for search engines: the live site's, without a trailing slash, as the site links to it. */
 export const canonicalLink = (pathname: string) =>

@@ -3,6 +3,12 @@
 All notable changes to `@booleanpress/ui`. Versions follow the spec standard's rules (`specs/000_component-spec-standard.md`
 §8): before 1.0.0, a breaking change is a minor version with a migration note.
 
+## Unreleased
+
+- **Documentation:** a page's edit link opens the file on `trunk`; it pointed at a branch that does not exist. Nothing for
+  consumers to do.
+- **Contributing:** work branches from `trunk` and pull requests target it; `main` receives `trunk` for each release.
+
 ## 0.1.1 — 2026-10-07
 
 The initial release: 114 components, each with its own entry (`@booleanpress/ui/<name>`), a page with an example
