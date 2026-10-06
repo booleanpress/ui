@@ -3,15 +3,15 @@
 All notable changes to `@booleanpress/ui`. Versions follow the spec standard's rules (`specs/000_component-spec-standard.md`
 §8): before 1.0.0, a breaking change is a minor version with a migration note.
 
-## 0.1.0 — Unreleased
+## 0.1.0 — 2026-10-07
 
-The initial release candidate: 114 components, each with its own entry (`@booleanpress/ui/<name>`), a page with an example
+The initial release: 114 components, each with its own entry (`@booleanpress/ui/<name>`), a page with an example
 per state, and keyboard and axe tests; three sizes and a filled look for every control, documented variations and states, locale-aware formatting and forced-colours support.
 
 ### Form controls and migration
 
-The current form contract is [spec 005](specs/005_form-contract.md). These are prelaunch changes to the candidate;
-no published version is implied.
+The current form contract is [spec 005](specs/005_form-contract.md). These changes came before the first release,
+so no published version has the earlier behaviour.
 
 - Text fields use 26/34/42 px heights and 12/16, 14/20, 16/24 px font-size/line-height. Button sizes remain unchanged.
   Field borders, placeholder/icon colours, selected indicators, invalid and disabled states use the current form tokens;
