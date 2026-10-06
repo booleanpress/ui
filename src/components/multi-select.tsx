@@ -81,7 +81,7 @@ const defaultSame = (a: unknown, b: unknown) =>
 /**
  * A field that opens a list in which people choose several options; the field shows them as labels, chips or a count.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function MultiSelect<Value = string>({
   value: valueProp,
@@ -170,7 +170,7 @@ function MultiSelect<Value = string>({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function MultiSelectTrigger({
   className,
   size,
@@ -269,7 +269,7 @@ function MultiSelectTrigger({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function MultiSelectValue({
   className,
   placeholder,
@@ -363,7 +363,7 @@ function MultiSelectValue({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function MultiSelectContent({
   className,
   children,
@@ -465,12 +465,12 @@ function MultiSelectSelectAll({ showLabel }: { showLabel: boolean }) {
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function MultiSelectList(props: React.ComponentProps<typeof ComboboxList>) {
   return <ComboboxList data-slot="multi-select-list" {...props} />
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function MultiSelectItem({
   className,
   children,
@@ -540,27 +540,27 @@ function MultiSelectItem({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function MultiSelectGroup(props: React.ComponentProps<typeof ComboboxGroup>) {
   return <ComboboxGroup data-slot="multi-select-group" {...props} />
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function MultiSelectLabel(props: React.ComponentProps<typeof ComboboxLabel>) {
   return <ComboboxLabel data-slot="multi-select-label" {...props} />
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function MultiSelectSeparator(props: React.ComponentProps<typeof ComboboxSeparator>) {
   return <ComboboxSeparator data-slot="multi-select-separator" {...props} />
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function MultiSelectEmpty(props: React.ComponentProps<typeof ComboboxEmpty>) {
   return <ComboboxEmpty data-slot="multi-select-empty" {...props} />
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function MultiSelectCollection(props: React.ComponentProps<typeof ComboboxCollection>) {
   return <ComboboxCollection {...props} />
 }

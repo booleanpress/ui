@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils"
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function Kbd({ className, ...props }: React.ComponentProps<"kbd">) {
   return (
     <kbd
@@ -22,7 +22,7 @@ function Kbd({ className, ...props }: React.ComponentProps<"kbd">) {
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function KbdGroup({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <kbd

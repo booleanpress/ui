@@ -34,7 +34,7 @@ function dayLimit(segments: SegmentValues): number {
   return daysInMonth(segments.year ?? 2024, segments.month)
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function DateField({
   value,
   defaultValue,
@@ -73,7 +73,7 @@ function DateField({
   required?: boolean
   /** Submits the date as `YYYY-MM-DD` in a hidden input of this name. */
   name?: string
-  /** The id of the form the value belongs to, for a field placed outside it. @since 0.1.0 */
+  /** The id of the form the value belongs to, for a field placed outside it. @since 0.1.1 */
   form?: string
 }) {
   const strings = useUiStrings()

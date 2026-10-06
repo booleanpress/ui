@@ -10,11 +10,11 @@ import { cn } from "@/lib/utils"
 /**
  * A heading level, 1 to 6.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 const headingVariants = cva("text-heading", {
   variants: {
     size: {
@@ -35,7 +35,7 @@ const headingVariants = cva("text-heading", {
   defaultVariants: { size: 2 },
 })
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function Heading({
   className,
   level = 2,
@@ -64,7 +64,7 @@ function Heading({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 const textVariants = cva("", {
   variants: {
     size: {
@@ -96,7 +96,7 @@ const textVariants = cva("", {
   defaultVariants: { size: "sm", tone: "default" },
 })
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function Text({
   className,
   size = "sm",
@@ -127,7 +127,7 @@ function Text({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function Blockquote({ className, ...props }: React.ComponentProps<"blockquote">) {
   return (
     <blockquote
@@ -139,7 +139,7 @@ function Blockquote({ className, ...props }: React.ComponentProps<"blockquote">)
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function InlineCode({ className, ...props }: React.ComponentProps<"code">) {
   return (
     <code
@@ -157,7 +157,7 @@ function InlineCode({ className, ...props }: React.ComponentProps<"code">) {
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function Prose({
   className,
   asChild = false,

@@ -1,7 +1,7 @@
 import * as React from "react"
 import { cn } from "@/lib/utils"
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function Card({
   className,
   ...props
@@ -20,7 +20,7 @@ function Card({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function CardHeader({
   className,
   ...props
@@ -38,7 +38,7 @@ function CardHeader({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function CardTitle({
   className,
   ...props
@@ -53,7 +53,7 @@ function CardTitle({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function CardDescription({
   className,
   ...props
@@ -68,7 +68,7 @@ function CardDescription({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function CardAction({
   className,
   ...props
@@ -85,7 +85,7 @@ function CardAction({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function CardContent({
   className,
   ...props
@@ -100,7 +100,7 @@ function CardContent({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function CardFooter({
   className,
   ...props

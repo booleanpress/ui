@@ -21,7 +21,7 @@ import { useFormReset } from "@/lib/form-reset"
 /**
  * One option of a cascade: a leaf, which can be chosen, or a group, which opens the next level.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 interface CascadeSelectOption {
   /** Unique across the whole tree: the value a leaf sets, and the key of a group. */
@@ -206,7 +206,7 @@ function CascadeGroup({ option, path }: { option: CascadeSelectOption; path: Cas
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function CascadeSelect({
   options,
   value: valueProp,
@@ -525,7 +525,7 @@ function CascadeSelect({
   )
 }
 
-/** The props of `CascadeSelect`. @since 0.1.0 */
+/** The props of `CascadeSelect`. @since 0.1.1 */
 type CascadeSelectProps = React.ComponentProps<typeof CascadeSelect>
 
 export { CascadeSelect }

@@ -79,7 +79,7 @@ export function formatByteSize(
  * `formatFileSize(138, "en")` is "138 B", `formatFileSize(1_500_000, "de-DE")` "1,5 MB". A negative or missing size is 0.
  * `@booleanpress/ui/file-upload` exports it.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 export function formatFileSize(bytes: number, locale?: string): string {
   return formatByteSize(Math.max(0, Number.isFinite(bytes) ? bytes : 0), { locale })

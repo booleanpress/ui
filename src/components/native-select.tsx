@@ -7,7 +7,7 @@ import { ChevronDownIcon } from "lucide-react"
 
 import { useControlSize, useFieldVariant, type ControlSize, type FieldVariant } from "@booleanpress/ui/provider"
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function NativeSelect({
   className,
   size,
@@ -17,9 +17,9 @@ function NativeSelect({
 }: Omit<React.ComponentProps<"select">, "size"> & {
   /** 28, 35 or 42 px tall. Defaults to the provider's `controlSize`. */
   size?: ControlSize
-  /** `filled` fills the field grey. Defaults to the provider's `fieldVariant`. @since 0.1.0 */
+  /** `filled` fills the field grey. Defaults to the provider's `fieldVariant`. @since 0.1.1 */
   variant?: FieldVariant
-  /** Fills the width of its container. @since 0.1.0 */
+  /** Fills the width of its container. @since 0.1.1 */
   fluid?: boolean
 }) {
   const resolvedSize = useControlSize(size)
@@ -66,7 +66,7 @@ function NativeSelect({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function NativeSelectOption({
   className,
   ...props
@@ -80,7 +80,7 @@ function NativeSelectOption({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function NativeSelectOptGroup({
   className,
   ...props

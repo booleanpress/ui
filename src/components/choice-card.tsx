@@ -58,7 +58,7 @@ interface MultipleProps extends GroupBase {
  * A set of cards people choose from: one (`type="single"`, radios) or several (`type="multiple"`, checkboxes). Name it
  * with `aria-label` or `aria-labelledby`.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function ChoiceCardGroup(props: SingleProps | MultipleProps) {
   const { type, className, size, variant, disabled = false, required, "aria-invalid": ariaInvalid, ...rest } = props
@@ -101,7 +101,7 @@ function ChoiceCardGroup(props: SingleProps | MultipleProps) {
  * One card of a `ChoiceCardGroup`: a title, an optional description and icon, and the radio or checkbox that chooses it.
  * The whole card is its label.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function ChoiceCard({
   value,

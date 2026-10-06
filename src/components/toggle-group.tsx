@@ -23,7 +23,7 @@ const ToggleGroupContext = React.createContext<
   fluid: false,
 })
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ToggleGroup({
   className,
   variant,
@@ -37,9 +37,9 @@ function ToggleGroup({
 }: React.ComponentProps<typeof ToggleGroupPrimitive.Root> &
   VariantProps<typeof toggleVariants> & {
     spacing?: number
-    /** Whether the last pressed item can be released. Defaults to true. @since 0.1.0 */
+    /** Whether the last pressed item can be released. Defaults to true. @since 0.1.1 */
     allowEmpty?: boolean
-    /** Fills the width of its container; the items share it equally. @since 0.1.0 */
+    /** Fills the width of its container; the items share it equally. @since 0.1.1 */
     fluid?: boolean
   }) {
   const resolvedSize = useControlSize(size)
@@ -89,7 +89,7 @@ function ToggleGroup({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ToggleGroupItem({
   className,
   children,

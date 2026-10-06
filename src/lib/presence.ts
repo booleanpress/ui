@@ -6,7 +6,7 @@ import * as React from "react"
  * Whether an element shows (`open`) or is leaving (`closed`): give it to the element as `data-state`, which theme.css
  * animates.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 export type PresenceState = "open" | "closed"
 
@@ -47,7 +47,7 @@ function exitDuration(element: Element) {
  * the exit is whatever theme.css leaves of it (a short fade on overlays), read from the element's computed style. `state` is `open` or `closed`, for the element's `data-state`. `ref` is the element's ref, which
  * the hook reads to watch its animation.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 export function usePresence(open: boolean, ref: React.RefObject<Element | null>) {
   const [exiting, setExiting] = React.useState(false)

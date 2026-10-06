@@ -4,7 +4,7 @@ import * as React from "react"
  * Calls `onReset` once the form holding `ref`'s element has been reset, which puts native fields back without an input
  * event. `enabled: false` stops it (a controlled field); `form` is the form's id for a field tied to it by attribute.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 export function useFormReset(
   ref: React.RefObject<Element | null>,

@@ -6,7 +6,7 @@ import { Tooltip as TooltipPrimitive } from "radix-ui"
 
 import { useUiConfig } from "@booleanpress/ui/provider"
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function TooltipProvider({
   delayDuration,
   skipDelayDuration,
@@ -26,21 +26,21 @@ function TooltipProvider({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function Tooltip({
   ...props
 }: React.ComponentProps<typeof TooltipPrimitive.Root>) {
   return <TooltipPrimitive.Root data-slot="tooltip" {...props} />
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function TooltipTrigger({
   ...props
 }: React.ComponentProps<typeof TooltipPrimitive.Trigger>) {
   return <TooltipPrimitive.Trigger data-slot="tooltip-trigger" {...props} />
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function TooltipContent({
   className,
   sideOffset = 0,
@@ -48,7 +48,7 @@ function TooltipContent({
   children,
   ...props
 }: React.ComponentProps<typeof TooltipPrimitive.Content> & {
-  /** Draws the small arrow that points at the trigger. `true` by default. @since 0.1.0 */
+  /** Draws the small arrow that points at the trigger. `true` by default. @since 0.1.1 */
   arrow?: boolean
 }) {
   return (

@@ -12,7 +12,7 @@ import { useUiConfig } from "@booleanpress/ui/provider"
  * The edge a drawer opens from. `left` and `right` are the reading direction's start and end: in a right-to-left page
  * `right` opens from the left edge, as Sheet does.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 type DrawerDirection = "top" | "right" | "bottom" | "left"
 
@@ -37,7 +37,7 @@ function swipeDirectionFor(direction: DrawerDirection, dir: "ltr" | "rtl") {
 /**
  * A panel that slides in from an edge, most often the bottom, and closes when it is dragged back.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function Drawer({
   direction = "bottom",
@@ -71,7 +71,7 @@ function Drawer({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function DrawerTrigger({
   asChild,
   children,
@@ -83,12 +83,12 @@ function DrawerTrigger({
   return <DrawerPrimitive.Trigger data-slot="drawer-trigger" {...renderAsChild(asChild, children)} {...props} />
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function DrawerPortal({ ...props }: React.ComponentProps<typeof DrawerPrimitive.Portal>) {
   return <DrawerPrimitive.Portal data-slot="drawer-portal" {...props} />
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function DrawerClose({
   asChild,
   children,
@@ -100,7 +100,7 @@ function DrawerClose({
   return <DrawerPrimitive.Close data-slot="drawer-close" {...renderAsChild(asChild, children)} {...props} />
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function DrawerOverlay({ className, ...props }: WithStringClassName<React.ComponentProps<typeof DrawerPrimitive.Backdrop>>) {
   return (
     <DrawerPrimitive.Backdrop
@@ -133,7 +133,7 @@ const POPUP_CLASSES: Record<DrawerDirection, string> = {
 /**
  * The drawer's panel, with its backdrop; from the bottom it carries the handle bar.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function DrawerContent({
   className,
@@ -182,7 +182,7 @@ function DrawerContent({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function DrawerHeader({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -197,7 +197,7 @@ function DrawerHeader({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function DrawerFooter({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -208,7 +208,7 @@ function DrawerFooter({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function DrawerTitle({ className, ...props }: WithStringClassName<React.ComponentProps<typeof DrawerPrimitive.Title>>) {
   return (
     <DrawerPrimitive.Title
@@ -219,7 +219,7 @@ function DrawerTitle({ className, ...props }: WithStringClassName<React.Componen
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function DrawerDescription({
   className,
   ...props

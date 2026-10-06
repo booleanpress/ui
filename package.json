@@ -1,6 +1,6 @@
 {
     "name": "@booleanpress/ui",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "Accessible React components for Tailwind CSS 4, built on Radix: typed, documented, tested in Vite, Next.js and the WordPress admin, with a theme, a strings provider and a contrast check.",
     "keywords": [
         "react",

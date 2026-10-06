@@ -5,7 +5,7 @@ import { cn, fillString } from "@/lib/utils"
 import { type ControlSize, useControlSize, useUiStrings } from "@booleanpress/ui/provider"
 import { Slider as SliderPrimitive } from "radix-ui"
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function Slider({
   className,
   defaultValue,

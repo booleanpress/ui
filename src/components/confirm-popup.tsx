@@ -36,7 +36,7 @@ function isThenable(value: unknown): value is PromiseLike<unknown> {
 /**
  * The confirmation's root: whether it is open, what confirming does, and its tone.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function ConfirmPopup({
   open: openProp,
@@ -143,7 +143,7 @@ function ConfirmPopup({
 /**
  * The button that asks. Focus returns to it when the popup closes.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function ConfirmPopupTrigger(props: React.ComponentProps<typeof PopoverTrigger>) {
   return <PopoverTrigger data-slot="confirm-popup-trigger" {...props} />
@@ -152,7 +152,7 @@ function ConfirmPopupTrigger(props: React.ComponentProps<typeof PopoverTrigger>)
 /**
  * The popup: an icon and the message (or your own content), Cancel and Confirm, and an arrow to the trigger.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function ConfirmPopupContent({
   className,

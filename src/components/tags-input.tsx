@@ -43,7 +43,7 @@ const CHIP_SIZES: Record<ControlSize, string> = {
  * A field that turns typed text into tags: Enter (or a delimiter) adds one, Backspace in the empty field removes the last,
  * and each tag's remove button takes it out.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function TagsInput({
   className,

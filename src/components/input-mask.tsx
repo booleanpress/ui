@@ -152,7 +152,7 @@ type MaskState = { raw: string; display: string }
  * A text field that keeps a pattern: `(999) 999-9999` keeps the brackets, space and dash and fills the nines with
  * digits as they are typed. `9` takes a digit, `a` a letter, `*` either; `?` starts the optional part.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function InputMask({
   mask: pattern,

@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils"
 
 import { useUiStrings } from "@booleanpress/ui/provider"
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function Spinner({
   className,
   ...props

@@ -2,10 +2,10 @@
 import * as React from "react"
 import { cn } from "@/lib/utils"
 
-/** Which side of the line the content takes, in reading order. @since 0.1.0 */
+/** Which side of the line the content takes, in reading order. @since 0.1.1 */
 type TimelineAlign = "start" | "end" | "alternate"
 
-/** The way the events run. @since 0.1.0 */
+/** The way the events run. @since 0.1.1 */
 type TimelineOrientation = "vertical" | "horizontal"
 
 /**
@@ -42,7 +42,7 @@ function layoutVariables(orientation: TimelineOrientation, align: TimelineAlign)
  * A sequence of events in order: an ordered list whose items each draw a marker on a line, their content on one side
  * and, optionally, opposite content (a time, a date) on the other.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function Timeline({
   className,
@@ -74,7 +74,7 @@ function Timeline({
   )
 }
 
-/** One event of a `Timeline`: a list item holding its separator, content and opposite content. @since 0.1.0 */
+/** One event of a `Timeline`: a list item holding its separator, content and opposite content. @since 0.1.1 */
 function TimelineItem({ className, ...props }: React.ComponentProps<"li">) {
   return (
     <li
@@ -98,7 +98,7 @@ function TimelineItem({ className, ...props }: React.ComponentProps<"li">) {
  * The line of an event: its marker and the connector to the next event. Without children it draws the default marker
  * and connector. Hidden from assistive technology: say in the content what a coloured or iconic marker means.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function TimelineSeparator({ className, children, ...props }: React.ComponentProps<"div">) {
   return (
@@ -125,7 +125,7 @@ function TimelineSeparator({ className, children, ...props }: React.ComponentPro
  * The point on the line: a 16 px ring with a dot in the primary colour, or what you put inside it (an icon, an avatar),
  * sized and coloured with `className`.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function TimelineMarker({ className, ...props }: React.ComponentProps<"span">) {
   return (
@@ -143,7 +143,7 @@ function TimelineMarker({ className, ...props }: React.ComponentProps<"span">) {
   )
 }
 
-/** The 2 px line from an event's marker to the next one; not drawn after the last event. @since 0.1.0 */
+/** The 2 px line from an event's marker to the next one; not drawn after the last event. @since 0.1.1 */
 function TimelineConnector({ className, ...props }: React.ComponentProps<"span">) {
   return (
     <span
@@ -157,7 +157,7 @@ function TimelineConnector({ className, ...props }: React.ComponentProps<"span">
   )
 }
 
-/** What happened: the event's main content, on the side `align` gives it. @since 0.1.0 */
+/** What happened: the event's main content, on the side `align` gives it. @since 0.1.1 */
 function TimelineContent({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -178,7 +178,7 @@ function TimelineContent({ className, ...props }: React.ComponentProps<"div">) {
  * What goes on the other side of the line, such as the event's time. When any event has it, the line moves to the
  * middle.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function TimelineOpposite({ className, ...props }: React.ComponentProps<"div">) {
   return (

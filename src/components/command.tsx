@@ -15,7 +15,7 @@ import {
 } from "@/components/dialog"
 import { useUiStrings } from "@booleanpress/ui/provider"
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function Command({
   className,
   ...props
@@ -33,7 +33,7 @@ function Command({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function CommandDialog({
   title,
   description,
@@ -79,7 +79,7 @@ function CommandDialog({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function CommandInput({
   className,
   defaultValue,
@@ -123,7 +123,7 @@ function CommandInput({
 // silent). `undefined` outside a list, `null` until the region is in the page.
 const CommandEmptyRegionContext = React.createContext<HTMLElement | null | undefined>(undefined)
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function CommandList({
   className,
   children,
@@ -153,7 +153,7 @@ function CommandList({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function CommandEmpty({
   className,
   ...props
@@ -175,7 +175,7 @@ function CommandEmpty({
   return region ? createPortal(empty, region) : null
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function CommandGroup({
   className,
   ...props
@@ -194,7 +194,7 @@ function CommandGroup({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function CommandSeparator({
   className,
   ...props
@@ -212,7 +212,7 @@ function CommandSeparator({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function CommandItem({
   className,
   ...props
@@ -233,7 +233,7 @@ function CommandItem({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function CommandShortcut({
   className,
   ...props

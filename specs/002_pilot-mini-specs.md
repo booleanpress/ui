@@ -7,11 +7,11 @@ Mini-specs (spec standard §1): only the rows the pilot changed from stock shadc
 Dialog family, which has its full spec in [`001_dialog.md`](001_dialog.md). A component without a changed row is stock;
 its section says so and names the tests that hold it.
 
-**Status:** built (0.1.0) · **Base:** shadcn 4.21.1 `new-york` · radix-ui 1.6.7 · imported 2026-10-02 ·
+**Status:** built (0.1.1) · **Base:** shadcn 4.21.1 `new-york` · radix-ui 1.6.7 · imported 2026-10-02 ·
 **Consumers:** the two pilot apps, App A (with its add-on) and App B · **Deviations:** `PATCHES.md`.
 
 Every component below has a documentation page (`pnpm docs:dev`, one example per state listed), a test file in
-`tests/components/<name>.test.jsx` with axe, and a `@since 0.1.0` JSDoc tag on each export.
+`tests/components/<name>.test.jsx` with axe, and a `@since 0.1.1` JSDoc tag on each export.
 
 ## AlertDialog, Sheet
 

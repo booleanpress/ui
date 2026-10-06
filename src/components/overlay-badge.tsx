@@ -10,7 +10,7 @@ import { Badge, type BadgeProps } from "@/components/badge"
 /** What can take focus; a focusable child gets the label as its description instead of the label being read beside it. */
 const FOCUSABLE = 'a[href], button, input, select, textarea, [tabindex]:not([tabindex="-1"]), [contenteditable="true"]'
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function OverlayBadge({
   className,
   children,

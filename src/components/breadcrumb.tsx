@@ -7,7 +7,7 @@ import { Slot } from "radix-ui"
 
 import { useUiStrings } from "@booleanpress/ui/provider"
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function Breadcrumb({ ...props }: React.ComponentProps<"nav">) {
   const strings = useUiStrings()
 
@@ -15,7 +15,7 @@ function Breadcrumb({ ...props }: React.ComponentProps<"nav">) {
   return <nav aria-label={strings.breadcrumb} data-slot="breadcrumb" {...props} />
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function BreadcrumbList({ className, ...props }: React.ComponentProps<"ol">) {
   return (
     <ol
@@ -30,7 +30,7 @@ function BreadcrumbList({ className, ...props }: React.ComponentProps<"ol">) {
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function BreadcrumbItem({ className, ...props }: React.ComponentProps<"li">) {
   return (
     <li
@@ -42,7 +42,7 @@ function BreadcrumbItem({ className, ...props }: React.ComponentProps<"li">) {
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function BreadcrumbLink({
   asChild,
   className,
@@ -66,7 +66,7 @@ function BreadcrumbLink({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function BreadcrumbPage({ className, ...props }: React.ComponentProps<"span">) {
   return (
     <span
@@ -80,7 +80,7 @@ function BreadcrumbPage({ className, ...props }: React.ComponentProps<"span">) {
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function BreadcrumbSeparator({
   children,
   className,
@@ -101,7 +101,7 @@ function BreadcrumbSeparator({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function BreadcrumbEllipsis({
   className,
   ...props

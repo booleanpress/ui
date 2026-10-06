@@ -8,10 +8,10 @@ import { cn, fillString } from "@/lib/utils"
 import { Skeleton } from "@/components/skeleton"
 import { useControlSize, useUiLocale, useUiStrings, type ControlSize } from "@booleanpress/ui/provider"
 
-/** How a statistic's number is written. @since 0.1.0 */
+/** How a statistic's number is written. @since 0.1.1 */
 type StatisticFormat = "number" | "currency" | "percent" | "compact"
 
-/** A statistic on its own, or on a card. @since 0.1.0 */
+/** A statistic on its own, or on a card. @since 0.1.1 */
 type StatisticVariant = "plain" | "card"
 
 const StatisticGroupContext = React.createContext<StatisticVariant | undefined>(undefined)
@@ -50,7 +50,7 @@ function formatNumber(value: number, locale: string | undefined, options: Intl.N
  * A number that matters, such as emails sent today: its label, its value written in the provider's locale, and an
  * optional trend, help text and icon. A `StatisticGroup` lays several out as a row of cards.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function Statistic({
   className,
@@ -195,7 +195,7 @@ function Statistic({
  * A row of statistics that wraps to fit, each at least 12rem wide; its statistics are cards unless `variant` says
  * otherwise.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function StatisticGroup({
   className,

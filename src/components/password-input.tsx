@@ -21,7 +21,7 @@ const eyeSizes: Record<ControlSize, string> = { sm: "size-3", default: "size-3.5
 /**
  * A requirement the value is checked against, shown as a line of the checklist under the field.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 type PasswordRule = {
   /** What the rule asks for, as the checklist shows it: "At least 12 characters". */
@@ -35,14 +35,14 @@ type PasswordRule = {
 /**
  * How strong a value is, as the meter shows it.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 type PasswordStrength = "too-weak" | "weak" | "medium" | "fair" | "strong" | "very-strong"
 
-/** A strength label and an explicit percentage for a custom scoring policy. @since 0.1.0 */
+/** A strength label and an explicit percentage for a custom scoring policy. @since 0.1.1 */
 type PasswordStrengthScore = { level: PasswordStrength; percent: number }
 
-/** Scores five length/character checks into four strength levels. @since 0.1.0 */
+/** Scores five length/character checks into four strength levels. @since 0.1.1 */
 function scorePasswordStrength(value: string): PasswordStrength | null {
   if (!value) return null
   const score = [
@@ -55,7 +55,7 @@ function scorePasswordStrength(value: string): PasswordStrength | null {
   return score <= 1 ? "weak" : score === 2 ? "medium" : score === 3 ? "strong" : "very-strong"
 }
 
-/** Scores the supplied requirements by their relative weights. @since 0.1.0 */
+/** Scores the supplied requirements by their relative weights. @since 0.1.1 */
 function scorePasswordRules(value: string, rules: PasswordRule[]): PasswordStrengthScore | null {
   if (!value) return null
   const weights = rules.map((rule) => Number.isFinite(rule.weight ?? 1) ? Math.max(0, rule.weight ?? 1) : 0)
@@ -111,7 +111,7 @@ function strengthText(level: PasswordStrength, strings: ReturnType<typeof useUiS
  * A secret field with an optional button that shows or hides the value. For an API key or an SMTP password, not a sign-in
  * password: it opts out of password-manager autofill, which would otherwise put the site's saved login here.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function PasswordInput({
   className,
@@ -134,17 +134,17 @@ function PasswordInput({
   "aria-describedby": ariaDescribedBy,
   ...props
 }: Omit<React.ComponentProps<typeof InputGroupInput>, "type"> & {
-  /** The field's size: 26, 34 or 42 px tall. Defaults to the provider's `controlSize`. @since 0.1.0 */
+  /** The field's size: 26, 34 or 42 px tall. Defaults to the provider's `controlSize`. @since 0.1.1 */
   size?: ControlSize
-  /** `filled` draws the grey `--field-filled` fill. Defaults to the provider's `fieldVariant`. @since 0.1.0 */
+  /** `filled` draws the grey `--field-filled` fill. Defaults to the provider's `fieldVariant`. @since 0.1.1 */
   variant?: FieldVariant
-  /** Requirements shown as a checklist, each ticked once the value meets it. @since 0.1.0 */
+  /** Requirements shown as a checklist, each ticked once the value meets it. @since 0.1.1 */
   rules?: PasswordRule[]
-  /** Shows four strength levels, or weighted requirements with `rules`. @since 0.1.0 */
+  /** Shows four strength levels, or weighted requirements with `rules`. @since 0.1.1 */
   strength?: boolean | "rules"
-  /** Replaces the built-in strength score (`scorePasswordStrength`). @since 0.1.0 */
+  /** Replaces the built-in strength score (`scorePasswordStrength`). @since 0.1.1 */
   scoreStrength?: (value: string) => PasswordStrength | PasswordStrengthScore | null
-  /** Where the meter and the checklist go: `inline` under the field, or `popover`, a panel below it while it has focus. @since 0.1.0 */
+  /** Where the meter and the checklist go: `inline` under the field, or `popover`, a panel below it while it has focus. @since 0.1.1 */
   feedback?: "inline" | "popover"
   /** Controls whether the value is masked. Pair with onMaskChange. */
   mask?: boolean

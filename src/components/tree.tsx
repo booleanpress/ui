@@ -17,7 +17,7 @@ import { useUiConfig, useUiLocale, useUiStrings } from "@booleanpress/ui/provide
 /**
  * One node of a tree: `Tree`, `TreeSelect` and `TreeTable` all take an array of them.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 interface TreeNode<TData = unknown> {
   /** Unique across the whole tree. */
@@ -41,7 +41,7 @@ interface TreeNode<TData = unknown> {
 /**
  * How nodes are chosen: not at all, one at a time, several, or with checkboxes that check a whole branch.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 type TreeSelectionMode = "none" | "single" | "multiple" | "checkbox"
 
@@ -49,7 +49,7 @@ type TreeSelectionMode = "none" | "single" | "multiple" | "checkbox"
  * A node moved by dragging or by Alt and an arrow key: put node `id` before, after or inside node `targetId`. Pass it
  * to `moveTreeNode` to get the new nodes.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 interface TreeMove {
   id: string
@@ -60,7 +60,7 @@ interface TreeMove {
 /**
  * What `renderLabel` is told about the node it draws.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 interface TreeNodeState {
   level: number
@@ -73,7 +73,7 @@ interface TreeNodeState {
 /**
  * One visible row of a tree: a node with its place, as `useTreeState` lists them, in order.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 interface TreeRow<TData = unknown> {
   node: TreeNode<TData>
@@ -151,7 +151,7 @@ function sameIds(a: string[], b: string[]) {
 /**
  * The ids of every node that has children, loaded ones included: what "expand all" opens.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function getExpandableIds<TData>(nodes: TreeNode<TData>[]): string[] {
   const ids: string[] = []
@@ -171,7 +171,7 @@ function getExpandableIds<TData>(nodes: TreeNode<TData>[]): string[] {
  * The nodes with one moved as `move` says, as a new array; the nodes you pass are not changed. A node cannot move into
  * itself or its own branch: the nodes come back as they were.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function moveTreeNode<TData>(nodes: TreeNode<TData>[], move: TreeMove): TreeNode<TData>[] {
   const index = indexTree(nodes, {})
@@ -219,7 +219,7 @@ function useControllableState<T>(prop: T | undefined, defaultValue: T, onChange?
 /**
  * Options of `useTreeState`.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 interface TreeStateOptions<TData> {
   nodes: TreeNode<TData>[]
@@ -247,7 +247,7 @@ interface TreeStateOptions<TData> {
  * not), checkbox propagation, lazy children, filtering, the visible rows in order, roving focus and the WAI-ARIA tree
  * keys. For building another tree-shaped widget.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function useTreeState<TData>({
   nodes,
@@ -844,7 +844,7 @@ function TreeItem({ row, renderGroup }: { row: TreeRow<unknown>; renderGroup: (p
 /**
  * Props of `Tree`.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 interface TreeProps<TData = unknown>
   extends Omit<React.ComponentProps<"div">, "children" | "defaultValue" | "onChange"> {
@@ -897,7 +897,7 @@ interface TreeProps<TData = unknown>
  * A hierarchical list people open, close and choose from: folders, categories, an organisation. Name it with
  * `aria-label` or `aria-labelledby`.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function Tree<TData = unknown>({
   nodes,

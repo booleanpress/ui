@@ -17,7 +17,7 @@ import { Textarea } from "@/components/textarea"
 // boolean-ui patch: the group hands its size to its control, so the input's padding and text follow it (stock: no size).
 const InputGroupContext = React.createContext<{ size: ControlSize; attached: boolean } | null>(null)
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function InputGroup({
   className,
   size,
@@ -25,9 +25,9 @@ function InputGroup({
   attached = false,
   ...props
 }: React.ComponentProps<"div"> & {
-  /** The size of the group and everything in it: 26, 34 or 42 px tall. Defaults to the provider's `controlSize`. @since 0.1.0 */
+  /** The size of the group and everything in it: 26, 34 or 42 px tall. Defaults to the provider's `controlSize`. @since 0.1.1 */
   size?: ControlSize
-  /** `filled` draws the grey `--field-filled` fill round the whole group. Defaults to the provider's `fieldVariant`. @since 0.1.0 */
+  /** `filled` draws the grey `--field-filled` fill round the whole group. Defaults to the provider's `fieldVariant`. @since 0.1.1 */
   variant?: FieldVariant
   /** Separates inline addons into cells and makes addon buttons fill the group's height. */
   attached?: boolean
@@ -121,7 +121,7 @@ const inputGroupAddonVariants = cva(
   }
 )
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function InputGroupAddon({
   className,
   align = "inline-start",
@@ -172,7 +172,7 @@ const inputGroupButtonVariants = cva(
   }
 )
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function InputGroupButton({
   className,
   type = "button",
@@ -192,7 +192,7 @@ function InputGroupButton({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function InputGroupText({ className, ...props }: React.ComponentProps<"span">) {
   return (
     <span
@@ -210,7 +210,7 @@ function InputGroupText({ className, ...props }: React.ComponentProps<"span">) {
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function InputGroupInput({
   className,
   ...props
@@ -235,7 +235,7 @@ function InputGroupInput({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function InputGroupTextarea({
   className,
   ...props

@@ -76,7 +76,7 @@ const DEFAULT_DIRECTION: Record<SpeedDialType, SpeedDialDirection> = {
   "quarter-circle": "up-left",
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function SpeedDial({
   className,
   open: openProp,
@@ -203,7 +203,7 @@ function SpeedDial({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function SpeedDialTrigger({
   className,
   children,
@@ -276,7 +276,7 @@ function focusAction(listId: string, which: "first" | "last") {
   items[which === "first" ? 0 : items.length - 1]?.focus()
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function SpeedDialContent({ className, children, onKeyDown, ...props }: React.ComponentProps<"ul">) {
   const { open, setOpen, type, direction, radius, transitionDelay, triggerId, listId, triggerRef, pendingFocusRef } =
     useSpeedDial("SpeedDialContent")
@@ -372,7 +372,7 @@ function SpeedDialContent({ className, children, onKeyDown, ...props }: React.Co
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function SpeedDialAction({
   className,
   label,

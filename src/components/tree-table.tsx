@@ -27,7 +27,7 @@ import { useControlSize, useUiLocale, useUiStrings, type ControlSize } from "@bo
 /**
  * One column of a tree table. The first column holds the tree: each row's toggle, checkbox, icon and label.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 interface TreeTableColumn<TData = unknown> {
   /** Unique among the columns; by default the cell shows `node.data[id]`. */
@@ -49,7 +49,7 @@ interface TreeTableColumn<TData = unknown> {
 /**
  * The sort of a tree table: a column and its direction. Siblings sort among themselves, at every level.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 interface TreeTableSort {
   id: string
@@ -59,7 +59,7 @@ interface TreeTableSort {
 /**
  * Props of `TreeTable`.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 interface TreeTableProps<TData = unknown> extends Omit<React.ComponentProps<"div">, "children"> {
   /** The rows, as tree nodes: `{ id, label, icon?, children?, leaf?, disabled?, data? }`. */
@@ -125,7 +125,7 @@ function defaultValue<TData>(node: TreeNode<TData>, column: TreeTableColumn<TDat
  * A table of nested rows: organisations and their teams, folders and their files. Name it with `aria-label` or
  * `aria-labelledby`.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function TreeTable<TData = unknown>({
   nodes,

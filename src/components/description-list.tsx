@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils"
 
 import { useControlSize, type ControlSize } from "@booleanpress/ui/provider"
 
-/** Where an item's label goes: beside its value, or above it. @since 0.1.0 */
+/** Where an item's label goes: beside its value, or above it. @since 0.1.1 */
 type DescriptionListOrientation = "horizontal" | "vertical"
 
 const DescriptionListContext = React.createContext<{
@@ -23,7 +23,7 @@ const DescriptionListContext = React.createContext<{
  * Pairs of labels and values, such as a record's settings: a description list in one to three columns, the label above
  * its value or beside it, optionally drawn as a bordered table.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function DescriptionList({
   className,
@@ -79,7 +79,7 @@ function DescriptionList({
  * One label and its value: a `dt` and a `dd`, wrapped in a `div`. `children` is the value; `action` sits at its end, such
  * as a copy button.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function DescriptionItem({
   className,

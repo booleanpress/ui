@@ -41,7 +41,7 @@ function useChart() {
 
 const noSubscription = () => () => {}
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ChartContainer({
   id,
   className,
@@ -93,7 +93,7 @@ function ChartContainer({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 const ChartStyle = ({ id, config }: { id: string; config: ChartConfig }) => {
   const colorConfig = Object.entries(config).filter(
     ([, config]) => config.theme ?? config.color
@@ -127,10 +127,10 @@ ${colorConfig
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 const ChartTooltip = RechartsPrimitive.Tooltip
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ChartTooltipContent({
   active,
   payload,
@@ -295,10 +295,10 @@ function ChartTooltipContent({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 const ChartLegend = RechartsPrimitive.Legend
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ChartLegendContent({
   className,
   hideIcon = false,

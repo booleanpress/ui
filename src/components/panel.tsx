@@ -29,7 +29,7 @@ const PanelContext = React.createContext<PanelContextValue>({
 // Whether a part sits inside PanelContent, so a footer placed there drops its own side and bottom padding.
 const PanelContentContext = React.createContext(false)
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function Panel({
   className,
   toggleable = false,
@@ -93,7 +93,7 @@ function Panel({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function PanelHeader({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -104,7 +104,7 @@ function PanelHeader({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function PanelTitle({
   className,
   asChild = false,
@@ -141,7 +141,7 @@ function splitAroundTitle(template: string): [string, string] {
   return [template.slice(0, at).trim(), template.slice(at + "{title}".length).trim()]
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function PanelActions({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -152,7 +152,7 @@ function PanelActions({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function PanelTrigger({
   className,
   indicator,
@@ -214,7 +214,7 @@ function PanelTrigger({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function PanelContent({
   className,
   children,
@@ -263,7 +263,7 @@ function PanelContent({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function PanelFooter({ className, ...props }: React.ComponentProps<"div">) {
   const inContent = React.useContext(PanelContentContext)
 

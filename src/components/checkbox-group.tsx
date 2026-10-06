@@ -47,7 +47,7 @@ const DESCRIPTION_INDENT: Record<ControlSize, string> = {
  * Checkboxes that share one value, an array of the checked items' `value`s. Name it with `aria-label` or
  * `aria-labelledby`, or put it in a `FieldSet` with a `FieldLegend`.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function CheckboxGroup({
   value,
@@ -204,7 +204,7 @@ function Row({
 /**
  * One checkbox of a `CheckboxGroup`: checked while the group's value holds its `value`.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function CheckboxGroupItem({
   value,
@@ -272,7 +272,7 @@ function CheckboxGroupItem({
  * A checkbox that checks or clears the whole group (or the `values` you give it): checked when all are, mixed when some
  * are. From mixed, Space checks all. Each subsequent activation clears or checks every enabled item.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function CheckboxGroupParent({
   values,

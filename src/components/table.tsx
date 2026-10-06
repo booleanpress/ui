@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils"
 
 import { ScrollContainer } from "@/lib/scroll-focus"
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function Table({ className, ...props }: React.ComponentProps<"table">) {
   return (
     // boolean-ui patch: a table wider than its container scrolls in a box that takes keyboard focus when the table has
@@ -23,7 +23,7 @@ function Table({ className, ...props }: React.ComponentProps<"table">) {
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function TableHeader({ className, ...props }: React.ComponentProps<"thead">) {
   return (
     <thead
@@ -35,7 +35,7 @@ function TableHeader({ className, ...props }: React.ComponentProps<"thead">) {
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function TableBody({ className, ...props }: React.ComponentProps<"tbody">) {
   return (
     <tbody
@@ -47,7 +47,7 @@ function TableBody({ className, ...props }: React.ComponentProps<"tbody">) {
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function TableFooter({ className, ...props }: React.ComponentProps<"tfoot">) {
   return (
     <tfoot
@@ -63,7 +63,7 @@ function TableFooter({ className, ...props }: React.ComponentProps<"tfoot">) {
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function TableRow({ className, ...props }: React.ComponentProps<"tr">) {
   return (
     <tr
@@ -81,7 +81,7 @@ function TableRow({ className, ...props }: React.ComponentProps<"tr">) {
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function TableHead({ className, ...props }: React.ComponentProps<"th">) {
   return (
     <th
@@ -96,7 +96,7 @@ function TableHead({ className, ...props }: React.ComponentProps<"th">) {
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function TableCell({ className, ...props }: React.ComponentProps<"td">) {
   return (
     <td
@@ -111,7 +111,7 @@ function TableCell({ className, ...props }: React.ComponentProps<"td">) {
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function TableCaption({
   className,
   ...props

@@ -77,7 +77,7 @@ type KnobProps = Omit<React.ComponentProps<"div">, "defaultValue" | "onChange"> 
  * A round slider: drag round the dial, or use the arrow keys, Page Up/Down, Home and End. Name it with `aria-label` or
  * `aria-labelledby`.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function Knob({
   value,

@@ -29,14 +29,14 @@ import { Progress } from "@/components/progress"
 /**
  * Where a file stands: `queued` (added, not sent), `uploading`, `done` or `error`.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 type FileUploadStatus = "queued" | "uploading" | "done" | "error"
 
 /**
  * One file in the list, with its status and progress.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 interface FileUploadFile {
   /** Stable for the life of the entry: use it as the React key. */
@@ -52,7 +52,7 @@ interface FileUploadFile {
 /**
  * A file that was not added, and why: `type` (not in `accept`), `size` (over `maxSize`) or `count` (over `maxFiles`).
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 interface FileUploadRejection {
   file: File
@@ -64,7 +64,7 @@ interface FileUploadRejection {
 /**
  * What `onUpload` receives beside the files: report progress and per-file failures, and stop when `signal` aborts.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 interface FileUploadHelpers {
   /** Reports one file's progress, from 0 to 100. */
@@ -84,14 +84,14 @@ interface FileUploadHelpers {
  * The app's upload: send the files, call `onProgress` as they go, and resolve when done. A rejected promise marks every
  * file of the batch as failed.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 type FileUploadHandler = (files: File[], helpers: FileUploadHelpers) => Promise<void> | void
 
 /**
  * What `useFileUpload()` returns, for a layout of your own.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 interface FileUploadState {
   files: FileUploadFile[]
@@ -117,7 +117,7 @@ const FileUploadContext = React.createContext<FileUploadState | null>(null)
 /**
  * The state of the nearest `FileUpload`, for parts of your own: the files, the messages and the actions.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function useFileUpload(): FileUploadState {
   const context = React.useContext(FileUploadContext)
@@ -177,7 +177,7 @@ function readDrop(transfer: DataTransfer): { files: File[]; folders: File[] } {
   return { files, folders }
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function FileUpload({
   accept,
   multiple = false,
@@ -478,7 +478,7 @@ function carriesFiles(event: React.DragEvent): boolean {
   return !types || Array.from(types).includes("Files")
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function FileUploadDropzone({
   className,
   children,
@@ -607,7 +607,7 @@ function FileUploadAction({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function FileUploadTrigger(props: FileUploadButtonProps) {
   const { openPicker, disabled } = useFileUpload()
   const strings = useUiStrings()
@@ -627,7 +627,7 @@ function FileUploadTrigger(props: FileUploadButtonProps) {
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function FileUploadSubmit({ variant = "secondary", ...props }: FileUploadButtonProps) {
   const { files, upload, disabled } = useFileUpload()
   const strings = useUiStrings()
@@ -648,7 +648,7 @@ function FileUploadSubmit({ variant = "secondary", ...props }: FileUploadButtonP
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function FileUploadClear({ variant = "secondary", ...props }: FileUploadButtonProps) {
   const { files, rejections, clear, disabled } = useFileUpload()
   const strings = useUiStrings()
@@ -669,7 +669,7 @@ function FileUploadClear({ variant = "secondary", ...props }: FileUploadButtonPr
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function FileUploadProgress({ className, ...props }: Omit<React.ComponentProps<typeof Progress>, "value">) {
   const { files } = useFileUpload()
   const strings = useUiStrings()
@@ -688,7 +688,7 @@ function FileUploadProgress({ className, ...props }: Omit<React.ComponentProps<t
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function FileUploadErrors({ className, ...props }: React.ComponentProps<"ul">) {
   const { rejections } = useFileUpload()
   const messages = [...new Set(rejections.map((rejection) => rejection.message))]
@@ -737,7 +737,7 @@ function canMakeBlobUrls(): boolean {
   return blobUrls
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function FileUploadPreview({
   file,
   className,
@@ -783,7 +783,7 @@ function FileUploadPreview({
 
 const FileUploadListContext = React.createContext<{ layout: "list" | "grid" }>({ layout: "list" })
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function FileUploadList({
   className,
   layout = "list",
@@ -821,7 +821,7 @@ function FileUploadList({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function FileUploadItem({
   file: entry,
   preview = true,

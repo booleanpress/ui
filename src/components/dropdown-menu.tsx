@@ -6,14 +6,14 @@ import { cn } from "@/lib/utils"
 import { CheckIcon, ChevronRightIcon, CircleIcon } from "lucide-react"
 import { DropdownMenu as DropdownMenuPrimitive } from "radix-ui"
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function DropdownMenu({
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.Root>) {
   return <DropdownMenuPrimitive.Root data-slot="dropdown-menu" {...props} />
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function DropdownMenuPortal({
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.Portal>) {
@@ -22,7 +22,7 @@ function DropdownMenuPortal({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function DropdownMenuTrigger({
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.Trigger>) {
@@ -34,7 +34,7 @@ function DropdownMenuTrigger({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function DropdownMenuContent({
   className,
   sideOffset = 4,
@@ -64,7 +64,7 @@ function DropdownMenuContent({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function DropdownMenuGroup({
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.Group>) {
@@ -73,7 +73,7 @@ function DropdownMenuGroup({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function DropdownMenuItem({
   className,
   inset,
@@ -100,7 +100,7 @@ function DropdownMenuItem({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function DropdownMenuCheckboxItem({
   className,
   children,
@@ -129,7 +129,7 @@ function DropdownMenuCheckboxItem({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function DropdownMenuRadioGroup({
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.RadioGroup>) {
@@ -141,7 +141,7 @@ function DropdownMenuRadioGroup({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function DropdownMenuRadioItem({
   className,
   children,
@@ -168,7 +168,7 @@ function DropdownMenuRadioItem({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function DropdownMenuLabel({
   className,
   inset,
@@ -191,7 +191,7 @@ function DropdownMenuLabel({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function DropdownMenuSeparator({
   className,
   ...props
@@ -207,7 +207,7 @@ function DropdownMenuSeparator({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function DropdownMenuShortcut({
   className,
   ...props
@@ -227,14 +227,14 @@ function DropdownMenuShortcut({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function DropdownMenuSub({
   ...props
 }: React.ComponentProps<typeof DropdownMenuPrimitive.Sub>) {
   return <DropdownMenuPrimitive.Sub data-slot="dropdown-menu-sub" {...props} />
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function DropdownMenuSubTrigger({
   className,
   inset,
@@ -262,7 +262,7 @@ function DropdownMenuSubTrigger({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function DropdownMenuSubContent({
   className,
   ...props

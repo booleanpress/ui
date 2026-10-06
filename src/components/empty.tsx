@@ -1,7 +1,7 @@
 import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function Empty({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -16,7 +16,7 @@ function Empty({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function EmptyHeader({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -47,7 +47,7 @@ const emptyMediaVariants = cva(
   }
 )
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function EmptyMedia({
   className,
   variant = "default",
@@ -63,7 +63,7 @@ function EmptyMedia({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function EmptyTitle({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -76,7 +76,7 @@ function EmptyTitle({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function EmptyDescription({ className, ...props }: React.ComponentProps<"p">) {
   return (
     <div
@@ -91,7 +91,7 @@ function EmptyDescription({ className, ...props }: React.ComponentProps<"p">) {
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function EmptyContent({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div

@@ -13,7 +13,7 @@ import { useControlSize, type ControlSize } from "@booleanpress/ui/provider"
 /**
  * The square sizes: 24, 28, 36 and 42 px.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 type IconButtonSize = "xs" | ControlSize
 
@@ -22,7 +22,7 @@ const ICON_SIZES = { xs: "icon-xs", sm: "icon-sm", default: "icon", lg: "icon-lg
 /**
  * Props of `IconButton`: Button's, without `size` and `aria-label`, plus the required `label`.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 type IconButtonProps = Omit<React.ComponentProps<typeof Button>, "size" | "aria-label" | "aria-labelledby"> & {
   /** What the button does, in words: its accessible name, and the tooltip's text. Required. */
@@ -35,7 +35,7 @@ type IconButtonProps = Omit<React.ComponentProps<typeof Button>, "size" | "aria-
   tooltipSide?: "top" | "right" | "bottom" | "left"
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function IconButton({
   className,
   label,

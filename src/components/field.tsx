@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils"
 import { Label } from "@/components/label"
 import { Separator } from "@/components/separator"
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function FieldSet({
   className,
   ...props
@@ -25,7 +25,7 @@ function FieldSet({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function FieldLegend({
   className,
   variant = "legend",
@@ -46,7 +46,7 @@ function FieldLegend({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function FieldGroup({
   className,
   ...props
@@ -90,7 +90,7 @@ const fieldVariants = cva(
   }
 )
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function Field({
   className,
   orientation = "vertical",
@@ -107,7 +107,7 @@ function Field({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function FieldContent({
   className,
   ...props
@@ -125,7 +125,7 @@ function FieldContent({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function FieldLabel({
   className,
   ...props
@@ -147,7 +147,7 @@ function FieldLabel({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function FieldTitle({
   className,
   ...props
@@ -166,7 +166,7 @@ function FieldTitle({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function FieldDescription({
   className,
   ...props
@@ -186,7 +186,7 @@ function FieldDescription({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function FieldSeparator({
   children,
   className,
@@ -217,7 +217,7 @@ function FieldSeparator({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function FieldError({
   className,
   children,

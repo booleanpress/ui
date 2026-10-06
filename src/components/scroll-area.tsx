@@ -36,7 +36,7 @@ function useScrollFade(node: HTMLElement | null, enabled: boolean) {
   }, [node, enabled])
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ScrollArea({
   className,
   children,
@@ -45,7 +45,7 @@ function ScrollArea({
 }: React.ComponentProps<typeof ScrollAreaPrimitive.Root> & {
   /**
    * Fade the content out over 40 px at each edge behind which more of it is hidden; the fade follows the scroll.
-   * @since 0.1.0
+   * @since 0.1.1
    */
   fade?: boolean
 }) {
@@ -104,7 +104,7 @@ function ScrollArea({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function ScrollBar({
   className,
   orientation = "vertical",

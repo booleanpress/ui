@@ -20,7 +20,7 @@ function lineClasses(orientation: "horizontal" | "vertical", variant: SeparatorV
   return cn(orientation === "horizontal" ? "h-0 border-t" : "w-0 border-s", "border-border", BROKEN_LINE[variant])
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function Separator({
   className,
   orientation = "horizontal",
@@ -30,11 +30,11 @@ function Separator({
   children,
   ...props
 }: React.ComponentProps<typeof SeparatorPrimitive.Root> & {
-  /** The line's style: `solid` (default), `dashed` or `dotted`. @since 0.1.0 */
+  /** The line's style: `solid` (default), `dashed` or `dotted`. @since 0.1.1 */
   variant?: SeparatorVariant
   /**
    * Where the content sits along the line: `start`, `center` (default) or `end`; on a vertical line `top` and `bottom`
-   * mean the same as `start` and `end`. @since 0.1.0
+   * mean the same as `start` and `end`. @since 0.1.1
    */
   align?: SeparatorAlign
 }) {

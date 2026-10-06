@@ -102,7 +102,7 @@ interface ColorPickerProps extends Omit<React.ComponentProps<"div">, "defaultVal
  * A colour picker: a saturation and brightness area, hue and alpha sliders, editable formats, an eyedropper and optional
  * preset swatches. Name it with `aria-label` or `aria-labelledby`; "Colour picker" by default.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function ColorPicker({
   value,
@@ -577,7 +577,7 @@ function ColorPickerSwatches({
 /**
  * A square of colour, over light checks so transparency shows. Decorative unless given an `aria-label`.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function ColorSwatch({
   color,
@@ -612,7 +612,7 @@ const triggerSizes: Record<ControlSize, string> = {
  * A swatch button that opens a `ColorPicker` in a popover. It takes the picker's props, and the popover's `open`,
  * `defaultOpen` and `onOpenChange`.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function ColorPickerPopover({
   value,
@@ -719,7 +719,7 @@ function useColorPicker() {
   return context
 }
 
-/** A saturation and brightness area connected to its enclosing picker. @since 0.1.0 */
+/** A saturation and brightness area connected to its enclosing picker. @since 0.1.1 */
 function ColorPickerArea({ className }: { className?: string }) {
   const { color, colorRef, update, commit, disabled, rtl } = useColorPicker()
   const strings = useUiStrings()
@@ -728,7 +728,7 @@ function ColorPickerArea({ className }: { className?: string }) {
   return <ColorAreaControl className={className} color={color} disabled={disabled} rtl={rtl} saturationLabel={strings.saturation} brightnessLabel={strings.brightness} format={(n) => percent.format(n / 100)} onChange={(s, v) => update({ ...colorRef.current, s, v })} onCommit={commit} />
 }
 
-/** A named channel slider; format selects HSL/HSV/OKLCH interpretation. @since 0.1.0 */
+/** A named channel slider; format selects HSL/HSV/OKLCH interpretation. @since 0.1.1 */
 function ColorPickerSlider({ channel, format: formatProp, orientation = "horizontal", className }: {
   channel: ColorChannel
   format?: ColorFormat
@@ -754,7 +754,7 @@ function ColorPickerSlider({ channel, format: formatProp, orientation = "horizon
   return <ColorSliderControl channel={channel} label={strings[channel]} value={value} max={range.max} step={range.step} valueText={valueText} background={`linear-gradient(to ${direction}, ${stops.join(", ")})${channel === "alpha" ? `, ${CHECKS}` : ""}`} thumbColor={channel === "hue" && format !== "oklcha" ? `hsl(${state.color.h} 100% 50%)` : rgbCss(state.color)} vertical={vertical} rtl={state.rtl} disabled={state.disabled || (channel === "alpha" && !state.alpha)} onChange={(next) => state.update(withChannel(state.colorRef.current, channel, next, format))} onCommit={state.commit} className={className} />
 }
 
-/** An editable hex/CSS value or individual channel; numbers use degrees, 0–255 RGB, 0–1 alpha/OKLCH lightness and 0–100 HSL/HSB. @since 0.1.0 */
+/** An editable hex/CSS value or individual channel; numbers use degrees, 0–255 RGB, 0–1 alpha/OKLCH lightness and 0–100 HSL/HSB. @since 0.1.1 */
 /**
  * boolean-ui patch: a number cell of the attached channel row is centred, 6px from its edges, without the browser's spin
  * buttons, so four values ("255", "0.75") fit the row beside the format select (stock: no channel fields).
@@ -808,7 +808,7 @@ function ColorPickerInput({ channel = "hex", format: formatProp, grouped = false
   }} />
 }
 
-/** Changes the displayed controls without changing the selected colour. @since 0.1.0 */
+/** Changes the displayed controls without changing the selected colour. @since 0.1.1 */
 function ColorPickerFormatSelect({ className }: { className?: string }) {
   const state = useColorPicker()
   const strings = useUiStrings()
@@ -818,7 +818,7 @@ function ColorPickerFormatSelect({ className }: { className?: string }) {
   </Select>
 }
 
-/** The current colour, for a composed picker. @since 0.1.0 */
+/** The current colour, for a composed picker. @since 0.1.1 */
 function ColorPickerPreview({ className, ...props }: Omit<React.ComponentProps<typeof ColorSwatch>, "color">) {
   const state = useColorPicker()
   return <ColorSwatch data-slot="color-picker-preview" color={toHex(state.color, state.alpha)} className={className} {...props} />
@@ -828,7 +828,7 @@ type EyeDropperConstructor = new () => { open: (options?: { signal: AbortSignal 
 const subscribeEyeDropper = () => () => {}
 const supportsEyeDropper = () => typeof window !== "undefined" && typeof (window as Window & { EyeDropper?: EyeDropperConstructor }).EyeDropper === "function"
 
-/** Uses the browser's screen colour picker when available in a secure context. @since 0.1.0 */
+/** Uses the browser's screen colour picker when available in a secure context. @since 0.1.1 */
 function ColorPickerEyeDropper({ className }: { className?: string }) {
   const state = useColorPicker()
   const strings = useUiStrings()

@@ -10,7 +10,7 @@ import { BYTE_INTL_UNITS, BYTE_SYMBOLS, formatByteSize, scaleBytes, withUnitSymb
 /**
  * A number to format: a `number`, or a `bigint` for counts beyond 2^53.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 export type FormatNumberValue = number | bigint
 
@@ -18,7 +18,7 @@ export type FormatNumberValue = number | bigint
  * A date to format: a `Date`, a timestamp in milliseconds, or an ISO 8601 string. A date-only string ("2026-10-14") is a
  * calendar day: it is written as that day in every time zone.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 export type FormatDateValue = Date | number | string
 
@@ -26,14 +26,14 @@ export type FormatDateValue = Date | number | string
  * How `formatNumber` writes a number: plain (`decimal`), a fraction as a percentage (`percent`: 0.42 is 42%), short
  * (`compact`: 12,400 is 12K) or with a `unit`.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 export type FormatNumberStyle = "decimal" | "percent" | "compact" | "unit"
 
 /**
  * Options of `formatNumber`: the locale, the style and any `Intl.NumberFormat` option.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 export interface FormatNumberOptions extends Omit<Intl.NumberFormatOptions, "style"> {
   /** BCP 47 locale ("de-DE"); undefined is the runtime's default. */
@@ -45,7 +45,7 @@ export interface FormatNumberOptions extends Omit<Intl.NumberFormatOptions, "sty
 /**
  * Options of `formatCurrency`: the ISO 4217 `currency` code, the locale and any `Intl.NumberFormat` option.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 export interface FormatCurrencyOptions extends Omit<Intl.NumberFormatOptions, "style" | "currency"> {
   /** BCP 47 locale ("de-DE"); undefined is the runtime's default. */
@@ -57,7 +57,7 @@ export interface FormatCurrencyOptions extends Omit<Intl.NumberFormatOptions, "s
 /**
  * Options of `formatBytes`.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 export interface FormatBytesOptions {
   /** BCP 47 locale ("de-DE"); undefined is the runtime's default. */
@@ -81,7 +81,7 @@ export interface FormatBytesOptions {
  * Options of `formatDate`: the locale and any `Intl.DateTimeFormat` option, the time zone among them. With no date or time
  * field, the date is written as `dateStyle: "medium"` ("Oct 14, 2026").
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 export interface FormatDateOptions extends Intl.DateTimeFormatOptions {
   /** BCP 47 locale ("de-DE"); undefined is the runtime's default. */
@@ -91,14 +91,14 @@ export interface FormatDateOptions extends Intl.DateTimeFormatOptions {
 /**
  * The unit of a relative time.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 export type FormatRelativeTimeUnit = "second" | "minute" | "hour" | "day" | "week" | "month" | "year"
 
 /**
  * Options of `formatRelativeTime`.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 export interface FormatRelativeTimeOptions {
   /** BCP 47 locale ("de-DE"); undefined is the runtime's default. */
@@ -153,7 +153,7 @@ const isValid = (date: Date) => !Number.isNaN(date.getTime())
  * A number in the locale: `formatNumber(12408.5, { locale: "de-DE" })` is "12.408,5". `style` is `decimal`, `percent`,
  * `compact` or `unit`; any other `Intl.NumberFormat` option applies. NaN gives an empty string.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function formatNumber(value: FormatNumberValue, { locale, style = "decimal", ...options }: FormatNumberOptions = {}): string {
   if (typeof value === "number" && Number.isNaN(value)) return ""
@@ -165,7 +165,7 @@ function formatNumber(value: FormatNumberValue, { locale, style = "decimal", ...
  * An amount of money in the locale: `formatCurrency(1234.5, { currency: "EUR", locale: "de-DE" })` is "1.234,50 €". Any
  * other `Intl.NumberFormat` option applies (`currencySign: "accounting"`, `notation: "compact"`). NaN gives an empty string.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function formatCurrency(value: FormatNumberValue, { locale, ...options }: FormatCurrencyOptions): string {
   if (typeof value === "number" && Number.isNaN(value)) return ""
@@ -176,7 +176,7 @@ function formatCurrency(value: FormatNumberValue, { locale, ...options }: Format
  * A size in bytes, in the locale: `formatBytes(1_500_000)` is "1.5 MB", `formatBytes(512)` "512 B",
  * `formatBytes(1_572_864, { units: "binary" })` "1.5 MiB". A value that is not a finite number gives an empty string.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function formatBytes(
   value: number,
@@ -218,7 +218,7 @@ const DATE_FIELDS = [
  * timeZone: "Europe/Berlin" })` is "October 14, 2026 at 11:30 AM". With no date or time field it is `dateStyle: "medium"`.
  * A date-only string is written as that day in every time zone. An invalid date gives an empty string.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function formatDate(value: FormatDateValue, { locale, ...options }: FormatDateOptions = {}): string {
   const { date, day } = readDate(value)
@@ -248,7 +248,7 @@ const RELATIVE_UNITS: [FormatRelativeTimeUnit, number, number][] = [
  * The time between a date and `now`, in the locale: "3 hours ago", "in 2 days", "yesterday". The unit is the largest that
  * keeps the number at 1 or more, rounded, unless `unit` names one. An invalid date gives an empty string.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function formatRelativeTime(
   value: FormatDateValue,
@@ -325,14 +325,14 @@ type TimeProps = Omit<React.ComponentProps<"time">, "dateTime" | "children" | "s
 /**
  * Props of `FormatNumber`: the value, the style, any `Intl.NumberFormat` option, and the `data` element's props.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 export interface FormatNumberProps extends FormatNumberOptions, DataProps {
   /** The number to write. */
   value: FormatNumberValue
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function FormatNumber({ value, locale, style, ...props }: FormatNumberProps) {
   const ui = useUiLocale()
   const [options, rest] = splitOptions<Intl.NumberFormatOptions>(props, NUMBER_OPTIONS)
@@ -347,14 +347,14 @@ function FormatNumber({ value, locale, style, ...props }: FormatNumberProps) {
 /**
  * Props of `FormatCurrency`: the value, the currency, any `Intl.NumberFormat` option, and the `data` element's props.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 export interface FormatCurrencyProps extends FormatCurrencyOptions, DataProps {
   /** The amount to write, in the currency's main unit (dollars, not cents). */
   value: FormatNumberValue
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function FormatCurrency({ value, locale, currency, ...props }: FormatCurrencyProps) {
   const ui = useUiLocale()
   const [options, rest] = splitOptions<Intl.NumberFormatOptions>(props, NUMBER_OPTIONS)
@@ -369,14 +369,14 @@ function FormatCurrency({ value, locale, currency, ...props }: FormatCurrencyPro
 /**
  * Props of `FormatBytes`: the size in bytes, the units, and the `data` element's props.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 export interface FormatBytesProps extends FormatBytesOptions, DataProps {
   /** The size in bytes. */
   value: number
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function FormatBytes({ value, locale, units, unitDisplay, maximumFractionDigits, ...props }: FormatBytesProps) {
   const ui = useUiLocale()
   const text = formatBytes(value, { locale: locale ?? ui.locale, units, unitDisplay, maximumFractionDigits })
@@ -391,14 +391,14 @@ function FormatBytes({ value, locale, units, unitDisplay, maximumFractionDigits,
  * Props of `FormatDate`: the date, any `Intl.DateTimeFormat` option (`dateStyle`, `timeStyle`, `timeZone`…), and the
  * `time` element's props.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 export interface FormatDateProps extends FormatDateOptions, TimeProps {
   /** The date: a `Date`, a timestamp, or an ISO 8601 string ("2026-10-14T09:30:00Z", or "2026-10-14" for a day). */
   value: FormatDateValue
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function FormatDate({ value, locale, ...props }: FormatDateProps) {
   const ui = useUiLocale()
   const [options, rest] = splitOptions<Intl.DateTimeFormatOptions>(props, DATE_OPTIONS)
@@ -419,7 +419,7 @@ function FormatDate({ value, locale, ...props }: FormatDateProps) {
  * Props of `FormatRelativeTime`: the date, the moment it is compared with, the unit and style, and the `time` element's
  * props.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 export interface FormatRelativeTimeProps extends FormatRelativeTimeOptions, TimeProps {
   /** The date: a `Date`, a timestamp, or an ISO 8601 string. */
@@ -430,7 +430,7 @@ export interface FormatRelativeTimeProps extends FormatRelativeTimeOptions, Time
 
 const noSubscription = () => () => {}
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function FormatRelativeTime({ value, now, live = false, locale, unit, numeric, style, ...props }: FormatRelativeTimeProps) {
   const ui = useUiLocale()
   const [clock, setClock] = React.useState<number | undefined>(undefined)

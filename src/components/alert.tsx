@@ -55,7 +55,7 @@ const alertVariants = cva(
   }
 )
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function Alert({
   className,
   variant,
@@ -72,10 +72,10 @@ function Alert({
   VariantProps<typeof alertVariants> & {
     /**
      * Removes the alert after this many milliseconds and calls `onDismiss`. The count pauses while the pointer is
-     * over the alert or focus is inside it. @since 0.1.0
+     * over the alert or focus is inside it. @since 0.1.1
      */
     duration?: number
-    /** Called when `duration` runs out, as the alert removes itself. @since 0.1.0 */
+    /** Called when `duration` runs out, as the alert removes itself. @since 0.1.1 */
     onDismiss?: () => void
   }) {
   const [dismissed, setDismissed] = React.useState(false)
@@ -139,7 +139,7 @@ function Alert({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function AlertTitle({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -154,7 +154,7 @@ function AlertTitle({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function AlertDescription({
   className,
   ...props

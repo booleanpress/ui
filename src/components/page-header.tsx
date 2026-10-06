@@ -19,7 +19,7 @@ import { useUiStrings } from "@booleanpress/ui/provider"
 /**
  * The header: a grid whose actions sit at the end of the title, and fold into a menu below 36rem of its own width.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function PageHeader({ className, ...props }: React.ComponentProps<"div">) {
   return (
@@ -40,7 +40,7 @@ function PageHeader({ className, ...props }: React.ComponentProps<"div">) {
 /**
  * The place for a `Breadcrumb`, above the title.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function PageHeaderBreadcrumb({ className, ...props }: React.ComponentProps<"div">) {
   return <div data-slot="page-header-breadcrumb" className={cn("col-span-full mb-1.5", className)} {...props} />
@@ -49,7 +49,7 @@ function PageHeaderBreadcrumb({ className, ...props }: React.ComponentProps<"div
 /**
  * The title's line: the title, then its meta.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function PageHeaderHeading({ className, ...props }: React.ComponentProps<"div">) {
   return (
@@ -64,7 +64,7 @@ function PageHeaderHeading({ className, ...props }: React.ComponentProps<"div">)
 /**
  * The page's title: an `h1` unless `as` says otherwise.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function PageHeaderTitle({
   className,
@@ -86,7 +86,7 @@ function PageHeaderTitle({
 /**
  * Small facts beside the title: badges, avatars, a date.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function PageHeaderMeta({ className, ...props }: React.ComponentProps<"div">) {
   return (
@@ -101,7 +101,7 @@ function PageHeaderMeta({ className, ...props }: React.ComponentProps<"div">) {
 /**
  * A sentence under the title.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function PageHeaderDescription({ className, ...props }: React.ComponentProps<"p">) {
   return (
@@ -125,7 +125,7 @@ type PageHeaderActionProps = Omit<React.ComponentProps<typeof Button>, "onClick"
 /**
  * One action of the header: a button while there is room, an item of the "More actions" menu when there is not.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function PageHeaderAction({ onSelect, icon, pinned = false, variant, children, ...props }: PageHeaderActionProps) {
   return (
@@ -146,7 +146,7 @@ function PageHeaderAction({ onSelect, icon, pinned = false, variant, children, .
  * The header's actions, at the end of the title. Below 36rem of the header's width the `PageHeaderAction`s that are not
  * `pinned` fold into a "More actions" menu.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function PageHeaderActions({
   className,

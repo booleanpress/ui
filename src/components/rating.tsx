@@ -52,7 +52,7 @@ type RatingProps = Omit<
  * A row of stars people choose a rating from, or that shows one (`readOnly`). Name it with `aria-label` or
  * `aria-labelledby`.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function Rating({
   value,

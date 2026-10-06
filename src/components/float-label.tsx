@@ -112,7 +112,7 @@ const floatLabelVariants = cva(
  * value: above it (`over`), into its top (`in`) or onto its edge (`on`). Wrap one field and its `<label htmlFor>`: an
  * Input, InputNumber, InputMask, Textarea, PasswordInput, InputGroup, NativeSelect or Select.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function FloatLabel({
   className,

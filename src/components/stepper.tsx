@@ -63,7 +63,7 @@ function collectSteps(children: React.ReactNode, into: Set<number>): Set<number>
   return into
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function Stepper({
   className,
   value: valueProp,
@@ -122,7 +122,7 @@ function Stepper({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function StepperList({ className, onKeyDown, ...props }: React.ComponentProps<"ol">) {
   const { orientation } = useStepper("StepperList")
   const { dir } = useUiConfig()
@@ -165,7 +165,7 @@ function StepperList({ className, onKeyDown, ...props }: React.ComponentProps<"o
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function StepperItem({
   className,
   step,
@@ -216,7 +216,7 @@ function StepperItem({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function StepperTrigger({
   className,
   children,
@@ -267,7 +267,7 @@ function StepperTrigger({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function StepperIndicator({ className, children, ...props }: React.ComponentProps<"span">) {
   const { step, state, error } = useStepperItem("StepperIndicator")
   const { locale } = useUiLocale()
@@ -292,7 +292,7 @@ function StepperIndicator({ className, children, ...props }: React.ComponentProp
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function StepperTitle({ className, ...props }: React.ComponentProps<"span">) {
   const { baseId } = useStepper("StepperTitle")
   const { step } = useStepperItem("StepperTitle")
@@ -310,7 +310,7 @@ function StepperTitle({ className, ...props }: React.ComponentProps<"span">) {
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function StepperDescription({ className, ...props }: React.ComponentProps<"span">) {
   return (
     <span
@@ -321,7 +321,7 @@ function StepperDescription({ className, ...props }: React.ComponentProps<"span"
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function StepperSeparator({ className, ...props }: React.ComponentProps<"span">) {
   const { orientation } = useStepper("StepperSeparator")
 
@@ -342,7 +342,7 @@ function StepperSeparator({ className, ...props }: React.ComponentProps<"span">)
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function StepperContent({
   className,
   step: stepProp,
@@ -396,7 +396,7 @@ function useFocusHandOff(button: React.RefObject<HTMLButtonElement | null>, disa
   }, [button, disabled, other, baseId, value])
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function StepperPrevious({
   children,
   onClick,
@@ -442,7 +442,7 @@ function StepperPrevious({
   )
 }
 
-/** @since 0.1.0 */
+/** @since 0.1.1 */
 function StepperNext({ children, onClick, ref, ...props }: React.ComponentProps<typeof Button>) {
   const { value, goTo, steps } = useStepper("StepperNext")
   const strings = useUiStrings()

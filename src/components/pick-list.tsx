@@ -14,7 +14,7 @@ import { useUiLocale, useUiStrings } from "@booleanpress/ui/provider"
 /**
  * What `renderItem` is told about the item it draws: OrderList's state, and the list the item is in.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 export interface PickListItemState extends OrderListItemState {
   list: "source" | "target"
@@ -23,7 +23,7 @@ export interface PickListItemState extends OrderListItemState {
 /**
  * Props of `PickList`.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 export interface PickListProps<T> extends Omit<React.ComponentProps<"div">, "children" | "defaultValue" | "onChange"> {
   /** The items in the first list, in order, when you control them. Pair it with `onSourceChange`. */
@@ -107,7 +107,7 @@ function useControllableState<V>(prop: V | undefined, defaultValue: V, onChange?
  * Moves the items whose keys are given from one list to the end of the other, in their order. Returns both new arrays;
  * neither input changes. `getItemKey` defaults to the item itself for strings, else its `id`, then its `value`.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 export function transferItems<T>(
   from: readonly T[],
@@ -126,7 +126,7 @@ export function transferItems<T>(
  * Two lists side by side: people move items from the first (the source) to the second (the target) and back with the
  * buttons between them or by dragging, and put each list in order.
  *
- * @since 0.1.0
+ * @since 0.1.1
  */
 function PickList<T>({
   source: sourceProp,
