@@ -30,6 +30,7 @@ export default {
     { id: "icon-only", title: "Icon only", description: "Square and round icon buttons in every look and size." },
     { id: "with-badge", title: "With a badge", description: "A count inside a button, and a dot on an icon button's corner." },
     { id: "sizes", title: "Sizes", description: "Every size, with and without text." },
+    { id: "fluid", title: "Fluid", description: "`fluid` makes the button as wide as its container." },
     { id: "disabled", title: "Disabled", description: "A disabled button ignores clicks and leaves the tab order." },
   ],
   accessibility: {
@@ -56,6 +57,7 @@ export default {
       severity: "The colour of the `default`, `outline`, `ghost` and `link` variants: `success`, `info`, `warning`, `help`, `danger` or `contrast`. `secondary` and `destructive` keep their own colours. Set as `data-severity`.",
       raised: "Adds the raised shadow. In a `ButtonGroup`, the group carries the shadow instead.",
       rounded: "A pill; a circle for an `icon` size. In a `ButtonGroup`, only the outer ends are round.",
+      fluid: "Fills the width of its container, as `fluid` does on every field; also with `asChild`.",
     },
   },
 } satisfies ComponentDoc

@@ -54,6 +54,24 @@ describe('Button', () => {
         expect(screen.getByRole('link', { name: 'Logs' })).toHaveAttribute('data-slot', 'button');
         await expectNoAxeViolations();
     });
+    it('fills its container with fluid, on a button and on a link through asChild', () => {
+        renderUi(
+            <>
+                <Button fluid>Sign in</Button>
+                <Button fluid asChild><a href="/signup">Create an account</a></Button>
+                <Button>Cancel</Button>
+            </>
+        );
+        for (const name of ['Sign in', 'Create an account']) {
+            const element = screen.getByRole(name === 'Sign in' ? 'button' : 'link', { name });
+            expect(element).toHaveClass('w-full');
+            expect(element).toHaveAttribute('data-fluid', 'true');
+        }
+        const plain = screen.getByRole('button', { name: 'Cancel' });
+        expect(plain).not.toHaveClass('w-full');
+        expect(plain).not.toHaveAttribute('data-fluid');
+    });
+
     it('sets the severity, raised and rounded flags as data attributes on every variant that takes them', async () => {
         renderUi(
             <>

@@ -564,7 +564,9 @@ body.wp-admin :is(
     /*
      * Entrances: menus, popovers, selects and tooltips at the base duration; dialogs and sheets at the slow one. A newer
      * overlay opts in with `data-bui-motion="overlay"` or `"modal"`, whether its primitive marks its state with Radix's
-     * `data-state` or Base UI's `data-open` and `data-closed`.
+     * `data-state` or Base UI's `data-open` and `data-closed`; content that appears in place in the page (an alert) with
+     * `"inline"`, at the base duration. Every `data-bui-motion` element takes the exit, the exits switch and reduced
+     * motion below.
      */
     :is(
         [data-slot="popover-content"],
@@ -572,7 +574,8 @@ body.wp-admin :is(
         [data-slot="dropdown-menu-sub-content"],
         [data-slot="select-content"],
         [data-slot="tooltip-content"],
-        [data-bui-motion="overlay"]
+        [data-bui-motion="overlay"],
+        [data-bui-motion="inline"]
     ):is([data-state], [data-open], [data-closed]) {
         --tw-animation-duration: var(--bui-duration-base) !important;
         --tw-ease: var(--bui-ease-enter) !important;

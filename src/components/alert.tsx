@@ -2,6 +2,8 @@
 
 import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
+import { usePresence } from "@/lib/presence"
+import { shareNode } from "@/lib/refs"
 import { cn } from "@/lib/utils"
 
 const alertVariants = cva(
@@ -61,8 +63,10 @@ function Alert({
   variant,
   size = "default",
   appearance = "default",
+  open = true,
   duration,
   onDismiss,
+  ref,
   onPointerEnter,
   onPointerLeave,
   onFocus,
@@ -77,8 +81,34 @@ function Alert({
     duration?: number
     /** Called when `duration` runs out, as the alert removes itself. @since 0.1.1 */
     onDismiss?: () => void
+    /**
+     * Whether the alert shows. Turning it to false fades the alert out before it leaves the page; turning it back to
+     * true fades it in. Defaults to true. @since 0.2.0
+     */
+    open?: boolean
   }) {
   const [dismissed, setDismissed] = React.useState(false)
+  // Opening the alert again after `duration` removed it brings it back.
+  const [wasOpen, setWasOpen] = React.useState(open)
+  if (wasOpen !== open) {
+    setWasOpen(open)
+    if (open) setDismissed(false)
+  }
+  const shown = open && !dismissed
+  // boolean-ui patch: the alert fades out before it leaves, and fades in only when it appears after being closed, so
+  // a page load or a refetch never animates it (spec standard §6.3 rule 3). theme.css times both (stock: no motion).
+  const own = React.useRef<HTMLDivElement | null>(null)
+  const presence = usePresence(shown, own)
+  const [entering, setEntering] = React.useState(false)
+  const [wasShown, setWasShown] = React.useState(shown)
+  if (wasShown !== shown) {
+    setWasShown(shown)
+    setEntering(shown)
+  }
+  const setRef = React.useCallback((node: HTMLDivElement | null) => {
+    own.current = node
+    return shareNode(node, [ref])
+  }, [ref])
   const [hovered, setHovered] = React.useState(false)
   const [focused, setFocused] = React.useState(false)
   const paused = hovered || focused
@@ -89,15 +119,16 @@ function Alert({
     dismissRef.current = onDismiss
   })
 
-  // A new duration starts the count again.
+  // A new duration starts the count again, and so does the alert showing again after it was closed.
   React.useEffect(() => {
-    remaining.current = duration
-  }, [duration])
+    if (shown) remaining.current = duration
+  }, [duration, shown])
 
   // boolean-ui patch: auto-dismissal, an addition. The count runs only while nothing holds the alert: entering it
-  // with the pointer, or moving focus into it, stops the timer and keeps the time left; leaving starts it again.
+  // with the pointer, or moving focus into it, stops the timer and keeps the time left; leaving starts it again. A
+  // closed alert does not count.
   React.useEffect(() => {
-    if (duration == null || !Number.isFinite(duration) || dismissed || paused) return
+    if (duration == null || !Number.isFinite(duration) || !shown || paused) return
     const started = Date.now()
     const timer = window.setTimeout(() => {
       setDismissed(true)
@@ -107,17 +138,25 @@ function Alert({
       window.clearTimeout(timer)
       remaining.current = Math.max(0, (remaining.current ?? duration) - (Date.now() - started))
     }
-  }, [duration, dismissed, paused])
+  }, [duration, shown, paused])
 
-  if (dismissed) return null
+  if (!presence.mounted) return null
 
   return (
     <div
+      ref={setRef}
       data-slot="alert"
       data-size={size}
       data-appearance={appearance}
+      data-state={presence.state}
+      data-entering={entering || undefined}
+      data-bui-motion="inline"
       role="alert"
-      className={cn(alertVariants({ variant, size, appearance }), className)}
+      className={cn(
+        alertVariants({ variant, size, appearance }),
+        "data-[entering]:animate-in data-[entering]:fade-in-0 data-[entering]:slide-in-from-top-1 data-[state=closed]:animate-out data-[state=closed]:fade-out-0",
+        className
+      )}
       onPointerEnter={(event) => {
         onPointerEnter?.(event)
         setHovered(true)

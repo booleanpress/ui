@@ -3,8 +3,18 @@
 All notable changes to `@booleanpress/ui`. Versions follow the spec standard's rules (`specs/000_component-spec-standard.md`
 §8): before 1.0.0, a breaking change is a minor version with a migration note.
 
-## Unreleased
+## 0.2.0 — 2026-10-07
 
+- **Date range picker:** `minDays` and `maxDays` limit how many days a range covers, both ends included. Once the first
+  day is chosen, the days that would break the limit are disabled, for the pointer and the arrow keys; presets that break
+  it are disabled; and a line under the calendar says the rule, as the popup's description. New strings `rangeMinDays`,
+  `rangeMaxDays` and `rangeDaysBetween`: add them to your strings map to translate them; until then they read in English.
+- **Alert:** an `open` prop. Turning it off fades the alert out before it leaves the page, and turning it on fades it in;
+  an alert open on its first render still appears at once. `duration` now fades the alert out too. To animate a
+  dismissible alert, turn `open` off instead of removing it from the page.
+- **Button:** a `fluid` prop makes it as wide as its container, as on every field. Replace `className="w-full"` if you
+  like; both work.
+- **Toggle and Toggle group:** an unpressed toggle's text and icon darken on hover, as the spec describes. Nothing to do.
 - **Documentation:** a page's edit link opens the file on `trunk`; it pointed at a branch that does not exist. Nothing for
   consumers to do.
 - **Contributing:** work branches from `trunk` and pull requests target it; `main` receives `trunk` for each release.

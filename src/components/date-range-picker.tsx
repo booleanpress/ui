@@ -5,7 +5,7 @@
 import * as React from "react"
 import { CalendarIcon, XIcon } from "lucide-react"
 import { getDefaultClassNames, type DateRange } from "react-day-picker"
-import { cn } from "@/lib/utils"
+import { cn, fillString } from "@/lib/utils"
 import {
   dateFormatter,
   dateFromParts,
@@ -71,6 +71,8 @@ function DateRangePicker({
   onValueChange,
   min,
   max,
+  minDays,
+  maxDays,
   today,
   defaultMonth,
   presets = true,
@@ -102,6 +104,10 @@ function DateRangePicker({
   min?: Date
   /** The latest day that can be chosen. */
   max?: Date
+  /** The fewest days a range may cover, both ends included. @since 0.2.0 */
+  minDays?: number
+  /** The most days a range may cover, both ends included. @since 0.2.0 */
+  maxDays?: number
   /** The day the presets count from, and the one marked as today. Defaults to the system date. */
   today?: Date
   /** The first month shown when nothing is chosen. Defaults to today's. */
@@ -139,6 +145,7 @@ function DateRangePicker({
   const rootRef = React.useRef<HTMLDivElement | null>(null)
   const triggerRef = React.useRef<HTMLButtonElement | null>(null)
   const contentId = React.useId()
+  const ruleId = React.useId()
 
   const controlled = value !== undefined
   const [uncontrolled, setUncontrolled] = React.useState<DateRangeValue | null>(defaultValue ?? null)
@@ -190,6 +197,14 @@ function DateRangePicker({
   const dayKey = (date: Date | undefined) => (date ? dayNumber(date, timeZone) : 0)
   const inRange = (candidate: DateRangeValue) =>
     (!min || dayKey(candidate.from) >= dayKey(min)) && (!max || dayKey(candidate.to) <= dayKey(max))
+  // A range's length in days, both ends included, counted on the calendar of the provider's time zone.
+  const serial = (date: Date) => {
+    const { year, month, day } = getDateParts(date, timeZone)
+    return Math.round(Date.UTC(year, month - 1, day) / 86_400_000)
+  }
+  const days = (from: Date, to: Date) => Math.abs(serial(to) - serial(from)) + 1
+  const longEnough = (count: number) => (minDays == null || count >= minDays) && (maxDays == null || count <= maxDays)
+  const fitsLength = (candidate: { from: Date; to: Date }) => longEnough(days(candidate.from, candidate.to))
 
   const t = getDateParts(todayDate, timeZone)
   const builtIn: DateRangePreset[] = [
@@ -243,11 +258,26 @@ function DateRangePicker({
   const showClear = clearable && range !== null && !disabled
   const invalid = props["aria-invalid"] === true || props["aria-invalid"] === "true"
 
+  // While the second end is being chosen, the days that would make the range too short or too long are disabled; the
+  // first day itself stays enabled, as the end of a one-day range.
+  const start = draft?.from && !draft.to ? draft.from : null
+  const lengthLimit = start && (minDays != null || maxDays != null)
+    ? (day: Date) => { const count = days(start, day); return count > 1 && !longEnough(count) }
+    : null
   const disabledDays = [
     ...(min ? [{ before: min }] : []),
     ...(max ? [{ after: max }] : []),
     ...(calendarProps?.disabled ? (Array.isArray(calendarProps.disabled) ? calendarProps.disabled : [calendarProps.disabled]) : []),
+    ...(lengthLimit ? [lengthLimit] : []),
   ]
+  const rule = minDays != null && maxDays != null
+    ? fillString(strings.rangeDaysBetween, { min: minDays, max: maxDays })
+    : maxDays != null
+      ? fillString(strings.rangeMaxDays, { count: maxDays })
+      : minDays != null
+        ? fillString(strings.rangeMinDays, { count: minDays })
+        : null
+  const draftBreaksRule = Boolean(draft?.from && draft.to && !fitsLength({ from: draft.from, to: draft.to }))
   const defaults = getDefaultClassNames()
 
   const preview = hoveredDay && draft?.from && !draft.to
@@ -286,7 +316,7 @@ function DateRangePicker({
                 type="button"
                 data-slot="date-range-picker-preset"
                 aria-pressed={pressed}
-                disabled={disabled || !inRange(candidate)}
+                disabled={disabled || !inRange(candidate) || !fitsLength(candidate)}
                 className="flex items-center rounded-sm px-2.5 py-1 text-start text-sm whitespace-nowrap text-foreground transition-[color,background-color,outline-color] duration-(--bui-duration-control) outline-none select-none hover:bg-accent hover:text-accent-foreground focus-visible:outline-solid focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-ring disabled:pointer-events-none disabled:opacity-60 aria-pressed:bg-highlight aria-pressed:text-highlight-foreground aria-pressed:hover:bg-highlight-focus"
                 onClick={() => choosePreset(preset)}
               >
@@ -312,8 +342,14 @@ function DateRangePicker({
           mode="range"
           resetOnSelect
           selected={draft}
-          onSelect={(next) => {
+          onSelect={(next, day) => {
             const completes = Boolean(draft?.from && !draft.to && next?.from && next.to)
+            // A second click that would break the length rule (the first day again, under `minDays`) starts over there.
+            if (completes && next?.from && next.to && !fitsLength({ from: next.from, to: next.to })) {
+              setDraft({ from: day, to: undefined })
+              setHoveredDay(null)
+              return
+            }
             setDraft(next)
             setHoveredDay(null)
             if (!showActions && completes && next?.from && next.to) {
@@ -345,6 +381,16 @@ function DateRangePicker({
               : undefined
           }
         />
+        {rule ? (
+          <p
+            id={ruleId}
+            data-slot="date-range-picker-rule"
+            data-invalid={draftBreaksRule || undefined}
+            className="mt-2 text-xs/normal text-muted-foreground data-invalid:text-destructive-strong"
+          >
+            {rule}
+          </p>
+        ) : null}
         {showActions ? (
           <div data-slot="date-range-picker-actions" className="mt-2 flex items-center justify-end gap-2 border-t pt-2">
             {inlineClear ? <div className="me-auto">{inlineClear}</div> : null}
@@ -354,9 +400,9 @@ function DateRangePicker({
             <Button
               type="button"
               size="sm"
-              disabled={disabled || !draft?.from || !draft.to}
+              disabled={disabled || !draft?.from || !draft.to || draftBreaksRule}
               onClick={() => {
-                if (!draft?.from || !draft.to) return
+                if (!draft?.from || !draft.to || draftBreaksRule) return
                 commit({ from: draft.from, to: draft.to })
                 if (inline && controlled) setDraft(range ?? undefined)
                 if (!inline) popover.setOpen(false)
@@ -374,7 +420,8 @@ function DateRangePicker({
     return (
       <div ref={rootRef} data-slot="date-range-picker" data-inline="" role="group"
         id={props.id} aria-label={props["aria-label"] ?? (props["aria-labelledby"] ? undefined : strings.chooseDateRange)}
-        aria-labelledby={props["aria-labelledby"]} aria-describedby={props["aria-describedby"]}
+        aria-labelledby={props["aria-labelledby"]}
+        aria-describedby={[props["aria-describedby"], rule ? ruleId : undefined].filter(Boolean).join(" ") || undefined}
         aria-disabled={disabled || undefined} data-invalid={invalid || undefined}
         className={cn("w-fit max-w-full text-foreground", disabled && "opacity-60", className)}>
         <div inert={disabled || undefined}>{panel}</div>
@@ -454,6 +501,7 @@ function DateRangePicker({
         align="start"
         sideOffset={4}
         aria-label={strings.chooseDateRange}
+        aria-describedby={rule ? ruleId : undefined}
         // boolean-ui patch: no taller than the room the window leaves it; a calendar that is (two months stacked on a phone)
         // scrolls inside the popup instead of running off the screen.
         className="max-h-(--radix-popover-content-available-height) overflow-y-auto w-auto max-w-[calc(100vw-1rem)] min-w-(--radix-popover-trigger-width) rounded-lg p-2 shadow-md"

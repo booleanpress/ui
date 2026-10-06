@@ -1,5 +1,5 @@
 {
   "name": "booleanpress-ui",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Build with BooleanPress UI: setup, components, theming, accessibility, upgrades and audits, read from the documentation of the version you installed."
 }

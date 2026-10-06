@@ -420,3 +420,87 @@ it('previews a pending range in either direction without committing until the se
     expect(values.at(-1)).toEqual({ from: D(10, 16), to: D(10, 20) });
     expect(container.querySelector('[data-range-preview-middle]')).toBeNull();
 });
+
+describe('DateRangePicker range length', () => {
+    it('with maxDays, says the rule and disables the days and presets beyond it', async () => {
+        const values = [];
+        const { user } = renderUi(<Controlled maxDays={14} onChange={(value) => values.push(value)} />);
+        await user.click(field());
+        const popup = await dialog();
+        expect(popup).toHaveAccessibleDescription('Choose at most 14 days');
+        expect(within(popup).getByRole('button', { name: 'Last 7 days' })).toBeEnabled();
+        expect(within(popup).getByRole('button', { name: 'This month' })).toBeEnabled();
+        expect(within(popup).getByRole('button', { name: 'Last 30 days' })).toBeDisabled();
+        expect(within(popup).getByRole('button', { name: 'Last month' })).toBeDisabled();
+        await user.click(day('October 20th, 2026'));
+        expect(day('November 2nd, 2026')).toBeEnabled();
+        expect(day('November 3rd, 2026')).toBeDisabled();
+        expect(day('October 7th, 2026')).toBeEnabled();
+        expect(day('October 6th, 2026')).toBeDisabled();
+        await user.click(day('November 3rd, 2026'));
+        expect(values).toEqual([]);
+        await user.click(day('November 2nd, 2026'));
+        expect(values.at(-1)).toEqual({ from: D(10, 20), to: D(11, 2) });
+        await closed();
+    });
+
+    it('with maxDays, the arrow keys stop at the last day in reach', async () => {
+        const values = [];
+        const { user } = renderUi(<Controlled maxDays={3} presets={false} onChange={(value) => values.push(value)} />);
+        await user.click(field());
+        await dialog();
+        await user.click(day('October 14th, 2026'));
+        await user.keyboard('{ArrowRight}{ArrowRight}{ArrowRight}{ArrowRight}');
+        expect(day('October 16th, 2026')).toHaveFocus();
+        await user.keyboard('{Enter}');
+        expect(values).toEqual([{ from: D(10, 14), to: D(10, 16) }]);
+    });
+
+    it('with minDays, disables the days too close, and a second click on the first day starts over there', async () => {
+        const values = [];
+        const { user } = renderUi(<Controlled minDays={3} onChange={(value) => values.push(value)} />);
+        await user.click(field());
+        const popup = await dialog();
+        expect(popup).toHaveAccessibleDescription('Choose at least 3 days');
+        expect(within(popup).getByRole('button', { name: 'Today' })).toBeDisabled();
+        expect(within(popup).getByRole('button', { name: 'Last 7 days' })).toBeEnabled();
+        await user.click(day('October 10th, 2026'));
+        expect(day('October 11th, 2026')).toBeDisabled();
+        expect(day('October 9th, 2026')).toBeDisabled();
+        expect(day('October 12th, 2026')).toBeEnabled();
+        await user.click(day('October 10th, 2026'));
+        expect(values).toEqual([]);
+        await user.click(day('October 8th, 2026'));
+        expect(values.at(-1)).toEqual({ from: D(10, 8), to: D(10, 10) });
+    });
+
+    it('with both, says the span, and Apply stays disabled while the draft breaks the rule', async () => {
+        const { user } = renderUi(
+            <Controlled minDays={3} maxDays={10} showActions initial={{ from: D(9, 1), to: D(9, 30) }} />
+        );
+        await user.click(field());
+        const popup = await dialog();
+        expect(popup).toHaveAccessibleDescription('Choose 3 to 10 days');
+        expect(within(popup).getByText('Choose 3 to 10 days')).toHaveAttribute('data-invalid');
+        expect(within(popup).getByRole('button', { name: 'Apply' })).toBeDisabled();
+        await user.click(day('October 1st, 2026'));
+        await user.click(day('October 5th, 2026'));
+        expect(within(popup).getByText('Choose 3 to 10 days')).not.toHaveAttribute('data-invalid');
+        expect(within(popup).getByRole('button', { name: 'Apply' })).toBeEnabled();
+        await expectNoAxeViolations();
+    });
+
+    it('inline, the rule describes the calendar group', () => {
+        renderUi(<Controlled inline maxDays={7} aria-describedby="period-help" />);
+        const group = screen.getByRole('group', { name: 'Report period' });
+        expect(group.getAttribute('aria-describedby').split(' ')).toHaveLength(2);
+        expect(group.getAttribute('aria-describedby')).toMatch(/^period-help /);
+        expect(screen.getByText('Choose at most 7 days')).toBeInTheDocument();
+    });
+
+    it('takes the rule from the provider strings', async () => {
+        const { user } = renderUi(<Controlled maxDays={31} />, { strings: { rangeMaxDays: 'Höchstens {count} Tage' } });
+        await user.click(field());
+        expect(await dialog()).toHaveAccessibleDescription('Höchstens 31 Tage');
+    });
+});

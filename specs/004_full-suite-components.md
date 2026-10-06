@@ -56,21 +56,29 @@ inline alert; their toasts cover the timed case: React Aria Toast <https://react
   follows. Explicit only (an alert is not a control, so it does not follow the provider's `controlSize`).
 - `duration?: number` and `onDismiss?: () => void`: the alert removes itself after `duration` ms and calls `onDismiss`.
   The count pauses while the pointer is over it (pointerenter/pointerleave) or focus is inside it (focus/blur, ignoring
-  moves between its own controls), and resumes with the time that was left. Render it with a new `key` to show it again.
-- The component now has `"use client"` (it keeps state). Dismissible stays the consumer's: a button beside the alert.
+  moves between its own controls), and resumes with the time that was left.
+- `open?: boolean` (0.2.0, default `true`): turning it off fades the alert out at `--bui-duration-exit` before it leaves
+  the page (`data-state="closed"`, held by `usePresence`); turning it on again, also after `duration` removed it, fades it
+  in with a 4 px slide at `--bui-duration-base` (`data-entering`). An alert open on its first render appears at once, so
+  a page load or a refetch never animates it (spec standard §6.3 rule 3). `data-bui-motion="inline"` puts it under
+  theme.css's exit, exits switch and reduced-motion rules. The ref is passed on.
+- The component now has `"use client"` (it keeps state). Dismissible stays the consumer's: a button that turns `open` off.
 
 | Row | Stock | Boolean UI | Why |
 | --- | --- | --- | --- |
 | Appearance | one look | `outline`: no fill, the edge in `--{tone}-strong` (`--muted-foreground` for `default`), the shadow kept; `simple`: no fill, edge, shadow or padding, text in the tone (`--muted-foreground` for `default`) | The visual target's outlined and simple messages. |
 | Sizes | one size | `sm`, `default`, `lg` as above | The visual target's message sizes. |
 | Auto-dismiss | none | `duration` + `onDismiss`, paused on hover and focus | The visual target's message life; WCAG 2.2.1 asks for a way to pause. |
+| Entrance and exit | none | a fade (and 4 px slide) in when it appears after being closed; a fade out on close | The visual target's message enters and leaves; the timing is the library's (§6.3). |
 
 | State | Visual | Attributes / ARIA | Example | Test |
 | --- | --- | --- | --- | --- |
 | outline | the tone's strong edge, no fill | `data-appearance="outline"` | Outlined | draws the outline appearance: the edge in the strong colour, no fill |
 | simple | icon and text only | `data-appearance="simple"` | Simple | draws the simple appearance: text and icon only, with no edge, fill, shadow or padding |
 | sizes | 12 / 14 / 16 px | `data-size` | Sizes | takes the sm, default and lg sizes, and the description follows |
-| auto-dismiss | gone after `duration` | removed from the page; `onDismiss` called once | Auto-dismiss | removes itself after its duration and calls onDismiss, and not before |
+| auto-dismiss | fades out after `duration` | removed from the page after its exit; `onDismiss` called once | Auto-dismiss | removes itself after its duration and calls onDismiss, and not before |
+| first render | shown at once | `data-state="open"`, no `data-entering` | every example | appears at once on its first render, with no entrance |
+| closing / reopening | fades out, then leaves; fades in on return | `data-state="closed"` while leaving; `data-entering` on return | Dismissible | stays on the page while its exit runs, then leaves; opening it again plays the entrance; comes back when it is opened again after its duration removed it |
 | paused by pointer | stays while hovered | — | Auto-dismiss | pauses while the pointer is over it, and goes on with the time that was left |
 | paused by focus | stays while focus is inside | — | — | pauses while focus is inside it, including moves between its controls |
 | many | alerts added and cleared by the page | each `role="alert"` | Dynamic | (rendering only; covered by the tone and live-region tests) |
@@ -146,14 +154,16 @@ Base UI Button <https://base-ui.com/react/components/button> · React Aria Butto
 
 **API added:** `severity?: "success" | "info" | "warning" | "help" | "danger" | "contrast"` (colours the `default`,
 `outline`, `ghost` and `link` variants; `secondary` and `destructive` keep their own colours; `variant="destructive"`
-equals `severity="danger"` on `default`), `raised?: boolean`, `rounded?: boolean`, `loading?: boolean`. Every existing
-variant and size is unchanged. Attributes: `data-severity`, `data-raised`, `data-rounded`, `data-loading`.
+equals `severity="danger"` on `default`), `raised?: boolean`, `rounded?: boolean`, `fluid?: boolean` (0.2.0: the container's width, as on every field, also
+with `asChild`), `loading?: boolean`. Every existing variant and size is unchanged. Attributes: `data-severity`,
+`data-raised`, `data-rounded`, `data-fluid`, `data-loading`.
 
 | Row | Stock | Boolean UI | Why |
 | --- | --- | --- | --- |
 | Severities | none | six severities on four variants, through compound variants on new tokens | The visual target's severity buttons. |
 | Raised | none | the target's three-layer shadow | The target's raised button. |
 | Rounded | none | `rounded-full`: a pill, a circle on an icon size | The target's rounded button. |
+| Fluid | none | `w-full` | The target's fluid button; every field has `fluid`. |
 | Loading | none | `Spinner` replaces the leading icon (or goes before the text), `aria-busy`, `disabled`; with `asChild`, `aria-busy` only | The target's loading button, without each product swapping icons by hand. |
 
 | State | Visual | Attributes / ARIA | Example | Test |
@@ -2573,7 +2583,7 @@ the first instant of that day (see `dateFromParts`).
 
 ## Date range picker
 
-**Status:** built (0.1.1) · **Stock:** none: built on the package's `Calendar` (react-day-picker 10, range mode with
+**Status:** built (0.1.1; `minDays` and `maxDays` 0.2.0) · **Stock:** none: built on the package's `Calendar` (react-day-picker 10, range mode with
 `resetOnSelect`), `Popover` (Radix) and `Button`; shared date code in `src/lib/dates.ts`, popup behaviour in
 `src/lib/date-popover.ts`.
 **Pattern:** APG Date Picker Combobox <https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-datepicker/>
@@ -2581,14 +2591,16 @@ the first instant of that day (see `dateFromParts`).
 <https://react-aria.adobe.com/DateRangePicker>, Base UI has none.
 
 **API:** `DateRangePicker` — `value?: DateRangeValue | null` (`{ from: Date; to: Date }`, both midnight in the provider's
-zone, `to` included), `defaultValue`, `onValueChange(DateRangeValue | null)`, `min?`, `max?: Date`, `today?: Date`,
-`defaultMonth?: Date`, `presets?: boolean | DateRangePreset[]` (`{ label, range(today) }`, default the six built-ins),
+zone, `to` included), `defaultValue`, `onValueChange(DateRangeValue | null)`, `min?`, `max?: Date`, `minDays?`, `maxDays?: number` (the
+fewest and most days a range covers, both ends included), `today?: Date`, `defaultMonth?: Date`, `presets?: boolean | DateRangePreset[]` (`{ label, range(today) }`, default the six built-ins),
 `showActions` (Cancel / Apply), `numberOfMonths = 2`, `clearable`, `placeholder`, `size`, `variant`, `fluid`, `disabled`,
 `open`, `defaultOpen`, `onOpenChange`, `calendarProps`, `name` (hidden input `YYYY-MM-DD/YYYY-MM-DD`); other props go on
 the trigger button, `className` on the root. Types `DateRangeValue`, `DateRangePreset`. Parts: `date-range-picker`,
 `date-range-picker-trigger`, `date-range-picker-value`, `date-range-picker-clear`, `date-range-picker-presets`,
-`date-range-picker-preset`, `date-range-picker-actions`. New strings: `chooseDateRange` "Choose dates", `presetToday`,
-`presetYesterday`, `presetLast7Days`, `presetLast30Days`, `presetThisMonth`, `presetLastMonth`, `apply`, `cancel`.
+`date-range-picker-preset`, `date-range-picker-rule`, `date-range-picker-actions`. New strings: `chooseDateRange` "Choose dates", `presetToday`,
+`presetYesterday`, `presetLast7Days`, `presetLast30Days`, `presetThisMonth`, `presetLastMonth`, `apply`, `cancel`,
+`rangeMinDays` "Choose at least {count} days", `rangeMaxDays` "Choose at most {count} days", `rangeDaysBetween` "Choose
+{min} to {max} days".
 
 | State | Visual | Attributes / ARIA | Example | Test |
 | --- | --- | --- | --- | --- |
@@ -2599,6 +2611,7 @@ the trigger button, `className` on the root. Types `DateRangeValue`, `DateRangeP
 | presets | 14 px rows, the matching one `--highlight` | toggle buttons, `aria-pressed` | Presets | chooses each preset, counted from today; chooses a preset with Enter |
 | actions | Cancel (ghost) and Apply (primary) `sm` buttons under a divider; Apply disabled until both ends | — | Apply and cancel | waits for Apply with showActions, and Cancel leaves the value |
 | min / max | days outside disabled; presets reaching outside disabled | `disabled` | Min and max | blocks days and presets outside min and max |
+| range length | after the first pick, the days that would make the range shorter than `minDays` or longer than `maxDays` disabled (the first day stays, a second click on it starts over); presets breaking the rule disabled; the rule under the calendar in 12 px `--muted-foreground`, `--destructive-strong` while a draft breaks it, when Apply stays disabled | `disabled` days; the rule is the popup's (inline: the group's) `aria-describedby`; `data-invalid` on the rule | Range length | with maxDays, says the rule and disables the days and presets beyond it; with maxDays, the arrow keys stop at the last day in reach; with minDays, disables the days too close…; with both, says the span, and Apply stays disabled while the draft breaks the rule; inline, the rule describes the calendar group; takes the rule from the provider strings |
 | clearable | × at `end-8` | button "Clear" | Clear | clears with the clear button and keeps focus on the field |
 | sizes / filled | 28 / 35 / 42 px; `--field-filled` | `data-size`, `data-variant` | Sizes, Filled | is disabled, invalid, sized and filled |
 | disabled | `--field-disabled` | `disabled` | Disabled | is disabled, invalid, sized and filled |
@@ -2611,6 +2624,7 @@ the trigger button, `className` on the root. Types `DateRangeValue`, `DateRangeP
 | Alt+ArrowDown | On the field: opens, focus to the calendar | APG Date Picker Combobox |
 | Escape | Closes without a change, focus to the field | APG |
 | Tab / Shift+Tab | Next / previous popup control, wrapping | APG Dialog |
+| Arrow keys | Move between days; after the first pick under `minDays`/`maxDays` they skip the disabled days and stop at the last day in reach | APG Grid; react-day-picker |
 
 **Notes.** The range cannot be typed (pair two DatePickers or DateFields for that). Neighbour-month days are hidden when two
 or more months show, so a range is never drawn twice (the DatePicker's two-month view keeps them, as the visual target
