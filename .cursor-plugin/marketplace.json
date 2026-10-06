@@ -1,0 +1,16 @@
+{
+  "name": "booleanpress",
+  "owner": {
+    "name": "BooleanPress"
+  },
+  "metadata": {
+    "description": "The BooleanPress UI plugin for AI coding assistants."
+  },
+  "plugins": [
+    {
+      "name": "booleanpress-ui",
+      "source": "./plugin",
+      "description": "Build with BooleanPress UI: setup, components, theming, accessibility, upgrades and audits, read from the documentation of the version you installed."
+    }
+  ]
+}

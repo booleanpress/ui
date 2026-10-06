@@ -1,0 +1,3 @@
+/* A plain React app's stylesheet, exactly as the Installation page's Vite tab gives it. */
+@import "tailwindcss";
+@import "@booleanpress/ui/theme.css";

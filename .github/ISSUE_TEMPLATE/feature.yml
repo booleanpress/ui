@@ -1,0 +1,27 @@
+name: Feature request
+description: A new prop, variant or behaviour for a component that already exists.
+labels: [enhancement]
+body:
+  - type: input
+    id: component
+    attributes:
+      label: Component
+    validations:
+      required: true
+  - type: textarea
+    id: need
+    attributes:
+      label: What you need, and why
+      description: The task you are trying to do, and what stops you today.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What you propose
+      description: The prop, variant or behaviour; its states; its keyboard behaviour, if any.
+  - type: textarea
+    id: references
+    attributes:
+      label: References
+      description: The same feature in another design system or in the WAI-ARIA Authoring Practices, with links.

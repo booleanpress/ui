@@ -1,0 +1,1048 @@
+/*
+ * @booleanpress/ui — the token contract, motion and overlay rules every app built with the package shares.
+ *
+ * A product's stylesheet starts:
+ *
+ *     @layer overrides;                       declared before Tailwind, so the rules below outrank utilities
+ *     @import "tailwindcss" important;        WordPress admin CSS is unlayered; important mode lets utilities win
+ *     @import "@booleanpress/ui/theme.css";
+ *     @import "./brand.css";                  the product's palette: :root and .dark values only
+ *
+ * The package owns the token names and neutral defaults; the product's brand.css owns the values. `bui-contrast
+ * src/brand.css` (in the product's lint) checks registered token pairs against WCAG AA; rendered states also need a browser audit.
+ */
+@import "tw-animate-css";
+
+/* The compiled components: Tailwind does not scan node_modules on its own. */
+@source "./dist";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+    /* The radius scale: sm 4px (checkboxes, list options), md 6px (buttons, fields, menus), lg 8px (popovers), xl 12px
+       (dialogs, cards). */
+    --radius: 0.5rem;
+
+    /*
+     * Surfaces and text. The defaults are slate greys with a near-black primary; a product's brand.css replaces any of them.
+     */
+    --background: #ffffff;
+    --foreground: #334155;
+    --heading: #0f172a;
+    --card: #ffffff;
+    --card-foreground: #334155;
+    --popover: #ffffff;
+    --popover-foreground: #334155;
+    --muted: #f1f5f9;
+    --muted-foreground: #607089;
+    /* A hovered or focused menu item, list option or calendar day. */
+    --accent: #f1f5f9;
+    --accent-foreground: #1e293b;
+    /* The lightest hover: text and outlined buttons, the calendar's arrows. */
+    --subtle: #f8fafc;
+    --border: #e2e8f0;
+
+    /* Solid actions: the primary button, a checked checkbox, a selected day; hover and press each go one step lighter. */
+    --primary: #020617;
+    --primary-foreground: #ffffff;
+    --primary-hover: #1e293b;
+    --primary-active: #334155;
+    --secondary: #f1f5f9;
+    --secondary-foreground: #475569;
+    --secondary-hover: #e2e8f0;
+    --secondary-hover-foreground: #334155;
+    --secondary-active: #cbd5e1;
+    /* A selected option in a list or menu, and the days between the ends of a range. */
+    --highlight: #020617;
+    --highlight-foreground: #ffffff;
+    --highlight-focus: #334155;
+
+    /*
+     * Form fields: the field's fill, its edge at rest and on hover, and the disabled state. `--control` is the edge of
+     * every form control (text field, select, checkbox, radio, switch track); `--input` is the same value under the name
+     * earlier releases used.
+     */
+    --field: #ffffff;
+    --field-filled: #f8fafc;
+    --field-disabled: #e2e8f0;
+    --field-disabled-foreground: #64748b;
+    /* Fine control edges are intentionally subtle. See the accessibility guide for 3:1 overrides. */
+    --control: #cbd5e1;
+    --control-hover: #94a3b8;
+    --input: var(--control);
+    --field-placeholder: #64748b;
+    --field-icon: #94a3b8;
+    --field-invalid-foreground: #dc2626;
+    --color-picker-edge: rgba(0, 0, 0, 0.1);
+    --invalid: #f87171;
+    /* The focus outline: 1px, 2px away from the control. */
+    --ring: #020617;
+    /* The backdrop behind dialogs and sheets. */
+    --mask: rgba(0, 0, 0, 0.4);
+
+    /*
+     * Status colours. Each has a solid fill, the text that sits on it, strong text for light surfaces, and the subtle
+     * fill, edge and tag colours of alerts and badges.
+     */
+    --destructive: #c81e1e;
+    --destructive-foreground: #ffffff;
+    --destructive-hover: #b91c1c;
+    --destructive-active: #991b1b;
+    --destructive-strong: #b91c1c;
+    --destructive-subtle: #fef2f2;
+    --destructive-border: #fecaca;
+    --destructive-tag: #fee2e2;
+    --destructive-tag-foreground: #b91c1c;
+    --success: #15803d;
+    --success-foreground: #ffffff;
+    --success-strong: #15803d;
+    --success-subtle: #f0fdf4;
+    --success-border: #bbf7d0;
+    --success-tag: #dcfce7;
+    --success-tag-foreground: #15803d;
+    --warning: #eab308;
+    --warning-foreground: #ffffff;
+    --warning-strong: #a16207;
+    --warning-subtle: #fefce8;
+    --warning-border: #fef08a;
+    --warning-tag: #ffedd5;
+    --warning-tag-foreground: #c2410c;
+    --info: #3b82f6;
+    --info-foreground: #ffffff;
+    --info-strong: #2563eb;
+    --info-subtle: #eff6ff;
+    --info-border: #bfdbfe;
+    --info-tag: #e0f2fe;
+    --info-tag-foreground: #0369a1;
+
+    /*
+     * Severities of buttons and solid badges (`severity="success" | "info" | "warning" | "help" | "danger" |
+     * "contrast"`). Each has a solid fill with its hover, press and text colours; for outlined and text buttons, the
+     * edge and the hover and press backgrounds, with the fill colour as their text. Success reuses `--success` and
+     * `--success-foreground`, and danger the `--destructive` family. Info and warning are the visual target's sky and
+     * orange, so they get their own `-solid` family: `--info` and `--warning` stay the blue and yellow of alerts. Each fill
+     * carries its text at 4.5:1 or more, and reads at 4.5:1 as text on the page and on its hover and press tints (WCAG
+     * 2.2 AA); the visual target's lighter fills are an opt-in for brand.css, in the theming guide.
+     */
+    --success-hover: #166534;
+    --success-active: #14532d;
+    --success-edge: #bbf7d0;
+    --success-ghost-hover: #f0fdf4;
+    --success-ghost-active: #dcfce7;
+    --info-solid: #0369a1;
+    --info-solid-foreground: #ffffff;
+    --info-solid-hover: #075985;
+    --info-solid-active: #0c4a6e;
+    --info-solid-edge: #bae6fd;
+    --info-solid-ghost-hover: #f0f9ff;
+    --info-solid-ghost-active: #e0f2fe;
+    --warning-solid: #c2410c;
+    --warning-solid-foreground: #ffffff;
+    --warning-solid-hover: #9a3412;
+    --warning-solid-active: #7c2d12;
+    --warning-solid-edge: #fed7aa;
+    --warning-solid-ghost-hover: #fff7ed;
+    --warning-solid-ghost-active: #ffedd5;
+    --help: #9333ea;
+    --help-foreground: #ffffff;
+    --help-hover: #7e22ce;
+    --help-active: #6b21a8;
+    --help-edge: #e9d5ff;
+    --help-ghost-hover: #faf5ff;
+    --help-ghost-active: #f3e8ff;
+    --destructive-edge: #fecaca;
+    --destructive-ghost-hover: #fef2f2;
+    --destructive-ghost-active: #fee2e2;
+    --contrast: #020617;
+    --contrast-foreground: #ffffff;
+    --contrast-hover: #0f172a;
+    --contrast-active: #1e293b;
+    --contrast-edge: #334155;
+    --contrast-ghost-hover: #f8fafc;
+    --contrast-ghost-active: #f1f5f9;
+
+    --chart-1: #020617;
+    --chart-2: #10b981;
+    --chart-3: #3b82f6;
+    --chart-4: #f59e0b;
+    --chart-5: #8b5cf6;
+
+    --sidebar: #ffffff;
+    --sidebar-foreground: #334155;
+    --sidebar-primary: #020617;
+    --sidebar-primary-foreground: #ffffff;
+    --sidebar-accent: #f1f5f9;
+    --sidebar-accent-foreground: #1e293b;
+    --sidebar-border: #e2e8f0;
+    --sidebar-ring: #020617;
+
+    /*
+     * Motion: productive, short and calm (IBM Carbon, Material 3, Nielsen Norman Group). Overlays animate opacity and
+     * transform, controls their colours; exits are faster than entrances; nothing exceeds 300 ms. Spec standard §6.3.
+     */
+    --bui-duration-fast: 100ms;
+    --bui-duration-base: 150ms;
+    --bui-duration-slow: 200ms;
+    --bui-duration-exit: 100ms;
+    /* Hover, press, focus and checked colours of a control change over 200 ms, colour only, never size or place. */
+    --bui-duration-control: 200ms;
+    --bui-duration-feedback: 300ms;
+    --bui-shadow-field: 0 1px 2px 0 rgb(18 18 23 / 5%);
+    --bui-shadow-toggle: 0 1px 2px 0 rgb(0 0 0 / 2%), 0 1px 2px 0 rgb(0 0 0 / 4%);
+    --bui-ease-popup: cubic-bezier(0, 0, 0.2, 1);
+    --bui-ease-enter: cubic-bezier(0, 0, 0.38, 0.9);
+    --bui-ease-exit: cubic-bezier(0.2, 0, 1, 0.9);
+    --bui-ease-standard: cubic-bezier(0.2, 0, 0.38, 0.9);
+
+    /*
+     * The text size of a field on a touch screen: 16px, the size below which Safari on iPhone and iPad zooms the page
+     * into a field when it takes focus, and leaves it zoomed. Desktops keep each size's own text (12, 14 or 16px).
+     */
+    --bui-field-text-touch: 16px;
+}
+
+.dark {
+    --background: #020617;
+    --foreground: #ffffff;
+    --heading: #ffffff;
+    --card: #0f172a;
+    --card-foreground: #ffffff;
+    --popover: #0f172a;
+    --popover-foreground: #ffffff;
+    --muted: #1e293b;
+    --muted-foreground: #94a3b8;
+    --accent: #1e293b;
+    --accent-foreground: #ffffff;
+    --subtle: #1e293b;
+    --border: #334155;
+
+    --primary: #f8fafc;
+    --primary-foreground: #020617;
+    --primary-hover: #e2e8f0;
+    --primary-active: #cbd5e1;
+    --secondary: #1e293b;
+    --secondary-foreground: #cbd5e1;
+    --secondary-hover: #334155;
+    --secondary-hover-foreground: #e2e8f0;
+    --secondary-active: #475569;
+    --highlight: #f8fafc;
+    --highlight-foreground: #020617;
+    --highlight-focus: #cbd5e1;
+
+    --field: #020617;
+    --field-filled: #1e293b;
+    --field-disabled: #334155;
+    --field-disabled-foreground: #94a3b8;
+    --control: #334155;
+    --control-hover: #475569;
+    --input: var(--control);
+    --field-placeholder: #94a3b8;
+    --field-icon: #64748b;
+    --field-invalid-foreground: #f87171;
+    --color-picker-edge: rgba(255, 255, 255, 0.15);
+    --invalid: #fca5a5;
+    --ring: #f8fafc;
+    --mask: rgba(0, 0, 0, 0.6);
+
+    --destructive: #f87171;
+    --destructive-foreground: #450a0a;
+    --destructive-hover: #fca5a5;
+    --destructive-active: #fecaca;
+    --destructive-strong: #f87171;
+    --destructive-subtle: rgba(239, 68, 68, 0.16);
+    --destructive-border: rgba(185, 28, 28, 0.36);
+    /* Tags are opaque: the visual target's 16 % tint, mixed over --card, so a tag stays legible on any surface, a
+       selected (near-white) table row included. */
+    --destructive-tag: #331e2e;
+    --destructive-tag-foreground: #fca5a5;
+    --success: #4ade80;
+    --success-foreground: #052e16;
+    --success-strong: #22c55e;
+    --success-subtle: rgba(34, 197, 94, 0.16);
+    --success-border: rgba(21, 128, 61, 0.36);
+    --success-tag: #123332;
+    --success-tag-foreground: #86efac;
+    --warning: #facc15;
+    --warning-foreground: #422006;
+    --warning-strong: #eab308;
+    --warning-subtle: rgba(234, 179, 8, 0.16);
+    --warning-border: rgba(161, 98, 7, 0.36);
+    --warning-tag: #342627;
+    --warning-tag-foreground: #fdba74;
+    --info: #60a5fa;
+    --info-foreground: #172554;
+    --info-strong: #60a5fa;
+    --info-subtle: rgba(59, 130, 246, 0.16);
+    --info-border: rgba(29, 78, 216, 0.36);
+    --info-tag: #0f2e49;
+    --info-tag-foreground: #7dd3fc;
+
+    /* Severities of buttons and solid badges: see the light block. */
+    --success-hover: #86efac;
+    --success-active: #bbf7d0;
+    --success-edge: #15803d;
+    --success-ghost-hover: rgba(74, 222, 128, 0.04);
+    --success-ghost-active: rgba(74, 222, 128, 0.16);
+    --info-solid: #38bdf8;
+    --info-solid-foreground: #082f49;
+    --info-solid-hover: #7dd3fc;
+    --info-solid-active: #bae6fd;
+    --info-solid-edge: #0369a1;
+    --info-solid-ghost-hover: rgba(56, 189, 248, 0.04);
+    --info-solid-ghost-active: rgba(56, 189, 248, 0.16);
+    --warning-solid: #fb923c;
+    --warning-solid-foreground: #431407;
+    --warning-solid-hover: #fdba74;
+    --warning-solid-active: #fed7aa;
+    --warning-solid-edge: #c2410c;
+    --warning-solid-ghost-hover: rgba(251, 146, 60, 0.04);
+    --warning-solid-ghost-active: rgba(251, 146, 60, 0.16);
+    --help: #c084fc;
+    --help-foreground: #3b0764;
+    --help-hover: #d8b4fe;
+    --help-active: #e9d5ff;
+    --help-edge: #7e22ce;
+    --help-ghost-hover: rgba(192, 132, 252, 0.04);
+    --help-ghost-active: rgba(192, 132, 252, 0.16);
+    --destructive-edge: #b91c1c;
+    --destructive-ghost-hover: rgba(248, 113, 113, 0.04);
+    --destructive-ghost-active: rgba(248, 113, 113, 0.16);
+    --contrast: #ffffff;
+    --contrast-foreground: #020617;
+    --contrast-hover: #f1f5f9;
+    --contrast-active: #e2e8f0;
+    --contrast-edge: #64748b;
+    --contrast-ghost-hover: #1e293b;
+    --contrast-ghost-active: #334155;
+
+    --chart-1: #f8fafc;
+    --chart-2: #34d399;
+    --chart-3: #60a5fa;
+    --chart-4: #fbbf24;
+    --chart-5: #a78bfa;
+
+    --sidebar: #0f172a;
+    --sidebar-foreground: #ffffff;
+    --sidebar-primary: #f8fafc;
+    --sidebar-primary-foreground: #020617;
+    --sidebar-accent: #1e293b;
+    --sidebar-accent-foreground: #ffffff;
+    --sidebar-border: #334155;
+    --sidebar-ring: #f8fafc;
+}
+
+@theme inline {
+    --radius-sm: calc(var(--radius) - 4px);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) + 4px);
+
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-heading: var(--heading);
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-subtle: var(--subtle);
+    --color-border: var(--border);
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-primary-hover: var(--primary-hover);
+    --color-primary-active: var(--primary-active);
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-secondary-hover: var(--secondary-hover);
+    --color-secondary-hover-foreground: var(--secondary-hover-foreground);
+    --color-secondary-active: var(--secondary-active);
+    --color-highlight: var(--highlight);
+    --color-highlight-foreground: var(--highlight-foreground);
+    --color-highlight-focus: var(--highlight-focus);
+    --color-field: var(--field);
+    --color-field-filled: var(--field-filled);
+    --color-field-disabled: var(--field-disabled);
+    --color-field-disabled-foreground: var(--field-disabled-foreground);
+    --color-field-placeholder: var(--field-placeholder);
+    --color-field-icon: var(--field-icon);
+    --color-field-invalid-foreground: var(--field-invalid-foreground);
+    --color-color-picker-edge: var(--color-picker-edge);
+    --color-control: var(--control);
+    --color-control-hover: var(--control-hover);
+    --color-input: var(--input);
+    --color-invalid: var(--invalid);
+    --color-ring: var(--ring);
+    --color-mask: var(--mask);
+
+    --color-destructive: var(--destructive);
+    --color-destructive-foreground: var(--destructive-foreground);
+    --color-destructive-hover: var(--destructive-hover);
+    --color-destructive-active: var(--destructive-active);
+    --color-destructive-strong: var(--destructive-strong);
+    --color-destructive-subtle: var(--destructive-subtle);
+    --color-destructive-border: var(--destructive-border);
+    --color-destructive-tag: var(--destructive-tag);
+    --color-destructive-tag-foreground: var(--destructive-tag-foreground);
+    --color-success: var(--success);
+    --color-success-foreground: var(--success-foreground);
+    --color-success-strong: var(--success-strong);
+    --color-success-subtle: var(--success-subtle);
+    --color-success-border: var(--success-border);
+    --color-success-tag: var(--success-tag);
+    --color-success-tag-foreground: var(--success-tag-foreground);
+    --color-warning: var(--warning);
+    --color-warning-foreground: var(--warning-foreground);
+    --color-warning-strong: var(--warning-strong);
+    --color-warning-subtle: var(--warning-subtle);
+    --color-warning-border: var(--warning-border);
+    --color-warning-tag: var(--warning-tag);
+    --color-warning-tag-foreground: var(--warning-tag-foreground);
+    --color-info: var(--info);
+    --color-info-foreground: var(--info-foreground);
+    --color-info-strong: var(--info-strong);
+    --color-info-subtle: var(--info-subtle);
+    --color-info-border: var(--info-border);
+    --color-info-tag: var(--info-tag);
+    --color-info-tag-foreground: var(--info-tag-foreground);
+
+    /* Severities of buttons and solid badges. */
+    --color-success-hover: var(--success-hover);
+    --color-success-active: var(--success-active);
+    --color-success-edge: var(--success-edge);
+    --color-success-ghost-hover: var(--success-ghost-hover);
+    --color-success-ghost-active: var(--success-ghost-active);
+    --color-info-solid: var(--info-solid);
+    --color-info-solid-foreground: var(--info-solid-foreground);
+    --color-info-solid-hover: var(--info-solid-hover);
+    --color-info-solid-active: var(--info-solid-active);
+    --color-info-solid-edge: var(--info-solid-edge);
+    --color-info-solid-ghost-hover: var(--info-solid-ghost-hover);
+    --color-info-solid-ghost-active: var(--info-solid-ghost-active);
+    --color-warning-solid: var(--warning-solid);
+    --color-warning-solid-foreground: var(--warning-solid-foreground);
+    --color-warning-solid-hover: var(--warning-solid-hover);
+    --color-warning-solid-active: var(--warning-solid-active);
+    --color-warning-solid-edge: var(--warning-solid-edge);
+    --color-warning-solid-ghost-hover: var(--warning-solid-ghost-hover);
+    --color-warning-solid-ghost-active: var(--warning-solid-ghost-active);
+    --color-help: var(--help);
+    --color-help-foreground: var(--help-foreground);
+    --color-help-hover: var(--help-hover);
+    --color-help-active: var(--help-active);
+    --color-help-edge: var(--help-edge);
+    --color-help-ghost-hover: var(--help-ghost-hover);
+    --color-help-ghost-active: var(--help-ghost-active);
+    --color-destructive-edge: var(--destructive-edge);
+    --color-destructive-ghost-hover: var(--destructive-ghost-hover);
+    --color-destructive-ghost-active: var(--destructive-ghost-active);
+    --color-contrast: var(--contrast);
+    --color-contrast-foreground: var(--contrast-foreground);
+    --color-contrast-hover: var(--contrast-hover);
+    --color-contrast-active: var(--contrast-active);
+    --color-contrast-edge: var(--contrast-edge);
+    --color-contrast-ghost-hover: var(--contrast-ghost-hover);
+    --color-contrast-ghost-active: var(--contrast-ghost-active);
+
+    --color-chart-1: var(--chart-1);
+    --color-chart-2: var(--chart-2);
+    --color-chart-3: var(--chart-3);
+    --color-chart-4: var(--chart-4);
+    --color-chart-5: var(--chart-5);
+
+    --color-sidebar: var(--sidebar);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+    * {
+        @apply border-border outline-ring;
+    }
+}
+
+/*
+ * WordPress admin CSS (common.css, forms.css) styles bare elements. Radix portals dialogs, menus, popovers, selects,
+ * tooltips and the phone-width sidebar to <body>, outside the product's app root (whose own reset is the product's), so the
+ * package resets WordPress's element styles inside its overlays: those named here, and every newer one, which carries
+ * `data-bui-motion` (or `data-bui-portal` for a Base UI popup). Unlayered, to beat WordPress's unlayered rules;
+ * Tailwind's utilities still win because they are `!important`.
+ */
+body.wp-admin :is(
+    [data-slot="dialog-content"],
+    [data-slot="alert-dialog-content"],
+    [data-slot="sheet-content"],
+    [data-slot="dropdown-menu-content"],
+    [data-slot="dropdown-menu-sub-content"],
+    [data-slot="popover-content"],
+    [data-slot="select-content"],
+    [data-slot="tooltip-content"],
+    [data-slot="sidebar"][data-mobile="true"],
+    [data-bui-motion],
+    [data-bui-portal]
+) :is(h1, h2, h3, h4, h5, h6, p, ul, ol, li, dl, dd, dt, figure, blockquote, pre) {
+    margin: 0;
+    padding: 0;
+    color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+}
+
+body.wp-admin :is(
+    [data-slot="dialog-content"],
+    [data-slot="alert-dialog-content"],
+    [data-slot="sheet-content"],
+    [data-slot="dropdown-menu-content"],
+    [data-slot="dropdown-menu-sub-content"],
+    [data-slot="popover-content"],
+    [data-slot="select-content"],
+    [data-slot="tooltip-content"],
+    [data-slot="sidebar"][data-mobile="true"],
+    [data-bui-motion],
+    [data-bui-portal]
+) :is(a, label, button, input, select, textarea) {
+    color: inherit;
+    font: inherit;
+    line-height: inherit;
+    text-decoration: none;
+    box-shadow: none;
+}
+
+body.wp-admin :is(
+    [data-slot="dialog-content"],
+    [data-slot="alert-dialog-content"],
+    [data-slot="sheet-content"],
+    [data-slot="dropdown-menu-content"],
+    [data-slot="dropdown-menu-sub-content"],
+    [data-slot="popover-content"],
+    [data-slot="select-content"],
+    [data-slot="tooltip-content"],
+    [data-slot="sidebar"][data-mobile="true"],
+    [data-bui-motion],
+    [data-bui-portal]
+) :is(input, select, textarea) {
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    background-image: none;
+}
+
+body.wp-admin :is(
+    [data-slot="dialog-content"],
+    [data-slot="alert-dialog-content"],
+    [data-slot="sheet-content"],
+    [data-slot="dropdown-menu-content"],
+    [data-slot="dropdown-menu-sub-content"],
+    [data-slot="popover-content"],
+    [data-slot="select-content"],
+    [data-slot="tooltip-content"],
+    [data-slot="sidebar"][data-mobile="true"],
+    [data-bui-motion],
+    [data-bui-portal]
+) :is(input, select, textarea):focus {
+    box-shadow: none;
+    outline: none;
+}
+
+/*
+ * Motion and the exit policy. In the `overrides` layer, which the product declares before Tailwind's: Tailwind runs
+ * in important mode, and for `!important` declarations the cascade reverses layer order, so the earliest layer wins
+ * over the utilities' own durations, easings, zooms and slides.
+ */
+@layer overrides {
+    /*
+     * Entrances: menus, popovers, selects and tooltips at the base duration; dialogs and sheets at the slow one. A newer
+     * overlay opts in with `data-bui-motion="overlay"` or `"modal"`, whether its primitive marks its state with Radix's
+     * `data-state` or Base UI's `data-open` and `data-closed`.
+     */
+    :is(
+        [data-slot="popover-content"],
+        [data-slot="dropdown-menu-content"],
+        [data-slot="dropdown-menu-sub-content"],
+        [data-slot="select-content"],
+        [data-slot="tooltip-content"],
+        [data-bui-motion="overlay"]
+    ):is([data-state], [data-open], [data-closed]) {
+        --tw-animation-duration: var(--bui-duration-base) !important;
+        --tw-ease: var(--bui-ease-enter) !important;
+    }
+
+    :is(
+        [data-slot="dialog-content"],
+        [data-slot="dialog-overlay"],
+        [data-slot="alert-dialog-content"],
+        [data-slot="alert-dialog-overlay"],
+        [data-slot="sheet-content"],
+        [data-slot="sheet-overlay"],
+        [data-slot="sidebar"][data-mobile="true"],
+        [data-bui-motion="modal"]
+    ):is([data-state], [data-open], [data-closed]) {
+        --tw-animation-duration: var(--bui-duration-slow) !important;
+        --tw-ease: var(--bui-ease-enter) !important;
+    }
+
+    /*
+     * Exits (spec standard §6.3 rule 5): every closing overlay fades out at the exit duration, opacity only, and holds
+     * its last keyframe until it is removed. Without the hold, the element returns to full opacity in the frame between
+     * the end of the animation and its removal, and that frame is painted: the flash first seen in the products, measured in
+     * Chrome, Firefox and WebKit (PATCHES.md §3). The mobile sidebar's panel is a Sheet that carries
+     * `data-slot="sidebar"` instead of `sheet-content`, hence its own selector.
+     */
+    :root:not([data-bui-exits="off"]) :is(
+        [data-slot="select-content"],
+        [data-slot="dropdown-menu-content"],
+        [data-slot="dropdown-menu-sub-content"],
+        [data-slot="popover-content"],
+        [data-slot="tooltip-content"],
+        [data-slot="dialog-content"],
+        [data-slot="dialog-overlay"],
+        [data-slot="alert-dialog-content"],
+        [data-slot="alert-dialog-overlay"],
+        [data-slot="sheet-content"],
+        [data-slot="sheet-overlay"],
+        [data-slot="sidebar"][data-mobile="true"],
+        [data-bui-motion]
+    ):is([data-state="closed"], [data-closed]) {
+        --tw-exit-opacity: 0 !important;
+        --tw-exit-scale: 1 !important;
+        --tw-exit-translate-x: 0 !important;
+        --tw-exit-translate-y: 0 !important;
+        --tw-animation-duration: var(--bui-duration-exit) !important;
+        --tw-ease: var(--bui-ease-exit) !important;
+        --tw-animation-fill-mode: forwards !important;
+    }
+
+    /* Form selection popups use a symmetric opacity/scale animation; keep the exit's final frame held. */
+    [data-slot="select-content"][data-state],
+    :root:not([data-bui-exits="off"]) [data-slot="select-content"][data-state="closed"] {
+        --tw-animation-duration: var(--bui-duration-base) !important;
+        --tw-ease: var(--bui-ease-popup) !important;
+        --tw-exit-scale: 0.93 !important;
+    }
+
+    /* `<html data-bui-exits="off">`: overlays close at once, for comparing the two in a film. */
+    :root[data-bui-exits="off"] :is(
+        [data-slot="select-content"],
+        [data-slot="dropdown-menu-content"],
+        [data-slot="dropdown-menu-sub-content"],
+        [data-slot="popover-content"],
+        [data-slot="tooltip-content"],
+        [data-slot="dialog-content"],
+        [data-slot="dialog-overlay"],
+        [data-slot="alert-dialog-content"],
+        [data-slot="alert-dialog-overlay"],
+        [data-slot="sheet-content"],
+        [data-slot="sheet-overlay"],
+        [data-slot="sidebar"][data-mobile="true"],
+        [data-bui-motion]
+    ):is([data-state="closed"], [data-closed]) {
+        animation: none !important;
+        display: none !important;
+    }
+
+    /*
+     * Reduced motion: nothing moves. Overlays keep a short opacity fade so their appearance is not abrupt; every
+     * other animation and transition (spinners, pulsing dots, shimmer, sliding thumbs) ends at once.
+     */
+    @media (prefers-reduced-motion: reduce) {
+        :root:not([data-bui-exits="off"]) [data-slot="select-content"][data-state="closed"] {
+            --tw-exit-scale: 1 !important;
+        }
+        /* This popup uses the primitive's transition lifecycle rather than animation variables. */
+        [data-slot="autocomplete-content"] {
+            scale: 1 !important;
+            transition-duration: var(--bui-duration-fast) !important;
+        }
+
+        *,
+        *::before,
+        *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+            scroll-behavior: auto !important;
+            --tw-enter-scale: 1 !important;
+            --tw-enter-translate-x: 0 !important;
+            --tw-enter-translate-y: 0 !important;
+            --tw-exit-scale: 1 !important;
+            --tw-exit-translate-x: 0 !important;
+            --tw-exit-translate-y: 0 !important;
+        }
+
+        :is(
+            [data-slot="popover-content"],
+            [data-slot="dropdown-menu-content"],
+            [data-slot="dropdown-menu-sub-content"],
+            [data-slot="select-content"],
+            [data-slot="tooltip-content"],
+            [data-slot="dialog-content"],
+            [data-slot="dialog-overlay"],
+            [data-slot="alert-dialog-content"],
+            [data-slot="alert-dialog-overlay"],
+            [data-slot="sheet-content"],
+            [data-slot="sheet-overlay"],
+            [data-slot="sidebar"][data-mobile="true"],
+            [data-bui-motion]
+        ):is([data-state], [data-open], [data-closed]) {
+            animation-duration: var(--bui-duration-fast) !important;
+        }
+    }
+}
+
+/*
+ * Touch screens (`pointer: coarse`: phones and tablets): the text of every field is `--bui-field-text-touch`, so
+ * Safari does not zoom into a field the user taps. A single-line field keeps the line its size sets (18, 21 or 24px),
+ * read from the `data-size` on the field or on the group around it, so it keeps its height and stays level with the
+ * buttons beside it; a textarea and the editor take the larger text's own line. In the `overrides` layer, for the
+ * reason given above the motion rules.
+ */
+@layer overrides {
+    @media (pointer: coarse) {
+        [data-size] {
+            --bui-field-line: 1.3125rem;
+        }
+        [data-size="sm"] {
+            --bui-field-line: 1.125rem;
+        }
+        :is([data-slot="input"], [data-slot="input-group"], [data-slot="input-group-control"], [data-slot="color-picker-input"], [data-slot="pagination-jump-input"], [data-slot="input-number"], [data-slot="input-number-input"], [data-slot="input-otp"], [data-slot="input-otp-slot"], [data-slot="combobox-chips"]) {
+            --bui-field-line: 1.25rem;
+        }
+        :is([data-slot="input"], [data-slot="input-group"], [data-slot="input-group-control"], [data-slot="color-picker-input"], [data-slot="pagination-jump-input"], [data-slot="input-number"], [data-slot="input-number-input"], [data-slot="input-otp"], [data-slot="input-otp-slot"], [data-slot="combobox-chips"])[data-size="sm"] {
+            --bui-field-line: 1rem;
+        }
+        /* Native inputs can enforce a taller intrinsic text box even with a 16px line-height. Keep the small
+           control's outer size; grouped controls omit the two border pixels drawn by their parent. */
+        input:is([data-slot="input"], [data-slot="color-picker-input"], [data-slot="pagination-jump-input"], [data-slot="input-otp-slot"])[data-size="sm"] {
+            height: 1.625rem;
+        }
+        input:is([data-slot="input-group-control"], [data-slot="input-number-input"])[data-size="sm"] {
+            height: 1.5rem;
+        }
+        /* The command's search field has no size: it is 16px on a 24px line everywhere. */
+        :is([data-size="lg"], [data-slot="command-input"]) {
+            --bui-field-line: 1.5rem;
+        }
+
+        :is(
+            input:not([type="checkbox"], [type="radio"], [type="range"], [type="color"], [type="file"], [type="hidden"], [type="button"], [type="submit"], [type="reset"], [type="image"]),
+            select,
+            [role="spinbutton"][data-slot$="-segment"]
+        ):is([data-slot], [data-slot="calendar"] *) {
+            font-size: var(--bui-field-text-touch) !important;
+            line-height: var(--bui-field-line, 1.3125rem) !important;
+        }
+
+        :is(textarea[data-slot], [data-slot="editor-input"]) {
+            font-size: var(--bui-field-text-touch) !important;
+        }
+    }
+}
+
+/*
+ * Forced colours: Windows contrast themes, and Chrome DevTools → Rendering → "Emulate CSS media feature forced-colors".
+ * The browser paints every colour from the theme's few system colours, and draws no box-shadow, no gradient and no
+ * background colour of its own choosing, so whatever a component draws with a fill or a shadow alone disappears: a
+ * switch's thumb, a slider, a progress fill, the chosen tab, the chosen day. These rules draw those parts again with
+ * system colours (CanvasText edges and lines, Highlight and HighlightText for what is chosen, current or under the
+ * keyboard, GrayText for what is disabled), keyed to the components' `data-slot`s. Edges that need no room are outlines
+ * drawn inside the box, so nothing moves. In the `overrides` layer, for the reason given above the motion rules.
+ */
+@layer overrides {
+    @media (forced-colors: active) {
+        /* Focus: fields, rows and options show focus by colour, which this mode removes; keyboard focus is a 2px outline. */
+        :focus-visible {
+            outline-style: solid !important;
+            outline-width: 2px !important;
+            outline-color: Highlight !important;
+        }
+
+        /* Disabled parts that are not native controls (the browser greys those itself); the rules below may override. */
+        [data-slot]:is([data-disabled]:not([data-disabled="false"]), [aria-disabled="true"]) {
+            color: GrayText !important;
+            border-color: GrayText !important;
+        }
+
+        /*
+         * Items of lists and menus carry Tailwind's `outline-hidden`, a clear outline that this mode draws round every item
+         * at rest. Only the item with keyboard focus keeps it; the highlighted one is filled below.
+         */
+        :is(
+            [role="option"],
+            [role="menuitem"],
+            [role="menuitemcheckbox"],
+            [role="menuitemradio"],
+            [data-slot="sidebar-menu-button"],
+            [data-slot="sidebar-menu-sub-button"],
+            [data-slot="sidebar-menu-action"],
+            [data-slot="sidebar-group-label"],
+            [data-slot="sidebar-group-action"]
+        ):not(:focus-visible) {
+            outline-style: none !important;
+        }
+
+        /* A placeholder, and a select showing its placeholder, read as empty, not as a value. */
+        [data-slot]::placeholder,
+        :is([data-slot="select-trigger"], [data-slot="multi-select-trigger"], [data-slot="tree-select-trigger"], [data-slot="cascade-select-trigger"])[data-placeholder] {
+            color: GrayText !important;
+        }
+
+        /* Lines drawn as a 1px fill. */
+        :is(
+            [data-slot="separator"]:not(:has(> [data-slot="separator-line"])),
+            [data-slot="separator-line"],
+            [data-slot="dropdown-menu-separator"],
+            [data-slot="context-menu-separator"],
+            [data-slot="menubar-separator"],
+            [data-slot="select-separator"],
+            [data-slot="command-separator"],
+            [data-slot="combobox-separator"],
+            [data-slot="autocomplete-separator"],
+            [data-slot="listbox-separator"],
+            [data-slot="button-group-separator"],
+            [data-slot="toolbar-separator"],
+            [data-slot="action-bar-separator"],
+            [data-slot="stepper-separator"],
+            [data-slot="timeline-connector"],
+            [data-slot="scroll-area-thumb"]
+        ) {
+            background-color: CanvasText !important;
+        }
+
+        /* Edges for surfaces and labels drawn as a fill alone. */
+        :is(
+            [data-slot="tooltip-content"],
+            [data-slot="badge"],
+            [data-slot="overlay-badge-badge"],
+            [data-slot="chip"],
+            [data-slot="progress"]:not(:has(> [data-slot="progress-step"])),
+            [data-slot="progress-step"],
+            [data-slot="meter-group-meters"],
+            :has(> [data-slot="password-input-meter"])
+        ) {
+            outline: 1px solid CanvasText !important;
+            outline-offset: -1px !important;
+        }
+
+        /* Marks drawn as a fill alone: a dot badge, a timeline's dot, a meter's legend; a skeleton is a GrayText outline. */
+        [data-slot="badge"]:empty,
+        [data-slot="timeline-marker"]:empty::before,
+        [data-slot="meter-group-label-marker"] {
+            background-color: CanvasText !important;
+        }
+
+        [data-slot="skeleton"] {
+            outline: 1px solid GrayText !important;
+            outline-offset: -1px !important;
+        }
+
+        /* Switch: the thumb in the button colour; on, the track in Highlight with a HighlightText thumb. */
+        [data-slot="switch-thumb"] {
+            background-color: ButtonText !important;
+            color: ButtonFace !important;
+        }
+
+        [data-slot="switch"][data-state="checked"] {
+            background-color: Highlight !important;
+            border-color: Highlight !important;
+        }
+
+        [data-slot="switch"][data-state="checked"] [data-slot="switch-thumb"] {
+            background-color: HighlightText !important;
+            color: Highlight !important;
+        }
+
+        [data-slot="switch"]:disabled {
+            background-color: Canvas !important;
+            border-color: GrayText !important;
+        }
+
+        [data-slot="switch"]:disabled [data-slot="switch-thumb"] {
+            background-color: GrayText !important;
+        }
+
+        /* Checkbox and radio: the chosen state in Highlight, as the system's own controls draw it. */
+        [data-slot="checkbox"]:is([data-state="checked"], [data-state="indeterminate"]):not(:disabled),
+        [data-slot="radio-group-item"][data-state="checked"]:not(:disabled) {
+            border-color: Highlight !important;
+        }
+
+        [data-slot="checkbox"][data-state="checked"]:not(:disabled) {
+            background-color: Highlight !important;
+            color: HighlightText !important;
+        }
+
+        [data-slot="radio-group-item"][data-state="checked"]:not(:disabled) [data-slot="radio-group-indicator"] {
+            color: Highlight !important;
+        }
+
+        [data-slot="choice-card"]:has([data-state="checked"]) {
+            border-color: Highlight !important;
+        }
+
+        /*
+         * Pressed toggles and the chosen segment, in Highlight. Text on a fill needs `forced-color-adjust: none`, or the
+         * browser draws a Canvas plate behind it and HighlightText vanishes on the plate.
+         */
+        :is([data-slot="toggle"], [data-slot="toggle-group-item"], [data-slot="toolbar-toggle-item"])[data-state="on"] {
+            forced-color-adjust: none !important;
+            background-color: Highlight !important;
+            border-color: Highlight !important;
+            color: HighlightText !important;
+        }
+
+        :is([data-slot="toggle"], [data-slot="toggle-group-item"], [data-slot="toolbar-toggle-item"])[data-state="on"]::before {
+            background-color: transparent !important;
+        }
+
+        [data-slot="segmented-control-item"][data-state="checked"] {
+            forced-color-adjust: none !important;
+            background-color: transparent !important;
+            color: HighlightText !important;
+        }
+
+        [data-slot="segmented-control-item"][data-state="checked"]::before,
+        [data-slot="segmented-control-indicator"] > span {
+            background-color: Highlight !important;
+        }
+
+        /* Pressed or chosen, but disabled: GrayText. */
+        :is([data-slot="toggle"], [data-slot="toggle-group-item"], [data-slot="toolbar-toggle-item"])[data-state="on"]:is(:disabled, [data-disabled]),
+        :is([data-slot="toggle"], [data-slot="toggle-group-item"], [data-slot="toolbar-toggle-item"])[data-state="on"]:is(:disabled, [data-disabled])::before {
+            background-color: GrayText !important;
+            border-color: GrayText !important;
+            color: Canvas !important;
+        }
+
+        [data-slot="segmented-control-item"][data-state="checked"]:is(:disabled, [data-disabled]),
+        [data-slot="segmented-control"][data-disabled] [data-slot="segmented-control-item"][data-state="checked"] {
+            color: Canvas !important;
+        }
+
+        [data-slot="segmented-control-item"][data-state="checked"]:is(:disabled, [data-disabled])::before,
+        [data-slot="segmented-control"][data-disabled] [data-slot="segmented-control-item"][data-state="checked"]::before,
+        [data-slot="segmented-control"][data-disabled] [data-slot="segmented-control-indicator"] > span {
+            background-color: GrayText !important;
+        }
+
+        /* Tabs: the chosen tab's line, the moving indicator, and scroll buttons that cover the tabs under them. */
+        [data-slot="tabs-trigger"]::after,
+        [data-slot="tabs-indicator"] {
+            background-color: Highlight !important;
+        }
+
+        [data-slot="tabs-trigger"][data-state="active"] {
+            color: Highlight !important;
+        }
+
+        [data-slot="tabs-scroll-button"] {
+            background-color: Canvas !important;
+        }
+
+        /*
+         * Options, menu items, rows, pages and days under the keyboard or chosen: Highlight, with everything inside them in
+         * HighlightText on no fill of its own (the plate rule above applies).
+         */
+        :is(
+            [data-highlighted],
+            [role="option"]:is([aria-selected="true"], [data-selected="true"]),
+            [data-slot="tree-node-content"][data-selected],
+            :is([data-slot="table-row"], [data-slot="data-table-row"], [data-slot="tree-table-row"])[data-state="selected"],
+            [data-slot="pagination-link"][aria-current="page"],
+            :is([data-slot="sidebar-menu-button"], [data-slot="sidebar-menu-sub-button"])[data-active="true"],
+            [data-slot="calendar"] button:is([data-selected-single="true"], [data-range-start="true"], [data-range-end="true"], [data-range-middle="true"])
+        ) {
+            forced-color-adjust: none !important;
+            background-color: Highlight !important;
+            border-color: Highlight !important;
+            color: HighlightText !important;
+        }
+
+        :is(
+            [data-highlighted],
+            [role="option"]:is([aria-selected="true"], [data-selected="true"]),
+            [data-slot="tree-node-content"][data-selected],
+            :is([data-slot="table-row"], [data-slot="data-table-row"], [data-slot="tree-table-row"])[data-state="selected"],
+            [data-slot="pagination-link"][aria-current="page"],
+            :is([data-slot="sidebar-menu-button"], [data-slot="sidebar-menu-sub-button"])[data-active="true"]
+        ) * {
+            background-color: transparent !important;
+            border-color: currentColor !important;
+            color: inherit !important;
+        }
+
+        /* Calendar: no edge on every day (each has a clear one, which this mode would draw); today is ringed. */
+        [data-slot="calendar"] button[data-day] {
+            border-color: Canvas !important;
+        }
+
+        [data-slot="calendar"] button[data-day][data-today="true"] {
+            border-color: CanvasText !important;
+        }
+
+        /* Stepper: the current step's circle. */
+        [data-slot="stepper-indicator"][data-state="active"] {
+            border-color: Highlight !important;
+            color: Highlight !important;
+        }
+
+        /* Progress, meters and sliders: the fill in Highlight on an edged track. */
+        [data-slot="progress-indicator"],
+        [data-slot="progress-step"] > *,
+        [data-slot="meter-group-meter"],
+        [data-slot="password-input-meter"],
+        [data-slot="slider-range"] {
+            background-color: Highlight !important;
+        }
+
+        /* Segments of a meter group, told apart by a Canvas line round each. */
+        [data-slot="meter-group-meter"] {
+            outline: 1px solid Canvas !important;
+            outline-offset: -1px !important;
+        }
+
+        [data-slot="progress-value"] {
+            forced-color-adjust: none !important;
+            color: HighlightText !important;
+        }
+
+        [data-slot="slider-track"] {
+            background-color: Canvas !important;
+            outline: 1px solid CanvasText !important;
+            outline-offset: -1px !important;
+        }
+
+        [data-slot="slider-thumb"] {
+            background-color: ButtonText !important;
+        }
+
+        [data-slot="slider-thumb"]::before {
+            background-color: ButtonFace !important;
+        }
+
+        [data-slot="slider"][data-disabled] :is([data-slot="slider-range"], [data-slot="slider-thumb"]) {
+            background-color: GrayText !important;
+        }
+
+        /* Carousel dots: an edged bar; the current one filled. */
+        [data-slot="carousel-dot"] {
+            background-color: Canvas !important;
+            border: 1px solid ButtonText !important;
+        }
+
+        [data-slot="carousel-dot"][data-active] {
+            background-color: Highlight !important;
+            border-color: Highlight !important;
+        }
+    }
+}

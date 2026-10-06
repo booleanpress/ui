@@ -1,0 +1,14 @@
+{
+  // The declarations shipped in dist/, one .d.ts beside every built module (`pnpm build`).
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "allowImportingTsExtensions": false,
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "types": []
+  },
+  "include": ["src"]
+}

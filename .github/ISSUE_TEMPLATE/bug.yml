@@ -1,0 +1,48 @@
+name: Bug report
+description: Something does not work as its documentation says.
+labels: [bug]
+body:
+  - type: input
+    id: component
+    attributes:
+      label: Component
+      description: The entry you import, for example `@booleanpress/ui/dialog`.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Package version
+      description: "`npm ls @booleanpress/ui` prints it."
+    validations:
+      required: true
+  - type: input
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: A link to the smallest project that shows the problem (StackBlitz, CodeSandbox or a repository).
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps
+      description: What you did, step by step.
+      placeholder: |
+        1. Open the dialog with the keyboard.
+        2. Press Escape.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected, and what happened
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Browser and environment
+      description: Browser and version; Vite, Next.js or WordPress admin; any assistive technology with its version.
+    validations:
+      required: true

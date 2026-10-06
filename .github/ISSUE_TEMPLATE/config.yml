@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Question
+    url: https://github.com/booleanpress/ui/discussions
+    about: Ask how to use, compose or theme a component.
+  - name: Security vulnerability
+    url: https://github.com/booleanpress/ui/security/advisories/new
+    about: Report it privately, never in a public issue.

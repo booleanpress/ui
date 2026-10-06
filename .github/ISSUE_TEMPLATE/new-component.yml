@@ -1,0 +1,33 @@
+name: New component
+description: Propose a component the library does not have yet. Every component starts from a spec, agreed here.
+labels: [new component]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Component
+      description: Its name, for example "Date picker" or "Data table".
+    validations:
+      required: true
+  - type: textarea
+    id: need
+    attributes:
+      label: What it is for
+      description: The tasks it serves, and why the existing components cannot be composed to do them.
+    validations:
+      required: true
+  - type: textarea
+    id: behaviour
+    attributes:
+      label: States and keyboard behaviour
+      description: The states it must show, and the keys it must answer to. Link the WAI-ARIA Authoring Practices pattern if there is one.
+  - type: textarea
+    id: base
+    attributes:
+      label: Base
+      description: The Radix primitive or the maintained headless library it would be built on, with its licence.
+  - type: textarea
+    id: references
+    attributes:
+      label: References
+      description: The same component in other design systems, with links.
