@@ -1,0 +1,12 @@
+{
+  // The same type tests against the built declarations in dist/, as a consumer's TypeScript reads them.
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "paths": {
+      "@booleanpress/ui/provider": ["../../dist/provider.d.ts"],
+      "@booleanpress/ui/utils": ["../../dist/lib/utils.d.ts"],
+      "@booleanpress/ui/*": ["../../dist/components/*.d.ts"]
+    }
+  },
+  "include": ["./*.tsx"]
+}
