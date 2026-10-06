@@ -30,8 +30,9 @@ plugins, install a published version and pin it. A change here reaches them when
 - **Checks.** Use `pnpm check:fast` for ordinary changes, plus checks relevant to the affected behaviour. Release
   readiness requires the full `pnpm check` gate. New states need documentation examples, keyboard contracts need tests,
   and `CHANGELOG.md` says what changed and what consumers must do.
-- **Branches.** Work on a branch from `dev`; pull requests target `dev`. `main` holds released versions only. Never add an
-  AI tool's attribution to a commit or pull request.
+- **Branches.** Work on a branch from `trunk`; pull requests target `trunk`. `main` holds released versions only: it
+  receives `trunk` for a release and never a direct commit. Never add an AI tool's attribution to a commit or pull
+  request.
 
 ## Map
 

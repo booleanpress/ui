@@ -4,7 +4,7 @@ name: CI
 on:
   pull_request:
   push:
-    branches: [trunk, dev, main]
+    branches: [trunk, main]
 
 permissions:
   contents: read
