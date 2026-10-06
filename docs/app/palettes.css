@@ -1,0 +1,301 @@
+/*
+ * Two brand palettes, indigo and teal, for the documentation's Palette setting: each is what an app's brand.css sets, so
+ * the examples can be seen in colours other than the defaults.
+ */
+
+:root[data-palette="indigo"] {
+    --background: oklch(0.9632 0.0034 247.9);
+    --foreground: oklch(0.145 0 0);
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.145 0 0);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.145 0 0);
+    --primary: oklch(0.53 0.26 267.58);
+    --primary-foreground: oklch(1 0 0);
+    --secondary: oklch(0.97 0 0);
+    --secondary-foreground: oklch(0.205 0 0);
+    --muted: oklch(0.97 0 0);
+    --muted-foreground: oklch(0.52 0 0);
+    --accent: oklch(0.97 0.014 267.58);
+    --accent-foreground: oklch(0.205 0 0);
+    --destructive: oklch(0.577 0.245 27.325);
+    --destructive-foreground: oklch(0.984 0.003 247.858);
+    --success: oklch(0.59 0.127 162.942);
+    --success-foreground: oklch(0.984 0.003 247.858);
+    --success-strong: oklch(0.48 0.11 162.942);
+    --destructive-strong: oklch(0.5 0.2 27.325);
+    --info-strong: oklch(0.5 0.2 262.881);
+    --warning: oklch(0.77 0.165 70.661);
+    --warning-foreground: oklch(0.205 0 0);
+    --info: oklch(0.546 0.215 262.881);
+    --info-foreground: oklch(1 0 0);
+    --border: oklch(0.9208 0.0063 255.5);
+    --input: oklch(0.9208 0.0063 255.5);
+    --ring: var(--primary);
+    --chart-1: var(--primary);
+    --chart-2: oklch(0.6 0.118 184.704);
+    --chart-3: oklch(0.453 0.145 262.881);
+    --chart-4: oklch(0.828 0.189 84.429);
+    --chart-5: oklch(0.769 0.188 70.08);
+    --sidebar: oklch(1 0 0);
+    --sidebar-foreground: oklch(0.145 0 0);
+    --sidebar-primary: var(--primary);
+    --sidebar-primary-foreground: oklch(1 0 0);
+    --sidebar-accent: oklch(0.95 0.025 267.58);
+    --sidebar-accent-foreground: oklch(0.205 0 0);
+    --sidebar-border: oklch(0.922 0 0);
+    --sidebar-ring: var(--primary);
+}
+
+:root[data-palette="indigo"].dark {
+    --background: oklch(0.145 0 0);
+    --foreground: oklch(0.985 0 0);
+    --card: oklch(0.205 0 0);
+    --card-foreground: oklch(0.985 0 0);
+    --popover: oklch(0.205 0 0);
+    --popover-foreground: oklch(0.985 0 0);
+    --primary: oklch(0.70 0.12 267.58);
+    --primary-foreground: oklch(0.145 0 0);
+    --secondary: oklch(0.269 0 0);
+    --secondary-foreground: oklch(0.985 0 0);
+    --muted: oklch(0.269 0 0);
+    --muted-foreground: oklch(0.705 0 0);
+    --accent: oklch(0.269 0.02 267.58);
+    --accent-foreground: oklch(0.985 0 0);
+    --destructive: oklch(0.704 0.191 22.216);
+    --destructive-foreground: oklch(0.985 0 0);
+    --success: oklch(0.773 0.153 163.103);
+    --success-foreground: oklch(0.129 0.042 264.695);
+    --success-strong: var(--success);
+    --destructive-strong: var(--destructive);
+    --info-strong: var(--info);
+    --warning: oklch(0.786 0.16 85.679);
+    --warning-foreground: oklch(0.129 0.042 264.695);
+    --info: oklch(0.707 0.165 254.624);
+    --info-foreground: oklch(0.145 0 0);
+    --border: oklch(1 0 0 / 10%);
+    --input: oklch(1 0 0 / 15%);
+    --ring: var(--primary);
+    --chart-1: var(--primary);
+    --chart-2: oklch(0.696 0.17 162.48);
+    --chart-3: oklch(0.769 0.188 70.08);
+    --chart-4: oklch(0.627 0.265 303.9);
+    --chart-5: oklch(0.645 0.246 16.439);
+    --sidebar: oklch(0.205 0 0);
+    --sidebar-foreground: oklch(0.985 0 0);
+    --sidebar-primary: var(--primary);
+    --sidebar-primary-foreground: oklch(0.145 0 0);
+    --sidebar-accent: oklch(0.269 0.02 267.58);
+    --sidebar-accent-foreground: oklch(0.985 0 0);
+    --sidebar-border: oklch(1 0 0 / 10%);
+    --sidebar-ring: var(--primary);
+}
+
+:root[data-palette="teal"] {
+    --background: oklch(0.99 0.0017 145.6);
+    --foreground: oklch(0.21 0.018 168);
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.21 0.018 168);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.21 0.018 168);
+    --primary: oklch(0.4789 0.0886 168.42);
+    --primary-foreground: oklch(1 0 0);
+    --secondary: oklch(0.962 0.008 165);
+    --secondary-foreground: oklch(0.26 0.025 168);
+    --muted: oklch(0.962 0.008 165);
+    --muted-foreground: oklch(0.5 0.018 168);
+    --accent: oklch(0.945 0.028 165);
+    --accent-foreground: oklch(0.33 0.065 168);
+    --destructive: oklch(0.56 0.21 27.3);
+    --destructive-foreground: oklch(1 0 0);
+    --success: oklch(0.56 0.12 155);
+    --success-foreground: oklch(1 0 0);
+    --success-strong: oklch(0.46 0.1 155);
+    --destructive-strong: oklch(0.5 0.2 27.3);
+    --info-strong: oklch(0.48 0.16 250);
+    --warning: oklch(0.77 0.165 70.7);
+    --warning-foreground: oklch(0.25 0.03 70);
+    --info: oklch(0.52 0.16 250);
+    --info-foreground: oklch(1 0 0);
+    --border: oklch(0.915 0.01 165);
+    --input: oklch(0.915 0.01 165);
+    --ring: var(--primary);
+    --chart-1: var(--primary);
+    --chart-2: oklch(0.6 0.118 184.704);
+    --chart-3: oklch(0.52 0.16 250);
+    --chart-4: oklch(0.828 0.189 84.429);
+    --chart-5: oklch(0.769 0.188 70.08);
+    --sidebar: oklch(0.975 0.005 165);
+    --sidebar-foreground: oklch(0.21 0.018 168);
+    --sidebar-primary: var(--primary);
+    --sidebar-primary-foreground: oklch(1 0 0);
+    --sidebar-accent: oklch(0.935 0.032 165);
+    --sidebar-accent-foreground: oklch(0.33 0.065 168);
+    --sidebar-border: oklch(0.915 0.01 165);
+    --sidebar-ring: var(--primary);
+}
+
+:root[data-palette="teal"].dark {
+    --background: oklch(0.165 0.01 168);
+    --foreground: oklch(0.965 0.006 165);
+    --card: oklch(0.205 0.012 168);
+    --card-foreground: oklch(0.965 0.006 165);
+    --popover: oklch(0.205 0.012 168);
+    --popover-foreground: oklch(0.965 0.006 165);
+    --primary: oklch(0.74 0.12 168);
+    --primary-foreground: oklch(0.18 0.025 168);
+    --secondary: oklch(0.27 0.015 168);
+    --secondary-foreground: oklch(0.965 0.006 165);
+    --muted: oklch(0.27 0.015 168);
+    --muted-foreground: oklch(0.73 0.015 165);
+    --accent: oklch(0.3 0.04 168);
+    --accent-foreground: oklch(0.965 0.006 165);
+    --destructive: oklch(0.704 0.191 22.2);
+    --destructive-foreground: oklch(0.18 0.025 168);
+    --success: oklch(0.76 0.14 160);
+    --success-foreground: oklch(0.18 0.025 168);
+    --success-strong: var(--success);
+    --destructive-strong: var(--destructive);
+    --info-strong: var(--info);
+    --warning: oklch(0.786 0.16 85.7);
+    --warning-foreground: oklch(0.18 0.03 85);
+    --info: oklch(0.72 0.14 250);
+    --info-foreground: oklch(0.18 0.025 168);
+    --border: oklch(0.3 0.012 168);
+    --input: oklch(0.34 0.012 168);
+    --ring: var(--primary);
+    --chart-1: var(--primary);
+    --chart-2: oklch(0.696 0.17 162.48);
+    --chart-3: oklch(0.72 0.14 250);
+    --chart-4: oklch(0.627 0.265 303.9);
+    --chart-5: oklch(0.645 0.246 16.439);
+    --sidebar: oklch(0.19 0.011 168);
+    --sidebar-foreground: oklch(0.965 0.006 165);
+    --sidebar-primary: var(--primary);
+    --sidebar-primary-foreground: oklch(0.18 0.025 168);
+    --sidebar-accent: oklch(0.3 0.045 168);
+    --sidebar-accent-foreground: oklch(0.965 0.006 165);
+    --sidebar-border: oklch(0.3 0.012 168);
+    --sidebar-ring: var(--primary);
+}
+
+/*
+ * The tokens this release adds that follow a colour the palettes change, as steps and tints of that colour: the
+ * primary's hover and press steps and the highlight of selected options (from the primary), headings (the palette's
+ * text colour), and the hover and press steps of the success and destructive buttons (from the palette's --success and
+ * --destructive).
+ *
+ * The other new tokens keep theme.css's defaults on purpose: the field fills and edges, --subtle and --mask are the same
+ * neutral greys in every palette; the status fills, edges and tags (-subtle, -border, -tag), --warning-strong and the
+ * info, warning, help and contrast button families are the visual target's own hues, which alerts, badges and buttons
+ * keep in either palette; and the outlined buttons' edges and soft backgrounds are pale tints that read the same
+ * beside either palette's green and red.
+ */
+:root[data-palette="indigo"] {
+    --primary-hover: oklch(0.48 0.26 267.58);
+    --primary-active: oklch(0.43 0.24 267.58);
+    --highlight: oklch(0.97 0.02 267.58);
+    --highlight-foreground: oklch(0.45 0.22 267.58);
+    --highlight-focus: oklch(0.93 0.04 267.58);
+    --heading: oklch(0.145 0 0);
+    --success-hover: oklch(0.53 0.12 162.942);
+    --success-active: oklch(0.47 0.11 162.942);
+    --destructive-hover: oklch(0.52 0.22 27.325);
+    --destructive-active: oklch(0.46 0.19 27.325);
+}
+
+:root[data-palette="indigo"].dark {
+    --primary-hover: oklch(0.76 0.11 267.58);
+    --primary-active: oklch(0.82 0.1 267.58);
+    --highlight: oklch(0.7 0.12 267.58 / 16%);
+    --highlight-foreground: #ffffff;
+    --highlight-focus: oklch(0.7 0.12 267.58 / 24%);
+    --heading: oklch(0.985 0 0);
+    --success-hover: oklch(0.71 0.15 163.103);
+    --success-active: oklch(0.65 0.14 163.103);
+    --destructive-hover: oklch(0.64 0.2 22.216);
+    --destructive-active: oklch(0.58 0.2 22.216);
+}
+
+:root[data-palette="teal"] {
+    --primary-hover: oklch(0.43 0.088 168.42);
+    --primary-active: oklch(0.38 0.08 168.42);
+    --highlight: oklch(0.97 0.02 168.42);
+    --highlight-foreground: oklch(0.38 0.08 168.42);
+    --highlight-focus: oklch(0.93 0.04 168.42);
+    --heading: oklch(0.21 0.018 168);
+    --success-hover: oklch(0.5 0.11 155);
+    --success-active: oklch(0.44 0.1 155);
+    --destructive-hover: oklch(0.5 0.2 27.3);
+    --destructive-active: oklch(0.44 0.18 27.3);
+}
+
+:root[data-palette="teal"].dark {
+    --primary-hover: oklch(0.8 0.11 168);
+    --primary-active: oklch(0.86 0.09 168);
+    --highlight: oklch(0.74 0.12 168 / 16%);
+    --highlight-foreground: #ffffff;
+    --highlight-focus: oklch(0.74 0.12 168 / 24%);
+    --heading: oklch(0.965 0.006 165);
+    --success-hover: oklch(0.81 0.12 160);
+    --success-active: oklch(0.86 0.09 160);
+    --destructive-hover: oklch(0.76 0.16 22.2);
+    --destructive-active: oklch(0.82 0.12 22.2);
+}
+
+/*
+ * The Reference colours palette: the visual target's lighter severity fills, control edges and secondary text, which
+ * theme.css's defaults darken to WCAG 2.2 AA. The same values, in :root and .dark, are the opt-in block of the theming
+ * guide's Reference colours section; every token appears in both, so the light values never reach the dark theme.
+ */
+:root[data-palette="reference"] {
+    --muted-foreground: #64748b;
+    --control: #cbd5e1;
+    --control-hover: #94a3b8;
+    --input: #cbd5e1;
+    --destructive: #ef4444;
+    --destructive-hover: #dc2626;
+    --destructive-active: #b91c1c;
+    --destructive-strong: #dc2626;
+    --success: #22c55e;
+    --success-hover: #16a34a;
+    --success-active: #15803d;
+    --success-strong: #16a34a;
+    --warning-strong: #ca8a04;
+    --info-solid: #0ea5e9;
+    --info-solid-hover: #0284c7;
+    --info-solid-active: #0369a1;
+    --warning-solid: #f97316;
+    --warning-solid-hover: #ea580c;
+    --warning-solid-active: #c2410c;
+    --help: #a855f7;
+    --help-hover: #9333ea;
+    --help-active: #7e22ce;
+    --info-strong: #2563eb;
+}
+
+:root[data-palette="reference"].dark {
+    --muted-foreground: #94a3b8;
+    --control: #475569;
+    --control-hover: #64748b;
+    --input: #475569;
+    --destructive: #f87171;
+    --destructive-hover: #fca5a5;
+    --destructive-active: #fecaca;
+    --destructive-strong: #ef4444;
+    --success: #4ade80;
+    --success-hover: #86efac;
+    --success-active: #bbf7d0;
+    --success-strong: #22c55e;
+    --warning-strong: #eab308;
+    --info-solid: #38bdf8;
+    --info-solid-hover: #7dd3fc;
+    --info-solid-active: #bae6fd;
+    --warning-solid: #fb923c;
+    --warning-solid-hover: #fdba74;
+    --warning-solid-active: #fed7aa;
+    --help: #c084fc;
+    --help-hover: #d8b4fe;
+    --help-active: #e9d5ff;
+    --info-strong: #3b82f6;
+}

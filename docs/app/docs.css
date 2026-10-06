@@ -1,0 +1,13 @@
+/* The site's stylesheet: a plain React app's recipe (the Installation page's Vite tab). */
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/geist-mono";
+@import "tailwindcss";
+@import "../../theme.css";
+@import "./palettes.css";
+@import "./docs-shared.css";
+
+/* The site's type: Inter for text, Geist Mono for code. Products choose their own fonts. */
+@theme {
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono Variable", ui-monospace, SFMono-Regular, Menlo, monospace;
+}

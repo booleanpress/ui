@@ -1,0 +1,248 @@
+/* What both stylesheets add to the theme: highlighted code, the prose of Markdown pages, and the WordPress frame. */
+
+@source "../../src";
+@source "./";
+@source "../../examples";
+
+/*
+ * The site's own colours, beside the library's tokens: the faint grey ground, headings one step darker than body text,
+ * the grey frame around each example, the code panels and the line numbers.
+ */
+:root {
+  --docs-ground: #f8fafc;
+  --docs-heading: #0f172a;
+  --docs-lead: #475569;
+  --docs-frame: #f1f5f9;
+  --docs-edge: rgba(0, 0, 0, 0.2);
+  --docs-chip: #f8fafc;
+  --docs-chip-foreground: #64748b;
+  --docs-line-number: #94a3b8;
+  --docs-code-inline: #e2e8f0;
+}
+.dark {
+  --docs-ground: #020617;
+  --docs-heading: #ffffff;
+  --docs-lead: #cbd5e1;
+  --docs-frame: rgba(30, 41, 59, 0.6);
+  --docs-edge: rgba(255, 255, 255, 0.15);
+  --docs-chip: rgba(30, 41, 59, 0.75);
+  --docs-chip-foreground: #94a3b8;
+  --docs-line-number: #64748b;
+  --docs-code-inline: #1e293b;
+}
+
+@layer base {
+  html {
+    scroll-padding-top: 4.5rem;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
+
+/* Shiki writes both themes as CSS variables; the page's theme picks one. */
+.bui-code pre.shiki {
+  margin: 0;
+  padding: 0.75rem 1rem;
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  line-height: 1.5rem;
+  background-color: var(--card) !important;
+}
+/* The code itself is 14px on the 24px line, as the reference sets it. */
+.bui-code pre.shiki code {
+  font-size: 0.875rem;
+}
+.bui-code .shiki,
+.bui-code .shiki span {
+  color: var(--shiki-light);
+}
+.dark .bui-code .shiki,
+.dark .bui-code .shiki span {
+  color: var(--shiki-dark);
+}
+.bui-code {
+  background-color: var(--card);
+}
+/* A code block in the page's text: a 32px copy button in its top corner, which shows a check for two seconds after a
+   copy; the code keeps clear of it. */
+.bui-code:has(> .bui-copy) {
+  position: relative;
+}
+.bui-code:has(> .bui-copy) pre.shiki {
+  padding-inline-end: 3rem;
+}
+.bui-copy {
+  @apply absolute end-1.5 top-1.5 flex size-8 items-center justify-center rounded-md text-muted-foreground transition-colors outline-none hover:bg-secondary hover:text-[var(--docs-heading)] focus-visible:outline-solid focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-ring;
+}
+.bui-copy svg {
+  @apply size-3.5;
+}
+.bui-copy svg + svg,
+.bui-copy[data-copied] svg:first-child {
+  display: none;
+}
+.bui-copy[data-copied] svg + svg {
+  display: block;
+}
+
+/* An example's code: numbered lines, in a 48px gutter. */
+.bui-code-lines pre.shiki {
+  padding: 0.75rem 1rem 0.75rem 0;
+}
+.bui-code-lines pre.shiki code {
+  counter-reset: line;
+}
+.bui-code-lines .line::before {
+  counter-increment: line;
+  content: counter(line);
+  display: inline-block;
+  width: 3rem;
+  padding-inline-end: 1rem;
+  text-align: end;
+  color: var(--docs-line-number) !important;
+}
+
+/* Running text: 16px on a 28px line; links in the primary colour, underlined. */
+.bui-prose {
+  @apply text-base leading-7;
+}
+.bui-prose > * + * {
+  margin-top: 1rem;
+}
+.bui-prose a {
+  @apply text-primary underline decoration-primary/40 underline-offset-4 hover:decoration-primary;
+}
+.bui-prose :not(pre) > code,
+.bui-inline-code code {
+  @apply rounded-sm px-1 py-0.5 font-mono text-sm font-medium;
+  background-color: var(--docs-code-inline);
+  overflow-wrap: anywhere;
+}
+.bui-prose ul {
+  @apply list-disc ps-5;
+}
+.bui-prose ol {
+  @apply list-decimal ps-5;
+}
+.bui-prose li + li {
+  margin-top: 0.25rem;
+}
+.bui-prose .bui-code {
+  @apply overflow-hidden rounded-lg border;
+}
+.bui-prose h3 {
+  @apply text-lg font-medium;
+  color: var(--docs-heading);
+}
+.bui-prose strong {
+  @apply font-semibold;
+  color: var(--docs-heading);
+}
+
+/*
+ * Tables, in Markdown prose and in the component pages: 14px, every cell aligned to the start, 8px by 14px of padding,
+ * a 1px rule under the header and under each row; a wide table scrolls in its own box.
+ */
+.bui-table {
+  @apply overflow-x-auto rounded-lg border bg-card;
+}
+.bui-table:focus-visible {
+  @apply outline-solid outline-1 outline-offset-2 outline-ring;
+}
+.bui-table table {
+  @apply w-full border-collapse text-sm/normal;
+}
+.bui-table th {
+  @apply border-b px-3.5 py-2 text-start align-bottom font-semibold whitespace-nowrap;
+  color: var(--docs-heading);
+}
+.bui-table td {
+  @apply border-b px-3.5 py-2 text-start align-top;
+}
+.bui-table tbody tr:last-child td {
+  @apply border-b-0;
+}
+.bui-table td code {
+  @apply rounded-sm px-1 py-0.5 font-mono text-[0.8125rem] font-medium;
+  background-color: var(--docs-code-inline);
+  white-space: nowrap;
+}
+.bui-prose .bui-table td code {
+  white-space: nowrap;
+}
+
+/*
+ * The API tables: three columns in the table box, the header on the faint ground. The prop is bold code with what it
+ * does under it in running text; the type and default are plain code in the muted colour, no chips, so a row reads at a
+ * glance.
+ */
+.bui-api thead th {
+  @apply bg-[var(--docs-ground)] text-xs font-medium tracking-wide text-muted-foreground uppercase;
+}
+.bui-api tbody th,
+.bui-api tbody td {
+  @apply border-b px-3.5 py-3 text-start align-top font-normal whitespace-normal;
+}
+.bui-api tbody tr:last-child th,
+.bui-api tbody tr:last-child td {
+  @apply border-b-0;
+}
+.bui-api-name {
+  @apply font-mono text-[0.8125rem] font-semibold;
+  color: var(--docs-heading);
+}
+.bui-api-description {
+  @apply mt-1.5 block text-sm/normal text-foreground;
+}
+.bui-api-description code {
+  @apply rounded-sm px-1 py-px font-mono text-[0.75rem];
+  background-color: var(--docs-code-inline);
+}
+.bui-api-type {
+  @apply font-mono text-[0.8125rem] leading-5 text-muted-foreground;
+}
+.bui-api td code.bui-api-type {
+  @apply bg-transparent p-0 font-normal;
+  white-space: normal;
+}
+.bui-api-bar {
+  @apply text-muted-foreground/60;
+}
+
+/* The WordPress admin frame of a single example: the admin bar and menu that core's admin-header.php prints. */
+html.bui-frame-wp {
+  --wp-admin--admin-bar--height: 32px;
+}
+body.bui-frame-wp {
+  margin: 0;
+}
+.bui-frame-wp #wpadminbar {
+  position: fixed;
+  inset: 0 0 auto;
+  height: 32px;
+  background: #1d2327;
+  color: #f0f0f1;
+  font: 13px/32px -apple-system, BlinkMacSystemFont, sans-serif;
+  padding: 0 12px;
+  z-index: 45;
+}
+.bui-frame-wp #adminmenuback {
+  position: fixed;
+  top: 32px;
+  bottom: 0;
+  inset-inline-start: 0;
+  width: 160px;
+  background: #1d2327;
+  z-index: 45;
+}
+.bui-frame-wp #wpcontent {
+  margin-inline-start: 160px;
+  padding-top: 32px;
+  padding-inline-start: 0;
+}
+.bui-frame-wp #wpbody-content > .wrap {
+  margin: 0;
+  padding: 0;
+}

@@ -1,0 +1,49 @@
+/*
+ * A single example inside the WordPress admin frame: the WordPress recipe (the Installation page's WordPress tab), so
+ * the example meets WordPress's unlayered admin stylesheets the way a plugin's screen does.
+ */
+@layer overrides;
+@import "tailwindcss" important;
+@import "../../theme.css";
+@import "./palettes.css";
+@import "./docs-shared.css";
+
+/* The example's root, reset the way a plugin resets its own root inside the WordPress admin. */
+
+/* The gallery's own app root, reset the way a product resets its root inside the WordPress admin. */
+body.wp-admin #bui-example :is(h1, h2, h3, h4, h5, h6, p, ul, ol, li, dl, dd, dt, figure, blockquote, pre) {
+    margin: 0;
+    padding: 0;
+    color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+}
+
+body.wp-admin #bui-example :is(a, label, button, input, select, textarea) {
+    color: inherit;
+    font: inherit;
+    line-height: inherit;
+    text-decoration: none;
+    box-shadow: none;
+}
+
+body.wp-admin #bui-example :is(input, select, textarea) {
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+    background-image: none;
+}
+
+body.wp-admin #bui-example :is(input, select, textarea):focus {
+    box-shadow: none;
+    outline: none;
+}
+
+/* The example sits on WordPress's grey admin background, as a plugin's controls do. */
+#bui-example {
+    @apply bg-transparent text-foreground text-sm antialiased;
+}

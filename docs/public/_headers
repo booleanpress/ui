@@ -1,0 +1,8 @@
+# Cloudflare's static assets read this file at deploy; it is not served.
+# The build's scripts and styles carry a hash of their content in their names, so a browser keeps them for a year.
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+# A page's data (the examples' code) has no type Cloudflare knows, so it was sent uncompressed: 530 KB for the data
+# table instead of 26 KB. This is the type React Router's own server gives it.
+/*.data
+  Content-Type: text/x-script
