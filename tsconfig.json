@@ -1,0 +1,28 @@
+{
+  // Type checking for the package source, the documentation examples and the type tests (`pnpm typecheck`). The
+  // declarations consumers get are emitted by tsconfig.build.json.
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "react-jsx",
+    "strict": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "types": ["vite/client", "node"],
+    "paths": {
+      "@/*": ["./src/*"],
+      "@booleanpress/ui/provider": ["./src/provider.tsx"],
+      "@booleanpress/ui/utils": ["./src/lib/utils.ts"],
+      "@booleanpress/ui/*": ["./src/components/*"],
+      "~/*": ["./docs/app/*"],
+      "@bui-package/*": ["./*"]
+    }
+  },
+  "include": ["src", "examples", "tests/types", "docs/app", "docs/*.ts"]
+}

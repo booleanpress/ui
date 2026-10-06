@@ -1,0 +1,42 @@
+name: Release
+
+# Keep this filename and the npm environment aligned with npm's trusted publisher configuration.
+# Only stage a new version from main. Approval with 2FA remains a separate maintainer action.
+on:
+  push:
+    branches: [main]
+    paths: [package.json]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  stage:
+    if: github.repository == 'booleanpress/ui' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment: npm
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          registry-url: https://registry.npmjs.org
+      # No dependencies or browser install for a version already published, or an unbootstrapped package.
+      - id: preflight
+        run: node scripts/publish-package.mjs --preflight
+      - uses: pnpm/action-setup@v6
+        if: steps.preflight.outputs.stage == 'true'
+      - run: pnpm install --frozen-lockfile
+        if: steps.preflight.outputs.stage == 'true'
+      - run: pnpm exec playwright install --with-deps chromium
+        if: steps.preflight.outputs.stage == 'true'
+      # The wrapper runs pnpm check once and stages that exact tested tarball, without repacking.
+      - run: node scripts/publish-package.mjs
+        if: steps.preflight.outputs.stage == 'true'

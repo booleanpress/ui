@@ -1,0 +1,22 @@
+# Weekly, grouped: one pull request for the development tools and one for the runtime and peer packages, so updates
+# arrive as two reviews a week rather than one per package.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 5
+    target-branch: dev
+    groups:
+      runtime:
+        dependency-type: production
+      development:
+        dependency-type: development
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+    target-branch: dev
