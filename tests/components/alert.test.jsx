@@ -205,3 +205,67 @@ describe('Alert: auto-dismiss', () => {
         expect(screen.getByRole('alert')).toBeInTheDocument();
     });
 });
+
+describe('Alert open', () => {
+    beforeEach(() => vi.useFakeTimers());
+    afterEach(() => vi.useRealTimers());
+
+    it('appears at once on its first render, with no entrance', () => {
+        renderUi(<Alert>Settings saved</Alert>);
+        const alert = screen.getByRole('alert');
+        expect(alert).toHaveAttribute('data-state', 'open');
+        expect(alert).not.toHaveAttribute('data-entering');
+        expect(alert).toHaveAttribute('data-bui-motion', 'inline');
+    });
+
+    it('stays on the page while its exit runs, then leaves; opening it again plays the entrance', () => {
+        const exit = { animationName: 'exit', animationDuration: '100ms' };
+        const { rerender } = renderUi(<Alert open style={exit}>Settings saved</Alert>);
+        rerender(<BooleanUIProvider><Alert open={false} style={exit}>Settings saved</Alert></BooleanUIProvider>);
+        expect(screen.getByRole('alert')).toHaveAttribute('data-state', 'closed');
+        act(() => vi.advanceTimersByTime(200));
+        expect(screen.queryByRole('alert')).toBeNull();
+        rerender(<BooleanUIProvider><Alert open style={exit}>Settings saved</Alert></BooleanUIProvider>);
+        const alert = screen.getByRole('alert');
+        expect(alert).toHaveAttribute('data-state', 'open');
+        expect(alert).toHaveAttribute('data-entering');
+    });
+
+    it('comes back when it is opened again after its duration removed it', () => {
+        const { rerender } = renderUi(<Alert duration={1000}>Settings saved</Alert>);
+        act(() => vi.advanceTimersByTime(1100));
+        expect(screen.queryByRole('alert')).toBeNull();
+        rerender(<BooleanUIProvider><Alert open={false} duration={1000}>Settings saved</Alert></BooleanUIProvider>);
+        rerender(<BooleanUIProvider><Alert open duration={1000}>Settings saved</Alert></BooleanUIProvider>);
+        expect(screen.getByRole('alert')).toBeInTheDocument();
+    });
+
+    it('counts its whole duration again when it is opened after its duration removed it', () => {
+        const onDismiss = vi.fn();
+        const view = (open) => <BooleanUIProvider><Alert open={open} duration={1000} onDismiss={onDismiss}>Settings saved</Alert></BooleanUIProvider>;
+        const { rerender } = renderUi(<Alert open duration={1000} onDismiss={onDismiss}>Settings saved</Alert>);
+        act(() => vi.advanceTimersByTime(1100));
+        expect(onDismiss).toHaveBeenCalledTimes(1);
+        rerender(view(false));
+        rerender(view(true));
+        act(() => vi.advanceTimersByTime(900));
+        expect(screen.getByRole('alert')).toBeInTheDocument();
+        act(() => vi.advanceTimersByTime(200));
+        expect(screen.queryByRole('alert')).toBeNull();
+        expect(onDismiss).toHaveBeenCalledTimes(2);
+    });
+
+    it('does not count, or call onDismiss, while it is closed', () => {
+        const onDismiss = vi.fn();
+        renderUi(<Alert open={false} duration={1000} onDismiss={onDismiss}>Settings saved</Alert>);
+        act(() => vi.advanceTimersByTime(5000));
+        expect(onDismiss).not.toHaveBeenCalled();
+        expect(screen.queryByRole('alert')).toBeNull();
+    });
+
+    it('passes its ref on', () => {
+        const ref = { current: null };
+        renderUi(<Alert ref={ref}>Settings saved</Alert>);
+        expect(ref.current).toBe(screen.getByRole('alert'));
+    });
+});

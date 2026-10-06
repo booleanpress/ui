@@ -27,6 +27,7 @@ const [range, setRange] = useState<DateRangeValue | null>(null)
     { id: "presets", title: "Presets", description: "Presets such as Today, Last 7 days and This month sit beside the calendar." },
     { id: "actions", title: "Apply and cancel", description: "`showActions` adds Cancel and Apply, so the range waits for Apply." },
     { id: "min-max", title: "Min and max", description: "`min` and `max` keep the range within the last 30 days, and presets outside it are disabled." },
+    { id: "range-length", title: "Range length", description: "`maxDays` caps a range at 14 days: once the first day is chosen, days beyond reach are disabled, as are longer presets. `minDays` sets the fewest." },
     { id: "clear", title: "Clear", description: "`clearable` adds a × that clears the range." },
     { id: "sizes", title: "Sizes", description: "Small, default and large." },
     { id: "filled", title: "Filled", description: "A filled field instead of an outlined one." },
@@ -38,7 +39,7 @@ const [range, setRange] = useState<DateRangeValue | null>(null)
     semantics:
       'The field is a `combobox` button that opens a non-modal `dialog` holding the presets and the range calendar `grid`. Inline uses a named group instead.',
     labels:
-      "Name the field with a `Label` or `aria-label`, and an inline calendar with `aria-label` or `aria-labelledby`. The popup, presets and buttons are named from the provider's strings.",
+      "Name the field with a `Label` or `aria-label`, and an inline calendar with `aria-label` or `aria-labelledby`. The popup, presets and buttons are named from the provider's strings. With `minDays` or `maxDays`, the rule under the calendar describes the popup, or the inline group.",
     focus:
       "Enter, Space or Alt+ArrowDown opens the popup and moves focus to the range's first day. Choosing a range or pressing Escape closes it and returns focus to the field.",
     limits: [
@@ -63,6 +64,8 @@ const [range, setRange] = useState<DateRangeValue | null>(null)
       value: "The chosen `{ from, to }`, when you control it; null is none. A `to` before its `from` is read the other way round.",
       defaultValue: "The range it starts with, uncontrolled.",
       onValueChange: "Called with the new range when both ends are chosen, a preset is clicked or Apply is pressed, and with null when it is cleared.",
+      minDays: "The fewest days a range may cover, both ends included. Once the first day is chosen, the days too close to it are disabled; shorter presets are disabled.",
+      maxDays: "The most days a range may cover, both ends included. Once the first day is chosen, the days out of reach are disabled, for the pointer and the arrow keys; longer presets are disabled.",
     },
   },
 } satisfies ComponentDoc

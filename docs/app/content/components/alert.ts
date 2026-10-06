@@ -24,7 +24,7 @@ export default {
     { id: "simple", title: "Simple", description: "`appearance=\"simple\"` shows the coloured icon and text alone." },
     { id: "sizes", title: "Sizes", description: "Small, default and large." },
     { id: "dynamic", title: "Dynamic", description: "Alerts are added to a list and cleared; each is announced as it appears." },
-    { id: "dismissible", title: "Dismissible", description: "A close button beside the alert hides it." },
+    { id: "dismissible", title: "Dismissible", description: "A close button turns `open` off: the alert fades out, and fades back in when it returns." },
     {
       id: "auto-dismiss",
       title: "Auto-dismiss",
@@ -53,6 +53,7 @@ export default {
       variant: "The tone: `default`, `success`, `warning`, `info` or `destructive`.",
       appearance: "How much of the box is drawn: `default` (fill, edge and shadow), `outline` (the edge in the strong colour, no fill) or `simple` (text and icon only, no padding).",
       size: "`sm`, `default` or `lg`: 12, 14 or 16 px text, with the padding and the icon to match.",
+      open: "Whether the alert shows; true by default. Turning it off fades the alert out before it leaves the page, and turning it on again fades it in. An alert that is open when it first renders appears at once, so a page load or a refetch never animates it.",
     },
   },
 } satisfies ComponentDoc

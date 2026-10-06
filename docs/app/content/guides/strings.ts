@@ -101,6 +101,9 @@ A key you leave out keeps its English default, so you can translate a few at a t
 | \`presetLast30Days\` | Last 30 days | Date range picker |
 | \`presetThisMonth\` | This month | Date range picker |
 | \`presetLastMonth\` | Last month | Date range picker |
+| \`rangeMinDays\` | Choose at least {count} days | Date range picker |
+| \`rangeMaxDays\` | Choose at most {count} days | Date range picker |
+| \`rangeDaysBetween\` | Choose {min} to {max} days | Date range picker |
 | \`hour\` | Hour | Date field, Date picker, Time field |
 | \`minute\` | Minute | Date field, Date picker, Time field |
 | \`second\` | Second | Date field, Time field |

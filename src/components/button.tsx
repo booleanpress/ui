@@ -69,6 +69,11 @@ const buttonVariants = cva(
         true: "rounded-full",
         false: "",
       },
+      // boolean-ui patch: `fluid` fills the container's width, as it does on every field (stock: no variant).
+      fluid: {
+        true: "w-full",
+        false: "",
+      },
     },
     compoundVariants: [
       // boolean-ui patch: solid severities — a fill with its own hover and press steps, its text colour, and a focus
@@ -143,6 +148,7 @@ function Button({
   severity,
   raised = false,
   rounded = false,
+  fluid = false,
   loading = false,
   asChild = false,
   disabled,
@@ -191,6 +197,7 @@ function Button({
       data-severity={severity ?? undefined}
       data-raised={raised || undefined}
       data-rounded={rounded || undefined}
+      data-fluid={fluid || undefined}
       data-loading={loading || undefined}
       aria-busy={loading || undefined}
       aria-disabled={refuses || undefined}
@@ -199,7 +206,7 @@ function Button({
       disabled={disabled}
       // Only a button that refuses presses carries its own handler, so a plain Button still renders in a Server Component.
       onClick={refuses ? handleClick : onClick}
-      className={cn(buttonVariants({ variant, size, severity, raised, rounded, className }))}
+      className={cn(buttonVariants({ variant, size, severity, raised, rounded, fluid, className }))}
       {...props}
     >
       {content}

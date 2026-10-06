@@ -891,7 +891,7 @@ references:** Base UI Toggle <https://base-ui.com/react/components/toggle> · Re
 | off | a `--muted` pill (`--background` in dark) with `--muted-foreground` text; `outline` adds a `--border` edge | `aria-pressed="false"`, `data-state="off"` | Basic | renders a button with aria-pressed, named by aria-label |
 | on | a raised `--background` plate (`--muted` in dark) with `shadow-xs` inside a 4 px frame, `--accent-foreground` text | `aria-pressed="true"`, `data-state="on"` | Basic | starts pressed with defaultPressed and reports changes |
 | controlled | as on or off, from `pressed` | `pressed`, `onPressedChange` | Controlled | is controlled by pressed |
-| hover | the text turns `--secondary-hover-foreground` | — | Basic | — |
+| hover | off and enabled: the text and icon turn `--secondary-hover-foreground` over `--bui-duration-control`; on and disabled: no change | `data-state="off"` | Basic | — (checked by eye in light and dark) |
 | variants and sizes | `default` or `outline`; `sm` 32 px, `default` 35 px, `lg` 38 px | — | Variants and sizes | applies the variant and size classes |
 | focus-visible | a 1 px `--ring` outline, 2 px out | — | Basic | — |
 | disabled | a `--field-disabled` fill and `--field-disabled-foreground` text at full opacity, no pointer events | `disabled` | Disabled | ignores clicks and keys while disabled |

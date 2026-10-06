@@ -6,11 +6,14 @@ import { Button } from "@booleanpress/ui/button"
 export default function AlertDismissible() {
   const [open, setOpen] = useState(true)
   const toggled = useRef(false)
-  const button = useRef<HTMLButtonElement>(null)
+  const dismiss = useRef<HTMLButtonElement>(null)
+  const showAgain = useRef<HTMLButtonElement>(null)
 
-  // The button that was pressed is gone: focus the one that takes its place.
+  // The button that was pressed is gone or going: focus the one that takes its place.
   useEffect(() => {
-    if (toggled.current) button.current?.focus()
+    if (!toggled.current) return
+    if (open) dismiss.current?.focus()
+    else showAgain.current?.focus()
   }, [open])
 
   const toggle = (next: boolean) => {
@@ -18,31 +21,29 @@ export default function AlertDismissible() {
     setOpen(next)
   }
 
-  if (!open) {
-    return (
-      <Button ref={button} variant="outline" onClick={() => toggle(true)}>
-        Show the notice again
-      </Button>
-    )
-  }
-
   return (
-    <div className="relative w-full max-w-md">
-      <Alert variant="info" className="pe-10">
+    <div className="flex w-full max-w-md flex-col items-center gap-3">
+      {/* `open` fades the alert out before it leaves, and back in when it returns. */}
+      <Alert open={open} variant="info" className="pe-10">
         <InfoIcon />
         <AlertTitle>New in this version</AlertTitle>
         <AlertDescription>Routing rules can now match on the recipient domain.</AlertDescription>
+        <Button
+          ref={dismiss}
+          variant="ghost"
+          size="icon-sm"
+          aria-label="Dismiss the notice"
+          className="absolute end-2 top-1.5 size-6 rounded-full text-info-strong hover:bg-info-tag hover:text-info-strong [&_svg:not([class*='size-'])]:size-3.5"
+          onClick={() => toggle(false)}
+        >
+          <XIcon />
+        </Button>
       </Alert>
-      <Button
-        ref={button}
-        variant="ghost"
-        size="icon-sm"
-        aria-label="Dismiss the notice"
-        className="absolute end-2 top-1.5 size-6 rounded-full text-info-strong hover:bg-info-tag hover:text-info-strong [&_svg:not([class*='size-'])]:size-3.5"
-        onClick={() => toggle(false)}
-      >
-        <XIcon />
-      </Button>
+      {open ? null : (
+        <Button ref={showAgain} variant="outline" onClick={() => toggle(true)}>
+          Show the notice again
+        </Button>
+      )}
     </div>
   )
 }
